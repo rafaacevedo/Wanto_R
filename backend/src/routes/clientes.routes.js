@@ -4,7 +4,7 @@ const router = Router();
 
 router.post( '/register', userCtrl1.registrarCliente );
 
-router.post( '/register/login', userCtrl1.logeoCliente );
+router.post( '/login', userCtrl1.logeoCliente );
 
 
-export default router
+export default router;
