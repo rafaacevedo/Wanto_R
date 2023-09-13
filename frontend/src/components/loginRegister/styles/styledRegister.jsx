@@ -9,7 +9,7 @@ export const Principal = styled.section`
   background-image: url(${blanco});
   background-size: cover;
   background-repeat: no-repeat; 
- /*  background-color: #f30c0c; */
+  /* background-color: #ffee00; */
 `;
 
 export const Bienvenido = styled.section`
@@ -50,7 +50,7 @@ export const Contaimput = styled.div`
 
 export const Cajainpu = styled.div`
   background-color: #ffffff3b;
-  box-shadow: 0px 3px 3px 3px #cecdcd88;
+  box-shadow: 0px 0px 5px 5px #cecdcd88;
   display: flex;
   align-items: center;
  /*  justify-content:space-between; */
@@ -60,10 +60,17 @@ export const Cajainpu = styled.div`
   width: 25%;
   height: 100%;
   border-radius: 20px;
+  transition:all 1s ease-out; ;
   &:hover{
-    box-shadow: 0px 5px 5px 5px #808080;
+    box-shadow: 0px 0px 5px 5px #808080;
     transition: all 0.8s ease;
   }
+  @media (max-width: 768px){
+    width: 90%;
+  }
+  ::placeholder {
+  color: #000;
+}
 `
 
 export const Input = styled.input`

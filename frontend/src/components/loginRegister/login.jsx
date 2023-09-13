@@ -8,7 +8,6 @@ const Login = () => {
       <Wanto>
         <Imgwanto src={wanto}alt="wanto"></Imgwanto>
       </Wanto>
-
       <Contaimput>
         <Cajainpu>
           <Input type="text" placeholder="Correo electronico"/>
