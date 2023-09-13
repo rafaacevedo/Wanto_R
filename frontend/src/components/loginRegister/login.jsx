@@ -1,4 +1,4 @@
-import{Bienvenido, Boton, Cajainpu, Checkbox, Contaimput, Forgot, Imgwanto, Input, Principal, Remenber, Wanto,} from "./styles/styledLogin"
+import{Bienvenido, Boton, Cajainpu, Checkbox, Contaimput, Forgot, Imgwanto, Input, Principal, Remenber, Wanto,Cajaaa} from "./styles/styledLogin"
 import wanto from "../asset/Wanto.svg"
 
 const Login = () => {
@@ -13,7 +13,10 @@ const Login = () => {
         <Cajainpu>
           <Input type="text" placeholder="Correo electronico"/>
           <Input type="password" placeholder="Contraseña"/>
-          <Forgot><h5>¿Forgot Password?</h5></Forgot>
+          <Cajaaa>
+            <Forgot/>
+            <Forgot><h5>¿Forgot Password?</h5></Forgot>
+          </Cajaaa>
           <Remenber>
             <Checkbox type="checkbox" />    
             <h6>Remenber Password</h6>

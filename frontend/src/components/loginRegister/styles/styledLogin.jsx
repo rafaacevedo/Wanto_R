@@ -78,9 +78,9 @@ export const Input = styled.input`
 
 export const Forgot = styled.div`
 /* background-color: red; */
-  width: 71%;
+  /* width: 5%; */
   height: 5%;
-  margin-top: 10px;
+  /* margin-top: 10px; */
   h5{
     color: #000;
     display: flex;
@@ -89,6 +89,13 @@ export const Forgot = styled.div`
     font-weight: 600;
     cursor: pointer;
   }
+`
+export const Cajaaa = styled.div`
+  /* background-color: aqua; */
+  width: 70%;
+  height: 10%;
+  display: flex;
+  justify-content: space-between;
 `
 export const Remenber = styled.div`
  /*  background-color: red; */
