@@ -46,7 +46,7 @@ export const Contaimput = styled.div`
 
 export const Cajainpu = styled.div`
   background-color: #ffffff3b;
-  box-shadow: 0px 0px 5px 0px #0000008b;
+  box-shadow: 0px 3px 3px 3px #cecdcd88;
   display: flex;
   align-items: center;
  /*  justify-content:space-between; */
@@ -56,6 +56,10 @@ export const Cajainpu = styled.div`
   width: 25%;
   height: 100%;
   border-radius: 20px;
+  &:hover{
+    box-shadow: 0px 5px 5px 5px #808080;
+    transition: all 0.8s ease;
+  }
 `
 
 export const Input = styled.input`
@@ -65,7 +69,8 @@ export const Input = styled.input`
   margin-top: 20px;
   border: 2px solid #00000036;
   outline-color: rgb(0,212,255);
-  border-color: grey;
+  border-color: #242077;
+  padding: 2px;
   &:hover{
     border-color: rgb(0,212,255);
   }
@@ -73,23 +78,30 @@ export const Input = styled.input`
 
 export const Forgot = styled.div`
 /* background-color: red; */
-  width: 71%;
+  /* width: 5%; */
   height: 5%;
-  margin-top: 5px;
-  cursor: pointer;
+  /* margin-top: 10px; */
   h5{
     color: #000;
     display: flex;
     justify-content: right;
-    font-size: 10px;
-    font-weight: 600
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
   }
+`
+export const Cajaaa = styled.div`
+  /* background-color: aqua; */
+  width: 70%;
+  height: 10%;
+  display: flex;
+  justify-content: space-between;
 `
 export const Remenber = styled.div`
  /*  background-color: red; */
   width: 71%;
   height: 5%;
-  margin-top: 5px;
+  margin-top: 10px;
   display: flex;
   align-items: center;
   margin-bottom: 30px;
@@ -98,26 +110,28 @@ export const Remenber = styled.div`
   }
 `
 export const Checkbox = styled.input`
-  /* background-color: #00ffaa; */
   width: 10%;
   height: 70%;
+  
 `;
 
 export const Boton = styled.button`
-  background-color: rgb(0,212,255);
+  background-color: #242077;
   height: 10%;
   width: 50%;
+  margin-top: 20px;
   cursor: pointer;
   border-radius: 15px;
   /* margin-top: 20px; */
-  border: none;
+  border: none; 
   H2{
     color: white;
+    font-size: 11;
     font-weight: 500
   }
   &:hover{
-    background-color: rgb(32, 163, 189);
-    transition: 100ms;
+    background-color: #26B2FB;
+    transition: 1s;
   }
 `
 
