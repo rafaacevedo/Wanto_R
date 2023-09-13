@@ -25,4 +25,4 @@ const Login = () => {
     </Principal>
   )}
 
-  export default Login
+export default Login 
