@@ -65,8 +65,11 @@ export const Cajainpu = styled.div`
     transition: all 0.8s ease;
   }
   @media (max-width: 768px){
-    width: 90%;
+    width: 90%;}
+  @media (max-width: 976px){
+    width: 50%;
   }
+  
   ::placeholder {
   color: #000;
 }

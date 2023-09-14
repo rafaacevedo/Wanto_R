@@ -34,7 +34,7 @@ export const Imgwanto = styled.img`
 width: 30%;
 height: 80%;
 @media (max-width: 976px){
-    width: 50%;
+    width: 60%;
   }
 `;
 
@@ -63,7 +63,7 @@ export const Cajainpu = styled.div`
     box-shadow: 0px 0px 5px 5px #808080;
     transition: all 0.8s ease;
   }
-  @media (max-width: 976px){
+  @media(max-width: 976px){
     width: 90%;
   }
   ::placeholder {
@@ -104,7 +104,6 @@ export const Botonol = styled.button`
   border: none; 
   H2{
     color: white;
-    font-size: 11;
     font-weight: 500
   }
   &:hover{

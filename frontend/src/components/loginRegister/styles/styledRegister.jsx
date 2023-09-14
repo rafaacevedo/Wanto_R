@@ -38,6 +38,9 @@ export const Wanto = styled.div`
 export const Imgwanto = styled.img`
 width: 30%;
 height: 80%;
+@media (max-width: 768px){
+    width: 60%;
+  }
 `;
 
 export const Contaimput = styled.div`
