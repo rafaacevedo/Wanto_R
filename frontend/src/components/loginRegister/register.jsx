@@ -16,7 +16,7 @@ const Register = () => {
           <Input type="number" placeholder="Phone Number "/>
           <Input type="text" placeholder="Correo electronico"/>
           <Input type="password" placeholder="Contraseña"/>
-          <Input type="password" placeholder="Contraseña"/>
+          <Input type="password" placeholder="Confirmar Contraseña"/>
           <Boton><h2>Sign Up</h2></Boton>
         </Cajainpu>
       </Contaimput>

@@ -8,9 +8,8 @@ const Login = () => {
       <Wanto>
         <Imgwanto src={wanto}alt="wanto"></Imgwanto>
       </Wanto>
-
       <Contaimput>
-        <Cajainpu>
+        <Cajainpu>  
           <Input type="text" placeholder="Correo electronico"/>
           <Input type="password" placeholder="Contraseña"/>
           <Cajaaa>
