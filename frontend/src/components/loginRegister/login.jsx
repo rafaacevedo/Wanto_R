@@ -1,5 +1,5 @@
-import{Bienvenido, Boton, Cajainpu, Checkbox, Contaimput, Forgot, Imgwanto, Input, Principal, Remenber, Wanto,Cajaaa} from "./styles/styledLogin"
-import wanto from "../asset/Wanto.svg"
+import{Bienvenido, Boton, Cajainpu, Checkbox, Contaimput, Forgot, Imgwanto, Input, Principal, Remenber, Wanto,Cajaaa} from "./styles/styledLogin";
+import wanto from "../asset/Wanto.svg";
 
 const Login = () => {
   return(
