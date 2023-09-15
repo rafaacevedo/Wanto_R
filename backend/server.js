@@ -35,11 +35,14 @@
 // app.listen(port, () => {
 //   console.log(`Servidor proxy en funcionamiento en http://localhost:${port}`);
 // });
-const express = require('express');
-const axios = require('axios');
-const cron = require('node-cron');
-const cors = require('cors'); // Importa el paquete 'cors'
-
+// const express = require('express');
+import express from "express";
+// const axios = require('axios');
+import axios from "axios";
+// const cron = require('node-cron');
+import cron from "node-cron";
+// const cors = require('cors'); // Importa el paquete 'cors'
+import cors from "cors";
 const app = express();
 const port = 3000;
 app.use(express.json());

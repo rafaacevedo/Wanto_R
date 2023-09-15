@@ -49,11 +49,6 @@ const Home = () => {
     return <div>Cargando...</div>;
   }
 
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
-
-
 
   return (
     <Principal>
@@ -64,6 +59,8 @@ const Home = () => {
       </Header>
       <Invisible />
       <Contenedor>
+        {data.length > 0 ? 
+        <>
         {data.map((instance) => (
           <Cartas key={instance.instanceId}>
           <HeaderCartas>
@@ -103,6 +100,9 @@ const Home = () => {
           </Info>
         </Cartas>
         ))}
+        </>
+      : 
+      <>No se encontraron máquinas</>}
       </Contenedor>
     </Principal>
   );
