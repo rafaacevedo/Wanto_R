@@ -1,12 +1,16 @@
 import styled from "styled-components";
+import blanco from"../asset/blanco.avif"
 
 
 export const Principal = styled.div`
-    height: 100%;
-    width: 99.2vw;
+    height: auto;
+    width: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
+    background-image: url(${blanco});
+    background-size: cover;
+    background-repeat: no-repeat; 
     background-color: #f2f3f5;
     .titulo{
         width: 98%;
@@ -22,13 +26,13 @@ export const Header = styled.div`
     justify-content: space-between;
     align-items: center;
     margin-bottom: 5px;
+    border-bottom: 1px solid black;
     background-color: #fff;
     box-shadow: 2px 0px 5px 0px grey;
     position: fixed;
     h1{
         color: #201B6F;
-        font-size: 60px;
-        cursor: pointer;
+        font-size: 70px;
     }
     .User{
         font-size: 40px;
@@ -50,36 +54,34 @@ export const Header = styled.div`
     }
     @media (max-width: 768px){
         h1{
-            font-size: 30px;
+            font-size: 35px;
         }
         .User{
-            font-size: 30px;
+            font-size: 35px;
         }
         .Log-out{
-            font-size: 25px;
+            font-size: 30px;
         }
     }
 `
 
 export const Invisible = styled.div`
-    height: 15%;
+    height: 7rem;
     width: 90%;
-    margin-bottom: 100px;
 `
 
 export const Contenedor = styled.div`
-    height: 83%;
-    width: 95%;
+    height: 100%;
+    width: 100%;
     margin: 20px;
     display: flex;
-    align-items: center;
     justify-content: center;
     flex-wrap: wrap;
 `
 
 export const Cartas = styled.div`
-    height: 60vh;
-    width: 45vh;
+    width: 40vh;
+    height: 70vh;
     margin: 10px;
     display: flex;
     flex-direction: column;
@@ -112,13 +114,25 @@ export const HeaderCartas = styled.div`
     height: 13%;
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     border-radius: 20px 20px 0px 0px;
     border-bottom: 1px solid grey;
+    .titulo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: -1px;
+        h1{
+            color: #201B6F;
+            font-size: 40px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+    }
     .menu{
         color: #1BC2FF;
-        font-size: 35px;
+        font-size: 50px;
         cursor: pointer;
         &:hover{
             color: #201B6F;
@@ -175,8 +189,23 @@ export const ContenedorBotones = styled.div`
 export const Info = styled.div`
     height: auto;
     width: 100%;
-    justify-content: space-between;
     display: flex;
+    align-items: center;
+    margin-top: -10px;
+    h3{
+        margin-left: 20px;
+        margin-right: 10px;
+        font-size: 20px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    p{
+        font-family: Arial, Helvetica, sans-serif;
+        color: #201B6F;
+        font-weight: 900;
+    }
+    h2{
+        font-weight: 600;
+    }
 `
 
 export const Iconos = styled.div`

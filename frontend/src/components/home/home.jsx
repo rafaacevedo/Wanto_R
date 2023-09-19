@@ -1,6 +1,9 @@
 import axios from "axios";
+import "../../index.css"
 import {Cartas,Contenedor,ContenedorBotones,Header,HeaderCartas,Iconos,Info,Invisible,Principal,} from "./styledHome";
 import { useEffect, useState } from "react";
+import { Spinner } from "reactstrap"
+import "bootstrap/dist/css/bootstrap.min.css";
 import { BiSolidUserCircle } from "react-icons/bi";
 import { SlLogout } from "react-icons/sl";
 import { CgMenuRound } from "react-icons/cg";
@@ -20,7 +23,7 @@ import { PiComputerTowerFill } from "react-icons/pi";
 const Home = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [/* error,  */setError] = useState(null);
   useEffect(() => {
     async function fetchData() {
       try {
@@ -45,11 +48,7 @@ const Home = () => {
     fetchData();
   }, []);
 
-  if (loading) {
-    return <div>Cargando...</div>;
-  }
-
-
+  
   return (
     <Principal>
       <Header>
@@ -65,11 +64,11 @@ const Home = () => {
           <Cartas key={instance.instanceId}>
           <HeaderCartas>
             {data.map((instance) => (
-              <div key={instance.instanceId}>
-                <h1>{instance.ipConfig.v4.ip}</h1>
+              <div key={instance.instanceId} className="titulo">
+                <h1 className="titulo">{instance.ipConfig.v4.ip}</h1>
+                <CgMenuRound className="menu" />
               </div>
             ))}
-            <CgMenuRound className="menu" />
           </HeaderCartas>
           <Iconos>
             <ContenedorBotones>
@@ -88,21 +87,345 @@ const Home = () => {
             {data.map((instance) => (
               <div key={instance.instanceId} className="info">
                 <h2>Información:</h2>
-                <li>{instance.name}</li>
-                <li>{instance.instanceId}</li>
-                <li>{instance.osType}</li>
-                <li>{instance.regionName}</li>
-                <li>{instance.ramMb}</li>
-                <li>{instance.region}</li>
-                <li>{instance.ipConfig.v4.ip}</li>
+                <Info><h3>Nombre: </h3><p>{instance.name}</p></Info>
+                <Info><h3>OsType: </h3><p>{instance.osType}</p></Info>
+                <Info><h3>Instancia Id: </h3><p>{instance.instanceId}</p></Info>
+                <Info><h3>Region: </h3><p>{instance.regionName}</p></Info>
+                <Info><h3>RamMb: </h3><p>{instance.ramMb}</p></Info>
+                <Info><h3>Region: </h3><p>{instance.region}</p></Info>
+                <Info><h3>Instancia Ip: </h3><p>{instance.ipConfig.v4.ip}</p></Info>
               </div>
             ))}
           </Info>
         </Cartas>
-        ))}
+        ))} 
         </>
       : 
-      <>No se encontraron máquinas</>}
+      <><h1>No se encontraron máquinas</h1>
+      <div className="loading"><Spinner className="spinner"/></div>
+      </>}
+      {data.length > 0 ? 
+        <>
+        {data.map((instance) => (
+          <Cartas key={instance.instanceId}>
+          <HeaderCartas>
+            {data.map((instance) => (
+              <div key={instance.instanceId} className="titulo">
+                <h1 className="titulo">{instance.ipConfig.v4.ip}</h1>
+                <CgMenuRound className="menu" />
+              </div>
+            ))}
+          </HeaderCartas>
+          <Iconos>
+            <ContenedorBotones>
+              <BsDisplay className="Status" />
+              <BsFillPlayCircleFill className="Start" />
+              <RiRestartFill className="Restart" />
+              <HiStop className="Stop" />
+              <BsToggle2Off className="Cloud-Init" />
+              <RiInstallFill className="Reinstall" />
+              <IoIosSave className="Rescue" />
+              <FaHistory className="Snap-Shots" />
+            </ContenedorBotones>
+            <PiComputerTowerFill className="pc" />
+          </Iconos>
+          <Info>
+            {data.map((instance) => (
+              <div key={instance.instanceId} className="info">
+                <h2>Información:</h2>
+                <Info><h3>Nombre: </h3><p>{instance.name}</p></Info>
+                <Info><h3>OsType: </h3><p>{instance.osType}</p></Info>
+                <Info><h3>Instancia Id: </h3><p>{instance.instanceId}</p></Info>
+                <Info><h3>Region: </h3><p>{instance.regionName}</p></Info>
+                <Info><h3>RamMb: </h3><p>{instance.ramMb}</p></Info>
+                <Info><h3>Region: </h3><p>{instance.region}</p></Info>
+                <Info><h3>Instancia Ip: </h3><p>{instance.ipConfig.v4.ip}</p></Info>
+              </div>
+            ))}
+          </Info>
+        </Cartas>
+        ))} 
+        </>
+      : 
+      <><h1>No se encontraron máquinas</h1>
+      <div className="loading"><Spinner className="spinner"/></div>
+      </>}
+      {data.length > 0 ? 
+        <>
+        {data.map((instance) => (
+          <Cartas key={instance.instanceId}>
+          <HeaderCartas>
+            {data.map((instance) => (
+              <div key={instance.instanceId} className="titulo">
+                <h1 className="titulo">{instance.ipConfig.v4.ip}</h1>
+                <CgMenuRound className="menu" />
+              </div>
+            ))}
+          </HeaderCartas>
+          <Iconos>
+            <ContenedorBotones>
+              <BsDisplay className="Status" />
+              <BsFillPlayCircleFill className="Start" />
+              <RiRestartFill className="Restart" />
+              <HiStop className="Stop" />
+              <BsToggle2Off className="Cloud-Init" />
+              <RiInstallFill className="Reinstall" />
+              <IoIosSave className="Rescue" />
+              <FaHistory className="Snap-Shots" />
+            </ContenedorBotones>
+            <PiComputerTowerFill className="pc" />
+          </Iconos>
+          <Info>
+            {data.map((instance) => (
+              <div key={instance.instanceId} className="info">
+                <h2>Información:</h2>
+                <Info><h3>Nombre: </h3><p>{instance.name}</p></Info>
+                <Info><h3>OsType: </h3><p>{instance.osType}</p></Info>
+                <Info><h3>Instancia Id: </h3><p>{instance.instanceId}</p></Info>
+                <Info><h3>Region: </h3><p>{instance.regionName}</p></Info>
+                <Info><h3>RamMb: </h3><p>{instance.ramMb}</p></Info>
+                <Info><h3>Region: </h3><p>{instance.region}</p></Info>
+                <Info><h3>Instancia Ip: </h3><p>{instance.ipConfig.v4.ip}</p></Info>
+              </div>
+            ))}
+          </Info>
+        </Cartas>
+        ))} 
+        </>
+      : 
+      <><h1>No se encontraron máquinas</h1>
+      <div className="loading"><Spinner className="spinner"/></div>
+      </>}
+      {data.length > 0 ? 
+        <>
+        {data.map((instance) => (
+          <Cartas key={instance.instanceId}>
+          <HeaderCartas>
+            {data.map((instance) => (
+              <div key={instance.instanceId} className="titulo">
+                <h1 className="titulo">{instance.ipConfig.v4.ip}</h1>
+                <CgMenuRound className="menu" />
+              </div>
+            ))}
+          </HeaderCartas>
+          <Iconos>
+            <ContenedorBotones>
+              <BsDisplay className="Status" />
+              <BsFillPlayCircleFill className="Start" />
+              <RiRestartFill className="Restart" />
+              <HiStop className="Stop" />
+              <BsToggle2Off className="Cloud-Init" />
+              <RiInstallFill className="Reinstall" />
+              <IoIosSave className="Rescue" />
+              <FaHistory className="Snap-Shots" />
+            </ContenedorBotones>
+            <PiComputerTowerFill className="pc" />
+          </Iconos>
+          <Info>
+            {data.map((instance) => (
+              <div key={instance.instanceId} className="info">
+                <h2>Información:</h2>
+                <Info><h3>Nombre: </h3><p>{instance.name}</p></Info>
+                <Info><h3>OsType: </h3><p>{instance.osType}</p></Info>
+                <Info><h3>Instancia Id: </h3><p>{instance.instanceId}</p></Info>
+                <Info><h3>Region: </h3><p>{instance.regionName}</p></Info>
+                <Info><h3>RamMb: </h3><p>{instance.ramMb}</p></Info>
+                <Info><h3>Region: </h3><p>{instance.region}</p></Info>
+                <Info><h3>Instancia Ip: </h3><p>{instance.ipConfig.v4.ip}</p></Info>
+              </div>
+            ))}
+          </Info>
+        </Cartas>
+        ))} 
+        </>
+      : 
+      <><h1>No se encontraron máquinas</h1>
+      <div className="loading"><Spinner className="spinner"/></div>
+      </>}
+      {data.length > 0 ? 
+        <>
+        {data.map((instance) => (
+          <Cartas key={instance.instanceId}>
+          <HeaderCartas>
+            {data.map((instance) => (
+              <div key={instance.instanceId} className="titulo">
+                <h1 className="titulo">{instance.ipConfig.v4.ip}</h1>
+                <CgMenuRound className="menu" />
+              </div>
+            ))}
+          </HeaderCartas>
+          <Iconos>
+            <ContenedorBotones>
+              <BsDisplay className="Status" />
+              <BsFillPlayCircleFill className="Start" />
+              <RiRestartFill className="Restart" />
+              <HiStop className="Stop" />
+              <BsToggle2Off className="Cloud-Init" />
+              <RiInstallFill className="Reinstall" />
+              <IoIosSave className="Rescue" />
+              <FaHistory className="Snap-Shots" />
+            </ContenedorBotones>
+            <PiComputerTowerFill className="pc" />
+          </Iconos>
+          <Info>
+            {data.map((instance) => (
+              <div key={instance.instanceId} className="info">
+                <h2>Información:</h2>
+                <Info><h3>Nombre: </h3><p>{instance.name}</p></Info>
+                <Info><h3>OsType: </h3><p>{instance.osType}</p></Info>
+                <Info><h3>Instancia Id: </h3><p>{instance.instanceId}</p></Info>
+                <Info><h3>Region: </h3><p>{instance.regionName}</p></Info>
+                <Info><h3>RamMb: </h3><p>{instance.ramMb}</p></Info>
+                <Info><h3>Region: </h3><p>{instance.region}</p></Info>
+                <Info><h3>Instancia Ip: </h3><p>{instance.ipConfig.v4.ip}</p></Info>
+              </div>
+            ))}
+          </Info>
+        </Cartas>
+        ))} 
+        </>
+      : 
+      <><h1>No se encontraron máquinas</h1>
+      <div className="loading"><Spinner className="spinner"/></div>
+      </>}
+      {data.length > 0 ? 
+        <>
+        {data.map((instance) => (
+          <Cartas key={instance.instanceId}>
+          <HeaderCartas>
+            {data.map((instance) => (
+              <div key={instance.instanceId} className="titulo">
+                <h1 className="titulo">{instance.ipConfig.v4.ip}</h1>
+                <CgMenuRound className="menu" />
+              </div>
+            ))}
+          </HeaderCartas>
+          <Iconos>
+            <ContenedorBotones>
+              <BsDisplay className="Status" />
+              <BsFillPlayCircleFill className="Start" />
+              <RiRestartFill className="Restart" />
+              <HiStop className="Stop" />
+              <BsToggle2Off className="Cloud-Init" />
+              <RiInstallFill className="Reinstall" />
+              <IoIosSave className="Rescue" />
+              <FaHistory className="Snap-Shots" />
+            </ContenedorBotones>
+            <PiComputerTowerFill className="pc" />
+          </Iconos>
+          <Info>
+            {data.map((instance) => (
+              <div key={instance.instanceId} className="info">
+                <h2>Información:</h2>
+                <Info><h3>Nombre: </h3><p>{instance.name}</p></Info>
+                <Info><h3>OsType: </h3><p>{instance.osType}</p></Info>
+                <Info><h3>Instancia Id: </h3><p>{instance.instanceId}</p></Info>
+                <Info><h3>Region: </h3><p>{instance.regionName}</p></Info>
+                <Info><h3>RamMb: </h3><p>{instance.ramMb}</p></Info>
+                <Info><h3>Region: </h3><p>{instance.region}</p></Info>
+                <Info><h3>Instancia Ip: </h3><p>{instance.ipConfig.v4.ip}</p></Info>
+              </div>
+            ))}
+          </Info>
+        </Cartas>
+        ))} 
+        </>
+      : 
+      <><h1>No se encontraron máquinas</h1>
+      <div className="loading"><Spinner className="spinner"/></div>
+      </>}
+      {data.length > 0 ? 
+        <>
+        {data.map((instance) => (
+          <Cartas key={instance.instanceId}>
+          <HeaderCartas>
+            {data.map((instance) => (
+              <div key={instance.instanceId} className="titulo">
+                <h1 className="titulo">{instance.ipConfig.v4.ip}</h1>
+                <CgMenuRound className="menu" />
+              </div>
+            ))}
+          </HeaderCartas>
+          <Iconos>
+            <ContenedorBotones>
+              <BsDisplay className="Status" />
+              <BsFillPlayCircleFill className="Start" />
+              <RiRestartFill className="Restart" />
+              <HiStop className="Stop" />
+              <BsToggle2Off className="Cloud-Init" />
+              <RiInstallFill className="Reinstall" />
+              <IoIosSave className="Rescue" />
+              <FaHistory className="Snap-Shots" />
+            </ContenedorBotones>
+            <PiComputerTowerFill className="pc" />
+          </Iconos>
+          <Info>
+            {data.map((instance) => (
+              <div key={instance.instanceId} className="info">
+                <h2>Información:</h2>
+                <Info><h3>Nombre: </h3><p>{instance.name}</p></Info>
+                <Info><h3>OsType: </h3><p>{instance.osType}</p></Info>
+                <Info><h3>Instancia Id: </h3><p>{instance.instanceId}</p></Info>
+                <Info><h3>Region: </h3><p>{instance.regionName}</p></Info>
+                <Info><h3>RamMb: </h3><p>{instance.ramMb}</p></Info>
+                <Info><h3>Region: </h3><p>{instance.region}</p></Info>
+                <Info><h3>Instancia Ip: </h3><p>{instance.ipConfig.v4.ip}</p></Info>
+              </div>
+            ))}
+          </Info>
+        </Cartas>
+        ))} 
+        </>
+      : 
+      <><h1>No se encontraron máquinas</h1>
+      <div className="loading"><Spinner className="spinner"/></div>
+      </>}
+      {data.length > 0 ? 
+        <>
+        {data.map((instance) => (
+          <Cartas key={instance.instanceId}>
+          <HeaderCartas>
+            {data.map((instance) => (
+              <div key={instance.instanceId} className="titulo">
+                <h1 className="titulo">{instance.ipConfig.v4.ip}</h1>
+                <CgMenuRound className="menu" />
+              </div>
+            ))}
+          </HeaderCartas>
+          <Iconos>
+            <ContenedorBotones>
+              <BsDisplay className="Status" />
+              <BsFillPlayCircleFill className="Start" />
+              <RiRestartFill className="Restart" />
+              <HiStop className="Stop" />
+              <BsToggle2Off className="Cloud-Init" />
+              <RiInstallFill className="Reinstall" />
+              <IoIosSave className="Rescue" />
+              <FaHistory className="Snap-Shots" />
+            </ContenedorBotones>
+            <PiComputerTowerFill className="pc" />
+          </Iconos>
+          <Info>
+            {data.map((instance) => (
+              <div key={instance.instanceId} className="info">
+                <h2>Información:</h2>
+                <Info><h3>Nombre: </h3><p>{instance.name}</p></Info>
+                <Info><h3>OsType: </h3><p>{instance.osType}</p></Info>
+                <Info><h3>Instancia Id: </h3><p>{instance.instanceId}</p></Info>
+                <Info><h3>Region: </h3><p>{instance.regionName}</p></Info>
+                <Info><h3>RamMb: </h3><p>{instance.ramMb}</p></Info>
+                <Info><h3>Region: </h3><p>{instance.region}</p></Info>
+                <Info><h3>Instancia Ip: </h3><p>{instance.ipConfig.v4.ip}</p></Info>
+              </div>
+            ))}
+          </Info>
+        </Cartas>
+        ))} 
+        </>
+      : 
+      <><h1>No se encontraron máquinas</h1>
+      <div className="loading"><Spinner className="spinner"/></div>
+      </>}
       </Contenedor>
     </Principal>
   );

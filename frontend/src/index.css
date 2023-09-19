@@ -1,5 +1,29 @@
+
+
 *{
   margin: 0;
   padding: 0;
   font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.loading{
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  background-image: url("./components/asset/blanco.avif");
+  background-size: cover;
+  background-repeat: no-repeat; 
+}
+
+.spinner{
+  color: #201B6F;
+  height: 100px;
+  width: 100px;
+}
+
+body{
+  background-image: url("./components/asset/blanco.avif");
+  background-size: cover;
+  background-repeat: no-repeat; 
 }
