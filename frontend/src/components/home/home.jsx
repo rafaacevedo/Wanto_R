@@ -16,6 +16,8 @@ import { RiInstallFill } from "react-icons/ri";
 import { IoIosSave } from "react-icons/io";
 import { FaHistory } from "react-icons/fa";
 import { PiComputerTowerFill } from "react-icons/pi";
+import swal from 'sweetalert';
+
 
 
 
@@ -48,13 +50,33 @@ const Home = () => {
     fetchData();
   }, []);
 
+  const ret = () => {
+    try {
+        (window.location.href ="http://localhost:5173/profile");
+    } catch (error) {
+        alert(error)
+    }
+    }
+
   
   return (
     <Principal>
       <Header>
-        <BiSolidUserCircle className="User" />
+        <BiSolidUserCircle onClick={ret} className="User" />
         <h1>Control-Vps</h1>
-        <SlLogout className="Log-out" />
+        <SlLogout onClick={ () =>{
+    if (true) {
+      swal({
+  title: "¿Seguro que quieres salir?",
+buttons: true,
+})
+.then((confirm) => {
+  if (confirm) {
+    window.location.href='http://localhost:5173/login'
+  } 
+});
+
+  }}} className="Log-out" />
       </Header>
       <Invisible />
       <Contenedor>
