@@ -9,11 +9,19 @@ import { AiOutlineArrowLeft }  from "react-icons/ai";
 
 
 const Profile = () => {
+
+    const ret = () => {
+        try {
+            (window.location.href ="http://localhost:5173/home");
+        } catch (error) {
+            alert(error)
+        }
+        }
     return (
         <Maincontainer>
 
             <Header>
-                <AiOutlineArrowLeft className="volver"/>
+                <AiOutlineArrowLeft onClick={ret} className="volver"/>
                 <Tittle src={Wanto}alt="Wanto"/> 
                 <AiOutlineArrowLeft className="invisible"/>
             </Header>

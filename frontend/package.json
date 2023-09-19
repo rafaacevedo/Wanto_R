@@ -20,7 +20,8 @@
     "react-script": "^2.0.5",
     "react-scripts": "^5.0.1",
     "reactstrap": "^9.2.0",
-    "styled-components": "^6.0.5"
+    "styled-components": "^6.0.5",
+    "sweetalert": "^2.1.2"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
