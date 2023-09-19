@@ -49,11 +49,11 @@ const Login = () => {
             <Forgot><h5>¿Forgot Password?</h5></Forgot>
           </Cajaaa>
           <Remenber>
-            <Checkbox type="checkbox" />    
-            <h6>Remenber Password</h6>
+            <Checkbox type="checkbox"/>    
+            <h6 >Remenber Password</h6>
           </Remenber>
           <Boton onClick={log}><h2>Sign In</h2></Boton>
-          <h6 style={{marginTop:"10px",cursor: "pointer"}}>¿don´t have account?</h6>
+          <h6 className="Remnber">¿don´t have account?</h6>
         </Cajainpu>
       </Contaimput>
     </Principal>

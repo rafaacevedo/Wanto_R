@@ -1,10 +1,11 @@
 import{Bienvenido, Boton, Cajainpu,  Contaimput, Imgwanto, Input, Principal,  Wanto,} from "./styles/styledRegister"
 import wanto from "../asset/Wanto.svg"
+import { FiChevronLeft } from "react-icons/fi";
 
 const Register = () => {
   return(
     <Principal>
-      <Bienvenido><h1></h1></Bienvenido>
+      <Bienvenido><FiChevronLeft className="atras"/></Bienvenido>
       <Wanto>
         <Imgwanto src={wanto}alt="wanto"></Imgwanto>
       </Wanto>

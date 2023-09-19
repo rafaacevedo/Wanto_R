@@ -19,8 +19,13 @@ background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(36,32,119,1) 100%)
   height: 12%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   font-size: 40px;
+  .atras{
+    color: #fff;
+    margin-left: 20px;
+    cursor: pointer;
+  }
 
   h1{
     color: #fff;
@@ -78,7 +83,7 @@ export const Cajainpu = styled.div`
 
 export const Input = styled.input`
   width: 70%;
-  height: 7%;
+  height: 8%;
   border-radius: 7px;
   margin-top: 20px;
   border: 2px solid #00000036;
@@ -90,38 +95,6 @@ export const Input = styled.input`
   }
 `;
 
-/* export const Forgot = styled.div`
-background-color: red; 
-  width: 71%;
-  height: 5%;
-  margin-top: 5px;
-  h5{
-    color: #000;
-    display: flex;
-    justify-content: right;
-    font-size: 10px;
-    font-weight: 600;
-    cursor: pointer;
-  }
-` */
-/* export const Remenber = styled.div`
-  background-color: red; 
-  width: 71%;
-  height: 5%;
-  margin-top: 5px;
-  display: flex;
-  align-items: center;
-  margin-bottom: 30px;
-  H6{
-    font-weight: 600
-  }
-` */
-/* export const Checkbox = styled.input`
-  width: 10%;
-  height: 70%;
-  
-`; */
-
 export const Boton = styled.button`
   background-color: #242077;
   height: 10%;
@@ -132,7 +105,9 @@ export const Boton = styled.button`
   border: none; 
   H2{
     color: white;
-    font-weight: 500
+    font-weight: 500;
+    font-size:25px;
+    margin-top: 5px;
   }
   &:hover{
     background-color: #26B2FB;

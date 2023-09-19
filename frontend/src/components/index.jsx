@@ -4,6 +4,7 @@ import Register from "./loginRegister/register";
 import Home from "./home/home";
 import Config from "./config/confing";
 import Profile from "./profile/profile";
+import Forgot from "./forgot/forgot"
 
 const Main = () =>{
   return(
@@ -14,6 +15,7 @@ const Main = () =>{
         <Route path="/home" element={<Home/>}/>
         <Route path="/config" element={<Config/>}/>
         <Route path="/profile" element={<Profile/>}/>
+        <Route path="/forgot" element={<Forgot/>}/>
       </Routes>
     </div>
   )

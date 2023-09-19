@@ -1,11 +1,14 @@
 import styled from "styled-components";
-
+import blanco from "../../asset/blanco.avif"
 export const Principal = styled.section`
   width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
   /* background-color: #f30c0c; */
+  background-image: url(${blanco});
+  background-repeat: no-repeat;
+  background-size: cover;
 `;
 
 export const Bienvenido = styled.section`
@@ -72,12 +75,27 @@ export const Cajainpu = styled.div`
   
   ::placeholder {
   color: #000;
+  
 }
+.Remnber{
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 5px;
+    
+  &:hover{
+    transition: 0.3s all ease;
+    color: rgb(0,212,255);
+    text-decoration-line: underline;
+    border-radius: 5px 5px 5px 5px;
+    cursor: pointer;
+  }
+}
+
 `
 
 export const Input = styled.input`
   width: 70%;
-  height: 7%;
+  height: 9%;
   border-radius: 7px;
   margin-top: 40px;
   border: 2px solid #00000036;
@@ -118,8 +136,10 @@ export const Remenber = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 30px;
-  H6{
-    font-weight: 600
+  h6{
+    font-weight: 600;
+    font-size: 15px;
+    margin-top: 10px;
   }
 `
 export const Checkbox = styled.input`
@@ -138,8 +158,9 @@ export const Boton = styled.button`
   border: none; 
   H2{
     color: white;
-    font-size: 11;
-    font-weight: 500
+    font-weight: 500;
+    font-size:25px;
+    margin-top: 5px;
   }
   &:hover{
     background-color: #26B2FB;

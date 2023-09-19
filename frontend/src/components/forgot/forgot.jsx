@@ -1,9 +1,11 @@
 import{Bienvenido, Principal,Wanto,Imgwanto, Contaimput, Cajainpu, Olvidado, Input, Botonol}from"./styledforgot"
 import wanto from "../asset/Wanto.svg"
+import { FiChevronLeft } from "react-icons/fi";
+
 const Forgot = () =>{
   return(
     <Principal>
-      <Bienvenido><h1>Forgot</h1></Bienvenido>
+      <Bienvenido><FiChevronLeft className="atras"/></Bienvenido>
       <Wanto>
         <Imgwanto src={wanto}alt="wanto"></Imgwanto>
       </Wanto>

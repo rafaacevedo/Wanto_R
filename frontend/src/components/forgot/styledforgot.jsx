@@ -1,29 +1,42 @@
 import styled from "styled-components";
+import blanco from "../asset/blanco.avif";
 
 export const Principal = styled.div`
- /*  background-color: red; */
-  width:100%;
-  height:100vh;
+  /*  background-color: red; */
+  width: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
+  background-image: url(${blanco});
+  background-repeat: no-repeat;
+  background-size: cover;
 `;
 
 export const Bienvenido = styled.section`
-  background: rgb(0,212,255);
-background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(36,32,119,1) 100%);
+  background: rgb(0, 212, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 212, 255, 1) 0%,
+    rgba(36, 32, 119, 1) 100%
+  );
   width: 100%;
   height: 12%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   font-size: 40px;
-  h1{
-    color:white
+  .atras {
+    color: #fff;
+    margin-left: 20px;
+    cursor: pointer;
+  }
+  h1 {
+    color: white;
   }
 `;
 
 export const Wanto = styled.div`
- /*  background-color: red; */
+  /*  background-color: red; */
   width: 100%;
   height: 20%;
   display: flex;
@@ -31,9 +44,9 @@ export const Wanto = styled.div`
   justify-content: center;
 `;
 export const Imgwanto = styled.img`
-width: 30%;
-height: 80%;
-@media (max-width: 976px){
+  width: 30%;
+  height: 80%;
+  @media (max-width: 976px) {
     width: 60%;
   }
 `;
@@ -51,25 +64,25 @@ export const Cajainpu = styled.div`
   box-shadow: 0px 0px 5px 5px #cecdcd88;
   display: flex;
   align-items: center;
- /*  justify-content:space-between; */
+  /*  justify-content:space-between; */
   padding: 1%;
   flex-direction: column;
   box-sizing: border-box;
   width: 25%;
   height: 100%;
   border-radius: 20px;
-  transition:all 1s ease-out; ;
-  &:hover{
+  transition: all 1s ease-out;
+  &:hover {
     box-shadow: 0px 0px 5px 5px #808080;
     transition: all 0.8s ease;
   }
-  @media(max-width: 976px){
+  @media (max-width: 976px) {
     width: 90%;
   }
   ::placeholder {
-  color: #000;
-}
-`
+    color: #000;
+  }
+`;
 
 export const Olvidado = styled.div`
   /* background-color: black; */
@@ -77,19 +90,19 @@ export const Olvidado = styled.div`
   height: 30px;
   display: flex;
   margin-top: 40px;
-  justify-content: center ;
-`
+  justify-content: center;
+`;
 export const Input = styled.input`
   width: 70%;
-  height: 7%;
+  height: 9%;
   border-radius: 7px;
   margin-top: 60px;
   border: 2px solid #00000036;
-  outline-color: rgb(0,212,255);
+  outline-color: rgb(0, 212, 255);
   border-color: #242077;
   padding: 2px;
-  :hover{
-    border-color: rgb(0,212,255);
+  :hover {
+    border-color: rgb(0, 212, 255);
   }
 `;
 
@@ -101,13 +114,15 @@ export const Botonol = styled.button`
   cursor: pointer;
   border-radius: 15px;
   /* margin-top: 20px; */
-  border: none; 
-  H2{
+  border: none;
+  H2 {
     color: white;
-    font-weight: 500
+    font-weight: 500;
+    font-size: 25px;
+    margin-top: 5px;
   }
-  &:hover{
-    background-color: #26B2FB;
+  &:hover {
+    background-color: #26b2fb;
     transition: 1s;
   }
-`
+`;
