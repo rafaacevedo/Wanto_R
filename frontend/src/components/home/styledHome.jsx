@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import blanco from"../asset/blanco.avif"
+import blanco from "../asset/blanco.avif"
 
 
 export const Principal = styled.div`
@@ -21,7 +21,7 @@ export const Principal = styled.div`
 
 export const Header = styled.div`
     height: 12%;
-    width: 100vw;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -81,13 +81,18 @@ export const Contenedor = styled.div`
 
 export const Cartas = styled.div`
     width: 40vh;
-    height: 75vh;
+    height: 100%;
     margin: 10px;
     display: flex;
     flex-direction: column;
     border-radius: 10px;
     background-color: #fff;
     border: 1px solid grey;
+    h1{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
     .pc{
         margin-top: 40px;
         font-size: 200px;
@@ -97,14 +102,64 @@ export const Cartas = styled.div`
         margin: 30px 0px 20px 20px;
     }
     .info{
+        height: auto;
+        width: 100%;
         margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .Carta_infor{
+        height: auto;
+        width: 100%;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
     }
     li{
         margin-left: 20px;
     }
-    @media (max-width: 768px){
-        
+    @media (min-width: 375px) and (max-height: 896px) {
+    width: auto;
+    height: auto;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    background-color: #fff;
+    border: 1px solid grey;
+    h1{
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
+    .pc{
+        margin-top: 40px;
+        font-size: 200px;
+        color: silver;
+    }
+    h2{
+        margin: 30px 0px 20px 20px;
+    }
+    .info{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .Carta_infor{
+        width: 100%;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        flex-direction: column  ;
+    }
+    li{
+        margin-left: 20px;
+    }
+}
+   
 `
 
 export const HeaderCartas = styled.div`
@@ -139,12 +194,13 @@ export const HeaderCartas = styled.div`
 
 export const ContenedorBotones = styled.div`
     width: 25%;
-    height: 80%;
+    height: 50%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin: 40px 0px 0px 70px;
     flex-wrap: wrap;
+    
     svg{
         margin-bottom: 10px;
         font-size: 40px;
@@ -181,6 +237,15 @@ export const ContenedorBotones = styled.div`
     .Arrow{
         color: #068EEB;
     }
+    @media (min-width: 375px) and (max-height: 856px) {
+         width: 25%;
+    height: 50%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin: auto;
+    flex-wrap: wrap;
+    }
 `
 
 export const Info = styled.div`
@@ -205,9 +270,8 @@ export const Info = styled.div`
 `
 
 export const Iconos = styled.div`
-    height: auto;
+    height: 50%;
     width: 100%;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: row;
 `
