@@ -3,9 +3,17 @@ import wanto from "../asset/Wanto.svg"
 import { FiChevronLeft } from "react-icons/fi";
 
 const Forgot = () =>{
+  
+const conex = () => {
+    try {
+        (window.location.href ="http://localhost:5173/login");
+    } catch (error) {
+        alert(error)
+    }
+    }
   return(
     <Principal>
-      <Bienvenido><FiChevronLeft className="atras"/></Bienvenido>
+      <Bienvenido><FiChevronLeft onClick={conex} className="atras"/></Bienvenido>
       <Wanto>
         <Imgwanto src={wanto}alt="wanto"></Imgwanto>
       </Wanto>
