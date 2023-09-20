@@ -60,7 +60,7 @@ export const InfoUser = styled.img`
 `
 
 export const InfoName = styled.div`
-    width: 8%;
+    width: auto;
     height: 50%;
     flex-direction: column;
     display: flex;
