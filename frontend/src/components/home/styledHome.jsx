@@ -127,7 +127,6 @@ export const Cartas = styled.div`
     display: flex;
     flex-direction: column;
     border-radius: 10px;
-    background-color: #fff;
     border: 1px solid grey;
     h1{
         display: flex;
