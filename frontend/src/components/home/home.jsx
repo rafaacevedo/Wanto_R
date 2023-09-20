@@ -109,6 +109,7 @@ buttons: true,
             {data.map((instance) => (
               <div key={instance.instanceId} className="info">
                 <h2>Información:</h2>
+                <div className="Carta_infor">
                 <Info><h3>Nombre: </h3><p>{instance.name}</p></Info>
                 <Info><h3>OsType: </h3><p>{instance.osType}</p></Info>
                 <Info><h3>Instancia Id: </h3><p>{instance.instanceId}</p></Info>
@@ -116,6 +117,7 @@ buttons: true,
                 <Info><h3>RamMb: </h3><p>{instance.ramMb}</p></Info>
                 <Info><h3>Region: </h3><p>{instance.region}</p></Info>
                 <Info><h3>Instancia Ip: </h3><p>{instance.ipConfig.v4.ip}</p></Info>
+              </div>
               </div>
             ))}
           </Info>
