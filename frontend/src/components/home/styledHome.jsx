@@ -81,16 +81,13 @@ export const Contenedor = styled.div`
 
 export const Cartas = styled.div`
     width: 40vh;
-    height: 70vh;
+    height: 75vh;
     margin: 10px;
     display: flex;
     flex-direction: column;
     border-radius: 10px;
     background-color: #fff;
     border: 1px solid grey;
-    h1{
-        margin-left: 80px;
-    }
     .pc{
         margin-top: 40px;
         font-size: 200px;
@@ -190,7 +187,6 @@ export const Info = styled.div`
     height: auto;
     width: 100%;
     display: flex;
-    align-items: center;
     margin-top: -10px;
     h3{
         margin-left: 20px;
@@ -211,6 +207,7 @@ export const Info = styled.div`
 export const Iconos = styled.div`
     height: auto;
     width: 100%;
-    justify-content: space-between;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
 `

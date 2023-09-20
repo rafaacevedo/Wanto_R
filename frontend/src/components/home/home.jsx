@@ -1,8 +1,8 @@
 import axios from "axios";
-import "../../index.css"
+import "../../index.css";
 import {Cartas,Contenedor,ContenedorBotones,Header,HeaderCartas,Iconos,Info,Invisible,Principal,} from "./styledHome";
 import { useEffect, useState } from "react";
-import { Spinner } from "reactstrap"
+import { Spinner } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BiSolidUserCircle } from "react-icons/bi";
 import { SlLogout } from "react-icons/sl";
@@ -16,16 +16,12 @@ import { RiInstallFill } from "react-icons/ri";
 import { IoIosSave } from "react-icons/io";
 import { FaHistory } from "react-icons/fa";
 import { PiComputerTowerFill } from "react-icons/pi";
-import swal from 'sweetalert';
-
-
-
-
+import swal from "sweetalert";
 
 const Home = () => {
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [/* error,  */setError] = useState(null);
+  const [/* loading, */ setLoading] = useState(true);
+  const [/* error,  */ setError] = useState(null);
   useEffect(() => {
     async function fetchData() {
       try {
@@ -52,84 +48,116 @@ const Home = () => {
 
   const ret = () => {
     try {
-        (window.location.href ="http://localhost:5173/profile");
+      window.location.href = "http://localhost:5173/profile";
     } catch (error) {
-        alert(error)
+      alert(error);
     }
-    }
+  };
 
-  
   return (
     <Principal>
       <Header>
         <BiSolidUserCircle onClick={ret} className="User" />
         <h1>Control-Vps</h1>
-        <SlLogout onClick={ () =>{
-    if (true) {
-      swal({
-  title: "¿Seguro que quieres salir?",
-buttons: true,
-})
-.then((confirm) => {
-  if (confirm) {
-    window.location.href='http://localhost:5173/login'
-  } 
-});
-
-  }}} className="Log-out" />
+        <SlLogout
+          onClick={() => {
+            if (true) {
+              swal({
+                title: "¿Seguro que quieres salir?",
+                buttons: true,
+              }).then((confirm) => {
+                if (confirm) {
+                  window.location.href = "http://localhost:5173/login";
+                }
+              });
+            }
+          }}
+          className="Log-out"
+        />
       </Header>
       <Invisible />
       <Contenedor>
-        {data.length > 0 ? 
-        <>
-        {data.map((instance) => (
-          <Cartas key={instance.instanceId}>
-          <HeaderCartas>
+        {data.length > 0 ? (
+          <>
             {data.map((instance) => (
-              <div key={instance.instanceId} className="titulo">
-                <h1 className="titulo">{instance.ipConfig.v4.ip}</h1>
-                <CgMenuRound className="menu" />
-              </div>
+              <Cartas key={instance.instanceId}>
+                <HeaderCartas>
+                  {data.map((instance) => (
+                    <div key={instance.instanceId} className="titulo">
+                      <h1 className="titulo">{instance.ipConfig.v4.ip}</h1>
+                      <CgMenuRound className="menu" />
+                    </div>
+                  ))}
+                </HeaderCartas>
+                <Iconos>
+                  <ContenedorBotones>
+                    <BsDisplay className="Status" />
+                    <BsFillPlayCircleFill className="Start" />
+                    <RiRestartFill className="Restart" />
+                    <HiStop className="Stop" />
+                    <BsToggle2Off className="Cloud-Init" />
+                    <RiInstallFill className="Reinstall" />
+                    <IoIosSave className="Rescue" />
+                    <FaHistory className="Snap-Shots" />
+                  </ContenedorBotones>
+                  <PiComputerTowerFill className="pc" style={instance.status === "running" ? {fill:"#5C8E24"} : {fill:"grey"}} />
+                </Iconos>
+                <Info>
+                  {data.map((instance) => (
+                    <div key={instance.instanceId} className="info">
+                      <h2>Información:</h2>
+                      <Info>
+                        <h3>Nombre: </h3>
+                        <p>{instance.name}</p>
+                      </Info>
+                      <Info>
+                        <h3>OsType: </h3>
+                        <p>{instance.osType}</p>
+                      </Info>
+                      <Info>
+                        <h3>Instancia Id: </h3>
+                        <p>{instance.instanceId}</p>
+                      </Info>
+                      <Info>
+                        <h3>Region: </h3>
+                        <p>{instance.regionName}</p>
+                      </Info>
+                      <Info>
+                        <h3>RamMb: </h3>
+                        <p>{instance.ramMb}</p>
+                      </Info>
+                      <Info>
+                        <h3>Region: </h3>
+                        <p>{instance.region}</p>
+                      </Info>
+                      <Info>
+                        <h3>Instancia Ip: </h3>
+                        <p>{instance.ipConfig.v4.ip}</p>
+                      </Info>
+                      <Info>
+                        <h3>Status: </h3>
+                        <p>{instance.status}</p>
+                      </Info>
+                    </div>
+                  ))}
+                </Info>
+              </Cartas>
             ))}
-          </HeaderCartas>
-          <Iconos>
-            <ContenedorBotones>
-              <BsDisplay className="Status" />
-              <BsFillPlayCircleFill className="Start" />
-              <RiRestartFill className="Restart" />
-              <HiStop className="Stop" />
-              <BsToggle2Off className="Cloud-Init" />
-              <RiInstallFill className="Reinstall" />
-              <IoIosSave className="Rescue" />
-              <FaHistory className="Snap-Shots" />
-            </ContenedorBotones>
-            <PiComputerTowerFill className="pc" />
-          </Iconos>
-          <Info>
-            {data.map((instance) => (
-              <div key={instance.instanceId} className="info">
-                <h2>Información:</h2>
-                <Info><h3>Nombre: </h3><p>{instance.name}</p></Info>
-                <Info><h3>OsType: </h3><p>{instance.osType}</p></Info>
-                <Info><h3>Instancia Id: </h3><p>{instance.instanceId}</p></Info>
-                <Info><h3>Region: </h3><p>{instance.regionName}</p></Info>
-                <Info><h3>RamMb: </h3><p>{instance.ramMb}</p></Info>
-                <Info><h3>Region: </h3><p>{instance.region}</p></Info>
-                <Info><h3>Instancia Ip: </h3><p>{instance.ipConfig.v4.ip}</p></Info>
-              </div>
-            ))}
-          </Info>
-        </Cartas>
-        ))} 
-        </>
-      : 
-      <><h1>No se encontraron máquinas</h1>
-      <div className="loading"><Spinner className="spinner"/></div>
-      </>}
-      
+          </>
+        ) : (
+          <>
+            <div className="loading">
+              <Spinner className="spinner" />
+            </div>
+          </>
+        )}
       </Contenedor>
     </Principal>
   );
 };
 
 export default Home;
+
+
+
+  
