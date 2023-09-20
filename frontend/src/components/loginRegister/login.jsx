@@ -1,7 +1,8 @@
-import{Bienvenido, Boton, Cajainpu, Checkbox, Contaimput, Forgot, Imgwanto, Input, Principal, Remenber, Wanto,Cajaaa} from "./styles/styledLogin";
+import{Bienvenido, Boton, Cajainput, Checkbox, Contaimput, Forgot, Imgwanto, Input, Principal, Remenber, Wanto,Cajaaa} from "./styles/styledLogin";
 import wanto from "../asset/Wanto.svg";
 import{ useState } from "react";
 import axios from "axios";
+import {Link} from"react-router-dom"
 
 
 const Login = () => {
@@ -34,7 +35,7 @@ const Login = () => {
         <Imgwanto src={wanto}alt="wanto"></Imgwanto>
       </Wanto>
       <Contaimput>
-        <Cajainpu>  
+        <Cajainput>  
           <Input type="text" 
           onChange={(e) =>setCorreo(e.target.value)} 
           placeholder="Correo electronico"
@@ -46,15 +47,16 @@ const Login = () => {
           required/>
           <Cajaaa>
             <Forgot/>
-            <Forgot><h5>¿Forgot Password?</h5></Forgot>
+            <Forgot><Link to="/forgot" style={{textDecoration:"none"}}><h5>¿Forgot Password?</h5></Link></Forgot>
           </Cajaaa>
           <Remenber>
-            <Checkbox type="checkbox" />    
-            <h6>Remenber Password</h6>
+            <Checkbox type="checkbox"/>    
+            <h6 className="remenber">Remenber Password</h6>
           </Remenber>
           <Boton onClick={log}><h2>Sign In</h2></Boton>
-          <h6 style={{marginTop:"10px",cursor: "pointer"}}>¿don´t have account?</h6>
-        </Cajainpu>
+          <Link to="/register" style={{textDecoration:"none", color:"#000"}}>
+            <p className="account">¿don´t have account?</p></Link>
+        </Cajainput>
       </Contaimput>
     </Principal>
   )}

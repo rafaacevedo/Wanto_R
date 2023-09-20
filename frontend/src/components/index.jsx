@@ -5,6 +5,7 @@ import Home from "./home/home";
 import Config from "./config/confing";
 import Profile from "./profile/profile";
 import EditProfile from "./profile/edit_profile/edit_profile"
+import Forgot from "./forgot/forgot"
 
 const Main = () =>{
   return(
@@ -16,6 +17,7 @@ const Main = () =>{
         <Route path="/config" element={<Config/>}/>
         <Route path="/profile" element={<Profile/>}/>
         <Route path="/editProfile" element={<EditProfile/>}/>
+        <Route path="/forgot" element={<Forgot/>}/>
       </Routes>
     </div>
   )
