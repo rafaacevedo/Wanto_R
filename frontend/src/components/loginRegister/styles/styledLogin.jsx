@@ -50,7 +50,7 @@ export const Contaimput = styled.div`
   height: 50%;
 `;
 
-export const Cajainpu = styled.div`
+export const Cajainput = styled.div`
   background-color: #ffffff3b;
   box-shadow: 0px 0px 5px 5px #cecdcd88;
   display: flex;
@@ -75,22 +75,19 @@ export const Cajainpu = styled.div`
   
   ::placeholder {
   color: #000;
-  
 }
-.Remnber{
-    font-size: 20px;
+.account{
+    font-size: 16px;
     font-weight: 500;
     margin-top: 5px;
-    
   &:hover{
     transition: 0.3s all ease;
-    color: rgb(0,212,255);
+    color: rgb(0, 154, 185);
     text-decoration-line: underline;
     border-radius: 5px 5px 5px 5px;
     cursor: pointer;
   }
 }
-
 `
 
 export const Input = styled.input`
@@ -136,9 +133,9 @@ export const Remenber = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 30px;
-  h6{
-    font-weight: 600;
+  .remenber{
     font-size: 15px;
+    font-weight: 500;
     margin-top: 10px;
   }
 `
