@@ -1,4 +1,4 @@
-import{Bienvenido, Boton, Cajainpu,  Contaimput, Imgwanto, Input, Principal,  Wanto,} from "./styles/styledRegister"
+import{Bienvenido, Boton, Cajainpu, Imgwanto, Input, Principal,  Wanto,} from "./styles/styledRegister"
 import wanto from "../asset/Wanto.svg"
 import { FiChevronLeft } from "react-icons/fi";
 
@@ -16,18 +16,19 @@ const Register = () => {
       <Wanto>
         <Imgwanto src={wanto}alt="wanto"></Imgwanto>
       </Wanto>
-
-      <Contaimput>
         <Cajainpu>
-          <Input type="text" placeholder="First Name"/>
-          <Input type="text" placeholder="Last Name"/>
-          <Input type="number" placeholder="Phone Number "/>
-          <Input type="text" placeholder="Correo electronico"/>
-          <Input type="password" placeholder="Contraseña"/>
-          <Input type="password" placeholder="Confirmar Contraseña"/>
-          <Boton><h2>Sign Up</h2></Boton>
+          <form action="">
+            <p className="register">Register</p>
+            <Input type="text" placeholder="First Name"/>
+            <Input type="text" placeholder="Last Name"/>
+            <Input type="number" placeholder="Phone Number "/>
+            <Input type="text" placeholder="Email address"/>
+            <Input type="password" placeholder="Password"/>
+            <Input type="password" placeholder="confirm Password"/>
+            <Boton><h2>Sign Up</h2></Boton>
+          </form>
         </Cajainpu>
-      </Contaimput>
+      
     </Principal>
   )}
 

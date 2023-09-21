@@ -19,11 +19,11 @@ const conex = () => {
       </Wanto>
       <Contaimput>
         <Cajainpu>
-          <Olvidado><h4>¿Has olvidado la contraseña?</h4></Olvidado>
+          <Olvidado><h4>¿Forgotten password?</h4></Olvidado>
           <Olvidado style={{marginLeft:"15px", height:"60px"}}>
-            Le enviaremos un correo electrónico con un codigo para restablecer su contraseña, ingrese el correo electronico asociado con su cuenta. 
+          We will send you an email with a code to reset your password, enter the email address associated with your account.
           </Olvidado>
-          <Input type="text" placeholder="Correo electronico"/>
+          <Input type="text" placeholder="Email"/>
           <Botonol><h2>Sign In</h2></Botonol>
         </Cajainpu>
       </Contaimput>

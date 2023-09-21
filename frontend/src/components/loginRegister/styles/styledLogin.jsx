@@ -27,6 +27,7 @@ export const Bienvenido = styled.section`
 
   h1 {
     color: #fff;
+    font-size: 55px;
   }
 `;
 
@@ -105,7 +106,7 @@ export const Cajainput = styled.div`
 `;
 export const Input = styled.input`
   width: 70%;
-  height: 9%;
+  height: 10%;
   border-radius: 7px;
   margin-top: 40px;
   border: 2px solid #00000036;
@@ -129,6 +130,13 @@ export const Forgot = styled.div`
     font-size: 11px;
     font-weight: 600;
     cursor: pointer;
+    &:hover {
+      transition: 0.3s all ease;
+      color: rgb(0, 154, 185);
+      text-decoration-line: underline;
+      border-radius: 5px 5px 5px 5px;
+      cursor: pointer;
+    }
   }
 `;
 export const Cajaaa = styled.div`

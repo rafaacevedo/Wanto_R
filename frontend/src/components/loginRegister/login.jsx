@@ -30,7 +30,7 @@ const Login = () => {
 
   return(
     <Principal>
-      <Bienvenido><h1>¡Bienvenido!</h1></Bienvenido>
+      <Bienvenido><h1>¡Welcome!</h1></Bienvenido>
       <Wanto>
         <Imgwanto src={wanto}alt="wanto"></Imgwanto>
       </Wanto>
@@ -38,12 +38,12 @@ const Login = () => {
         <Cajainput>  
           <Input type="text" 
           onChange={(e) =>setCorreo(e.target.value)} 
-          placeholder="Correo electronico"
+          placeholder="Email address"
           required/>
           
           <Input type="password"  
           onChange={(e) =>setContraseña(e.target.value)} 
-          placeholder="Contraseña"
+          placeholder="Password"
           required/>
           <Cajaaa>
             <Forgot/>
