@@ -1,9 +1,11 @@
 import styled from "styled-components";
 
+
 export const Maincontainer = styled.div`
     width: 100%;
     height: 100vh;
     display: flex;
+    align-items: center;
     flex-direction: column;
     background-color: #fff;
 `
@@ -30,10 +32,9 @@ export const Header = styled.div`
 export const Tittle = styled.img`
     width: 70%;
     height: 100%;
-    margin-right: 50px;
     @media (max-width: 768px){
-        width: 30%;
-        height: 60%;
+        height: 80%;
+        width: 90%;
     }
 `
 
@@ -49,18 +50,18 @@ export const ContainerInfoUser = styled.div`
 `
 
 export const InfoUser = styled.img`
-    width: 8%;
+    width: 8.5%;
     height: 60%;
     background-color: #fff;
     margin-bottom: 20px;
-    @media (max-width: 768px){
+    @media (max-width: 750px){
         width: 30%;
         height: 60%;
     }
 `
 
 export const InfoName = styled.div`
-    width: 8%;
+    width: auto;
     height: 50%;
     flex-direction: column;
     display: flex;
@@ -88,7 +89,7 @@ export const ContainerMainUser = styled.div`
 
 export const ChangePassword = styled.button`
     height: 80px;
-    width: 30%;
+    width: 50%;
     margin-top: 25px;
     display: flex;
     align-items: center;
@@ -110,7 +111,7 @@ export const ChangePassword = styled.button`
         color: #1BC2FF;
     }
     @media (max-width: 768px){
-        width: 30%;
         height: 60%;
+        width: 80%;
     }
 `
