@@ -1,3 +1,4 @@
+/* eslint-disable no-constant-condition */
 import { Maincontainer, Tittle, ContainerInfoUser,  InfoName, InfoUser, ContainerMainUser, ChangePassword, Header } from "./styledProfile";
 import  Wanto                  from "../asset/Wanto.svg";
 import  perfilfinal            from "../asset/perfilfinal.png";
@@ -6,6 +7,7 @@ import {  RiLockPasswordLine } from "react-icons/ri";
 import { RiDeleteBin5Line }    from "react-icons/ri";
 import { TbLogout }            from "react-icons/tb";
 import { AiOutlineArrowLeft }  from "react-icons/ai";
+import swal from "sweetalert";
 
 
 const Profile = () => {
@@ -17,6 +19,14 @@ const Profile = () => {
             alert(error)
         }
         }
+        
+    const edit = () => {
+        try {
+            window.location.href = "http://localhost:5173/editprofile";
+        } catch (error) {
+            alert(error);
+        }
+        };
     return (
         <Maincontainer>
 
@@ -35,7 +45,7 @@ const Profile = () => {
             </ContainerInfoUser>
 
             <ContainerMainUser>
-                <ChangePassword>
+                <ChangePassword onClick={edit}>
                     <BiSolidEdit className="icono"/><h2> Edit Profile </h2>
                 </ChangePassword>
                 <ChangePassword>
@@ -44,7 +54,18 @@ const Profile = () => {
                 <ChangePassword>
                     <RiDeleteBin5Line className="icono"/><h2> Delete Account </h2>
                 </ChangePassword>
-                <ChangePassword>
+                <ChangePassword  onClick={() => {
+                if (true) {
+                swal({
+                    title: "¿Seguro que quieres salir?",
+                    buttons: true,
+                }).then((confirm) => {
+                    if (confirm) {
+                    window.location.href = "http://localhost:5173/login";
+                    }
+                });
+                }
+            }} >
                     <TbLogout className="icono"/><h2> Logout </h2>
                 </ChangePassword>
             </ContainerMainUser>

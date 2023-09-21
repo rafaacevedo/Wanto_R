@@ -3,7 +3,9 @@ import styled from "styled-components";
 export const ContainerBody = styled.div`
     width: 50%;
     height: 85%;
+    background-color: #fff;
     box-sizing: border-box;
+    margin-left: 150px;
     .botones{
         height: auto;
         width: 85%;
@@ -17,6 +19,15 @@ export const Containerimg = styled.img`
     width: 11%;
     background-color: #fff;
 `;
+
+export const Tittle1 = styled.img`
+    width: 70%;
+    height: 100%;
+    @media (max-width: 768px){
+        height: 80%;
+        width: 90%;
+    }
+`
 
 export const Tiltle = styled.div`
     height: 20%;

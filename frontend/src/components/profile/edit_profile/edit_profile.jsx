@@ -1,16 +1,25 @@
-import { Header, Maincontainer, Tittle } from "../styledProfile";
-import {ContainerBody, Tiltle, FullName, InforUser, Containerimg, ButtUser} from "../edit_profile/styledEdit_profile";
+import { Header, Maincontainer} from "../styledProfile";
+import {ContainerBody, Tittle1 , Tiltle, FullName, InforUser, Containerimg, ButtUser} from "../edit_profile/styledEdit_profile";
 import  Wanto  from "../../asset/Wanto.svg";
 import  Perfilfinal  from "../../asset/perfilfinal.png";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 
 const editprofile = () => {
+
+const ret = () => {
+    try {
+        window.location.href = "http://localhost:5173/profile";
+    } catch (error) {
+        alert(error);
+    }
+    };
     return (
         <Maincontainer style={{ display: "flex", alignItems: "center" }}>
         <Header>
-            <AiOutlineArrowLeft className="volver" />
-            <Tittle src={Wanto} alt="Wanto" />
+            <AiOutlineArrowLeft onClick={ret} className="volver" />
+            <Tittle1 src={Wanto} alt="Wanto" />
             <AiOutlineArrowLeft className="invisible" />
+            <AiOutlineArrowLeft className="invisible"/>
         </Header>
         <ContainerBody>
             <Tiltle>
@@ -48,7 +57,7 @@ const editprofile = () => {
             </InforUser>
             <div className="botones">
                 <ButtUser>Save</ButtUser>
-                <ButtUser>Cancel </ButtUser>
+                <ButtUser onClick={ret}>Cancel </ButtUser>
             </div>
         </ContainerBody>
         </Maincontainer>
