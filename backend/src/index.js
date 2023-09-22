@@ -6,7 +6,7 @@ import axios from "axios";
 import cron from "node-cron";
 
 const app = express()
-const port = 3000;
+const port = 3005;
 app.use(express.json());
 app.use(cors());
 app.use(morgan('dev'))

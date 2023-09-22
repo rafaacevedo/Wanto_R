@@ -25,7 +25,7 @@ const Home = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await axios.get("http://localhost:3000/api/data");
+        const response = await axios.get("http://localhost:3005/api/data");
 
         if (Array.isArray(response.data.data)) {
           // Verifica si los datos son un array
