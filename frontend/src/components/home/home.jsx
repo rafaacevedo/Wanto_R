@@ -1,6 +1,6 @@
 import axios from "axios";
 import "../../index.css";
-import {Cartas,Contenedor,ContenedorBotones,Header,HeaderCartas,Iconos,Info,Invisible,Principal,} from "./styledHome";
+import { Cartas, Contenedor, ContenedorBotones, Header, HeaderCartas, Iconos, Info, Invisible, Principal, } from "./styledHome";
 import { useEffect, useState } from "react";
 import { Spinner } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -100,7 +100,7 @@ const Home = () => {
                     <IoIosSave className="Rescue" />
                     <FaHistory className="Snap-Shots" />
                   </ContenedorBotones>
-                  <PiComputerTowerFill className="pc" style={instance.status === "running" ? {fill:"#5C8E24"} : {fill:"grey"}} />
+                  <PiComputerTowerFill className="pc" style={instance.status === "running" ? { fill: "#5C8E24" } : { fill: "grey" }} />
                 </Iconos>
                 <Info>
                   {data.map((instance) => (
