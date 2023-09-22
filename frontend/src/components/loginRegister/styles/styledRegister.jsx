@@ -5,6 +5,7 @@ export const Principal = styled.section`
   width: 100%;
   height: 100vh;
   display: flex;
+  align-items: center;
   flex-direction: column;
   background-image: url(${blanco});
   background-size: cover;
@@ -49,7 +50,7 @@ height: 80%;
 `;
 
 export const Contaimput = styled.div`
-  /* background-color:#000; */
+  background-color:#000;
   display: flex;
   justify-content: center;
   width: 100%;
@@ -61,12 +62,12 @@ export const Cajainpu = styled.div`
   box-shadow: 0px 0px 5px 5px #cecdcd88;
   display: flex;
   align-items: center;
- /*  justify-content:space-between; */
+  justify-content:center;
   padding: 1%;
   flex-direction: column;
   box-sizing: border-box;
   width: 25%;
-  height: 100%;
+  height: 60%;
   border-radius: 20px;
   transition:all 1s ease-out; ;
   &:hover{
@@ -79,6 +80,21 @@ export const Cajainpu = styled.div`
   ::placeholder {
   color: #000;
 }
+form{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.register{
+    color: #000;
+    font-size: 40px;
+  }
+  .register{
+    color:#000;
+  }
 `
 
 export const Input = styled.input`
