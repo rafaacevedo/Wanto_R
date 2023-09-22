@@ -6,7 +6,6 @@ import { Spinner } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BiSolidUserCircle } from "react-icons/bi";
 import { SlLogout } from "react-icons/sl";
-import { CgMenuRound } from "react-icons/cg";
 import { BsDisplay } from "react-icons/bs";
 import { RiRestartFill } from "react-icons/ri";
 import { BsFillPlayCircleFill } from "react-icons/bs";
@@ -42,9 +41,8 @@ const Home = () => {
         setLoading(false);
       }
     }
-
     fetchData();
-  }, []);
+  }, [setLoading,setError]);
 
   const ret = () => {
     try {
@@ -125,10 +123,6 @@ const Home = () => {
                       <Info>
                         <h3>RamMb: </h3>
                         <p>{instance.ramMb}</p>
-                      </Info>
-                      <Info>
-                        <h3>Region: </h3>
-                        <p>{instance.region}</p>
                       </Info>
                       <Info>
                         <h3>Instancia Ip: </h3>

@@ -99,6 +99,7 @@ export const ChangePassword = styled.button`
     cursor: pointer;
     border: none;
     border-bottom: 2px solid #1BC2FF;
+    background-color:  transparent;
     &:hover{
         border-bottom: 3px solid #1BC2FF;
     }
