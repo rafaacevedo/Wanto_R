@@ -80,7 +80,7 @@ export const Contenedor = styled.div`
 `
 
 export const Cartas = styled.div`
-    width: 40vh;
+    width: 20%;
     height: 100%;
     margin: 10px;
     display: flex;
@@ -120,8 +120,8 @@ export const Cartas = styled.div`
     li{
         margin-left: 20px;
     }
-    @media (min-width: 375px) and (max-height: 896px) {
-    width: auto;
+    @media (min-width: 280px) and (max-height: 1000px) {
+    width: 85%;
     height: auto;
     margin: auto;
     display: flex;
@@ -158,37 +158,63 @@ export const Cartas = styled.div`
         margin-left: 20px;
     }
 }
-   
+@media (min-height: 100px){
+    width: 85%;
+    height: auto;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    border: 1px solid grey;
+    h1{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .pc{
+        margin-top: 40px;
+        font-size: 200px;
+        color: silver;
+    }
+    h2{
+        margin: 30px 0px 20px 20px;
+    }
+    .info{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .Carta_infor{
+        width: 100%;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        flex-direction: column  ;
+    }
+    li{
+        margin-left: 20px;
+    }
+}
+@media (min-width: 500px){
+    width: 400px;
+}
 `
 
 export const HeaderCartas = styled.div`
-    height: 13%;
+    height: 13;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 20px 20px 0px 0px;
     border-bottom: 1px solid grey;
-    .titulo{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-left: -1px;
         h1{
             color: #201B6F;
             font-size: 40px;
             font-family: 'Poppins', sans-serif;
             font-weight: 600;
         }
-    }
-    .menu{
-        color: #1BC2FF;
-        font-size: 50px;
-        cursor: pointer;
-        &:hover{
-            color: #201B6F;
-        }
-    }
 `
 
 export const ContenedorBotones = styled.div`
@@ -237,7 +263,7 @@ export const ContenedorBotones = styled.div`
         color: #068EEB;
     }
     @media (min-width: 375px) and (max-height: 856px) {
-         width: 25%;
+    width: 25%;
     height: 50%;
     display: flex;
     align-content: center;

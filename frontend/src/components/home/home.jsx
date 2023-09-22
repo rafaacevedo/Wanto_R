@@ -6,7 +6,6 @@ import { Spinner } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BiSolidUserCircle } from "react-icons/bi";
 import { SlLogout } from "react-icons/sl";
-import { CgMenuRound } from "react-icons/cg";
 import { BsDisplay } from "react-icons/bs";
 import { RiRestartFill } from "react-icons/ri";
 import { BsFillPlayCircleFill } from "react-icons/bs";
@@ -42,9 +41,8 @@ const Home = () => {
         setLoading(false);
       }
     }
-
     fetchData();
-  }, []);
+  }, [setLoading,setError]);
 
   const ret = () => {
     try {
@@ -61,6 +59,7 @@ const Home = () => {
         <h1>Control-Vps</h1>
         <SlLogout
           onClick={() => {
+            // eslint-disable-next-line no-constant-condition
             if (true) {
               swal({
                 title: "¿Seguro que quieres salir?",
@@ -85,7 +84,6 @@ const Home = () => {
                   {data.map((instance) => (
                     <div key={instance.instanceId} className="titulo">
                       <h1 className="titulo">{instance.ipConfig.v4.ip}</h1>
-                      <CgMenuRound className="menu" />
                     </div>
                   ))}
                 </HeaderCartas>
@@ -125,10 +123,6 @@ const Home = () => {
                       <Info>
                         <h3>RamMb: </h3>
                         <p>{instance.ramMb}</p>
-                      </Info>
-                      <Info>
-                        <h3>Region: </h3>
-                        <p>{instance.region}</p>
                       </Info>
                       <Info>
                         <h3>Instancia Ip: </h3>
