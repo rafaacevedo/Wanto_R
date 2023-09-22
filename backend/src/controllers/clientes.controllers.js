@@ -56,3 +56,12 @@ export const logeoCliente = async ( req, res ) => {
         res.status( 500 ).json({ error: "Error del servidor" });
 }
 };
+
+export const getRegistro = async(req,res) => {
+    try {
+        const[data] = await pool.query("SELECT * FROM clientes")
+        res.send(data)
+    } catch (error) {
+        res.status( 500 ).json({ error: "Error del servidor" });
+    }
+}
