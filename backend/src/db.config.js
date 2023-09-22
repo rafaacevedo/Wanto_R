@@ -8,3 +8,5 @@ export const pool = createPool({
    password:"",
    database:"wanto"
 });
+
+export const SECRET = "CLAVESUPERSECRETA"

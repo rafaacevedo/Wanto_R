@@ -6,7 +6,7 @@ import { BiSolidEdit }         from "react-icons/bi";
 import {  RiLockPasswordLine } from "react-icons/ri";
 import { RiDeleteBin5Line }    from "react-icons/ri";
 import { TbLogout }            from "react-icons/tb";
-import { AiOutlineArrowLeft }  from "react-icons/ai";
+import { FiChevronLeft } from "react-icons/fi";
 import swal from "sweetalert";
 
 
@@ -31,13 +31,13 @@ const Profile = () => {
         <Maincontainer>
 
             <Header>
-                <AiOutlineArrowLeft onClick={ret} className="volver"/>
+                <FiChevronLeft onClick={ret} className="volver"/>
                 <Tittle src={Wanto}alt="Wanto"/> 
-                <AiOutlineArrowLeft className="invisible"/>
+                <FiChevronLeft className="invisible"/>
             </Header>
 
             <ContainerInfoUser> 
-            <InfoUser src={perfilfinal} alt="perfilfinal"/> 
+                <InfoUser src={perfilfinal} alt="perfilfinal"/> 
                 <InfoName>
                     <h2>  Daniel Diaz </h2>
                     <h3> Daniel20@gmail.com </h3>

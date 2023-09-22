@@ -61,6 +61,7 @@ const Home = () => {
         <h1>Control-Vps</h1>
         <SlLogout
           onClick={() => {
+            // eslint-disable-next-line no-constant-condition
             if (true) {
               swal({
                 title: "¿Seguro que quieres salir?",
@@ -85,7 +86,6 @@ const Home = () => {
                   {data.map((instance) => (
                     <div key={instance.instanceId} className="titulo">
                       <h1 className="titulo">{instance.ipConfig.v4.ip}</h1>
-                      <CgMenuRound className="menu" />
                     </div>
                   ))}
                 </HeaderCartas>

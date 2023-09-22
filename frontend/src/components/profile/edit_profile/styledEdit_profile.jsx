@@ -1,11 +1,12 @@
 import styled from "styled-components";
 
 export const ContainerBody = styled.div`
-    width: 50%;
+    width: 450px;
     height: 85%;
-    background-color: #fff;
     box-sizing: border-box;
-    margin-left: 150px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     .botones{
         height: auto;
         width: 85%;
@@ -16,12 +17,11 @@ export const ContainerBody = styled.div`
 `;
 
 export const Containerimg = styled.img`
-    width: 11%;
-    background-color: #fff;
+    width: 30%;
 `;
 
 export const Tittle1 = styled.img`
-    width: 70%;
+    width: 100%;
     height: 100%;
     @media (max-width: 768px){
         height: 80%;
@@ -45,24 +45,22 @@ export const Tiltle = styled.div`
 export const FullName = styled.div`
     height: 10%;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
 div {
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
     width: 100%;
     height: 100%;
     font-size: 20px;
 }
 input {
-    width: 60%;
+    width: 70%;
     height: 50%;
     border-radius: 7px;
-    margin-top: 20px;
     border: 2px solid #00000036;
     outline-color: rgb(0, 212, 255);
     border-color: #242077;
-    padding: 2px;
     &:hover {
     border-color: rgb(0, 212, 255);
     }
@@ -70,25 +68,22 @@ input {
 `;
 
 export const InforUser = styled.div`
-    height: 55%;
+    height: 35%;
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #ffffff;
 
 .Inputs {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
     font-size: 20px;
     width: 100%;
-    height: 100%;
+    height: 35%;
 }
 input {
     width: 80%;
-    height: 22%;
+    height: 52%;
     border-radius: 7px;
     margin-top: 20px;
     border: 2px solid #00000036;

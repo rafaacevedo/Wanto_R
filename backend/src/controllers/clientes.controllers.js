@@ -1,6 +1,8 @@
 import { pool } from '../db.config.js';
 import { encryptPassword } from '../helpers/bcryptjs.js'
 import { compare } from '../helpers/bcryptjs.js';
+import jwt from "jsonwebtoken";
+import { SECRET } from "../db.config.js";
 
 export const registrarCliente = async ( req, res ) => {
     try {
@@ -43,9 +45,14 @@ export const logeoCliente = async ( req, res ) => {
         const compassword = await compare( contraseña, rows[ 0 ].contraseña );
     console.log( compassword,"aqui comparas" );
     if( compassword ){
-            res.status( 200 ).json({
-                message:"usuario ingresado"
-        });
+        const accessToken = jwt.sign(
+            { id: rows[0].id_cliente, correo: rows[0].correo},
+            SECRET,
+            {
+              expiresIn: "7h",
+            }
+          );
+          return res.status(200).json(accessToken);
     }else{
         res.status( 400 ).send( "el usuario no existe" )
     }
