@@ -1,6 +1,6 @@
 import axios from "axios";
 import "../../index.css";
-import { Cartas, Contenedor, ContenedorBotones, Header, HeaderCartas, Iconos, Info, Invisible, Principal, } from "./styledHome";
+import { Cartas, Contenedor, ContenedorBotones, Header, HeaderCartas, Iconos, Info, Invisible, Principal } from "./styledHome";
 import { useEffect, useState } from "react";
 import { Spinner } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -21,6 +21,8 @@ const Home = () => {
   const [data, setData] = useState([]);
   const [/* loading, */ setLoading] = useState(true);
   const [/* error,  */ setError] = useState(null);
+  const [accessToken, setAccessToken] = useState('');
+
   useEffect(() => {
     async function fetchData() {
       try {
@@ -42,7 +44,18 @@ const Home = () => {
       }
     }
     fetchData();
-  }, [setLoading,setError]);
+
+    // Obtiene el token de acceso al cargar la página
+    async function fetchAccessToken() {
+      try {
+        const response = await axios.get("http://localhost:3005/api/token");
+        setAccessToken(response.data.accessToken);
+      } catch (error) {
+        console.error('Error al obtener el token de acceso:', error);
+      }
+    }
+    fetchAccessToken();
+  }, [setLoading, setError]);
 
   const ret = () => {
     try {
@@ -52,15 +65,31 @@ const Home = () => {
     }
   };
 
-  const detenerMaquina = async (instanceId) => {
+  const stopMachine = async (machineId) => {
     try {
-      await axios.post(`http://localhost:3005/api/stop/${instanceId}`);
-      
+      const config = {
+        headers: {
+          'Authorization': `Bearer ${accessToken}`,
+          'x-request-id': '04e0f898-37b4-48bc-a794-1a57abe6aa31',
+          'x-trace-id': '123213',
+        },
+      };
+
+      const response = await axios.post(`https://api.contabo.com/v1/compute/instances/${machineId}/actions/stop`, {}, config);
+
+      if (response.status === 200) {
+        // La solicitud de detención se envió correctamente.
+        // Puedes realizar alguna acción adicional si es necesario.
+        console.log("Solicitud de detención enviada correctamente.");
+      } else {
+        // Error al enviar la solicitud de detención.
+        console.error("Error al enviar la solicitud de detención.");
+      }
     } catch (error) {
-      console.error('Error al detener la máquina virtual:', error);
+      console.error("Error al enviar la solicitud de detención:", error);
+      swal("Error", "Hubo un problema al detener la máquina.", "error");
     }
   };
-  
 
   return (
     <Principal>
@@ -102,9 +131,7 @@ const Home = () => {
                     <BsDisplay className="Status" />
                     <BsFillPlayCircleFill className="Start" />
                     <RiRestartFill className="Restart" />
-                    <HiStop className="Stop"  onClick={()=>{
-                      detenerMaquina()
-                    }}/>
+                    <HiStop className="Stop" onClick={() => stopMachine(instance.instanceId)} /> {/* Agregar el evento onClick para detener */}
                     <BsToggle2Off className="Cloud-Init" />
                     <RiInstallFill className="Reinstall" />
                     <IoIosSave className="Rescue" />
