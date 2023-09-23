@@ -1,5 +1,5 @@
-import React, { useState } from "react";
 import axios from "axios";
+
 import {
   Bienvenido,
   Boton,
@@ -11,7 +11,7 @@ import {
 } from "./styles/styledRegister";
 import wanto from "../asset/Wanto.svg";
 import { FiChevronLeft } from "react-icons/fi";
-
+import { useState } from "react";
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -20,7 +20,6 @@ const Register = () => {
   const [number, setNumber] = useState("");
 
   const handleSubmit = async () => {
-
     if (
       email === "" ||
       password === "" ||
