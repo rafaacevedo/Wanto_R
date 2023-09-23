@@ -49,7 +49,7 @@ export const logeoCliente = async ( req, res ) => {
             { id: rows[0].id_cliente, correo: rows[0].correo},
             SECRET,
             {
-              expiresIn: "7h",
+                expiresIn: "7h",
             }
           );
           return res.status(200).json(accessToken);
