@@ -52,6 +52,16 @@ const Home = () => {
     }
   };
 
+  const detenerMaquina = async (instanceId) => {
+    try {
+      await axios.post(`http://localhost:3005/api/stop/${instanceId}`);
+      
+    } catch (error) {
+      console.error('Error al detener la máquina virtual:', error);
+    }
+  };
+  
+
   return (
     <Principal>
       <Header>
@@ -92,7 +102,9 @@ const Home = () => {
                     <BsDisplay className="Status" />
                     <BsFillPlayCircleFill className="Start" />
                     <RiRestartFill className="Restart" />
-                    <HiStop className="Stop" />
+                    <HiStop className="Stop"  onClick={()=>{
+                      detenerMaquina()
+                    }}/>
                     <BsToggle2Off className="Cloud-Init" />
                     <RiInstallFill className="Reinstall" />
                     <IoIosSave className="Rescue" />

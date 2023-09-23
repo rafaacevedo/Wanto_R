@@ -25,7 +25,7 @@ const Register = () => {
         <Imgwanto src={wanto}alt="wanto"></Imgwanto>
       </Wanto>
         <Cajainpu>
-          <form action="">
+          <form >
             <p className="register">Register</p>
             <Input type="text"
             placeholder="First Name"
