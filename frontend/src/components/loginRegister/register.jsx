@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import swal from 'sweetalert';
 import {
   Bienvenido,
   Boton,
@@ -27,10 +27,14 @@ const Register = () => {
       lastname === "" ||
       number === ""
     ) {
-      alert("Por favor llenar todos los campos requeridos");
+      swal({
+        title: "Ingresa informacion en el formulario",
+        text: "You clicked the button!",
+        icon: "error",
+        button: "confirm",
+      });
       return;
     }
-
     try {
       const response = await axios.post("http://localhost:3005/register", {
         correo: email,
@@ -63,7 +67,7 @@ const Register = () => {
       </Wanto>
       <Cajainpu>
         <form>
-          <p className="register">Register</p>
+          {/* <p className="register">Register</p> */}
           <Input
             type="text"
             placeholder="First Name"

@@ -92,7 +92,7 @@ const Home = () => {
                     <BsDisplay className="Status" />
                     <BsFillPlayCircleFill className="Start" />
                     <RiRestartFill className="Restart" />
-                    <HiStop className="Stop" />
+                    <HiStop className="Stop"/>
                     <BsToggle2Off className="Cloud-Init" />
                     <RiInstallFill className="Reinstall" />
                     <IoIosSave className="Rescue" />
