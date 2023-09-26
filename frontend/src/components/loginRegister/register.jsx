@@ -28,10 +28,9 @@ const Register = () => {
       number === ""
     ) {
       swal({
-        title: "Ingresa informacion en el formulario",
-        text: "You clicked the button!",
+        title: "Enter information in the form",
         icon: "error",
-        button: "confirm",
+        button: "Try again",
       });
       return;
     }
@@ -67,7 +66,6 @@ const Register = () => {
       </Wanto>
       <Cajainpu>
         <form>
-          {/* <p className="register">Register</p> */}
           <Input
             type="text"
             placeholder="First Name"
@@ -83,10 +81,10 @@ const Register = () => {
             required
           />
           <Input
-            type="number"
+            type="text"
             placeholder="Phone Number"
             value={number}
-            onChange={(e) => setNumber(e.target.value)}
+            onChange={(e) => setNumber(e.target.replace(/[^0-9]/g, ''))}
             required
           />
           <Input
