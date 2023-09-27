@@ -17,10 +17,15 @@ import { FaHistory } from "react-icons/fa";
 import { PiComputerTowerFill } from "react-icons/pi";
 import swal from "sweetalert";
 
+
+
 const Home = () => {
   const [data, setData] = useState([]);
   const [/* loading, */ setLoading] = useState(true);
   const [/* error,  */ setError] = useState(null);
+
+  
+
   useEffect(() => {
     async function fetchData() {
       try {
@@ -42,6 +47,7 @@ const Home = () => {
       }
     }
     fetchData();
+    
   }, [setLoading,setError]);
 
   const ret = () => {
@@ -52,6 +58,9 @@ const Home = () => {
     }
   };
 
+
+
+  
   return (
     <Principal>
       <Header>

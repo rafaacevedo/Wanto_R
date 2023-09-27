@@ -15,6 +15,8 @@ app.use(express.json());
 let accessToken = '';
 let accessTokenPromise = null;
 
+const instances = 201445770
+
 // Función para autenticar y actualizar el token
 const autenticarYActualizarToken = async () => {
     try {
@@ -44,6 +46,8 @@ const autenticarYActualizarToken = async () => {
 cron.schedule('5 * * * * *', () => {
     accessTokenPromise = autenticarYActualizarToken();
 });
+
+
 
 
 // Ruta para obtener el token
@@ -81,3 +85,28 @@ app.use(router)
 app.listen(port, () => {
     console.log(`Servidor proxy en funcionamiento en http://localhost:${port}`)
 });
+
+
+console.log(instances)
+
+
+app.post('/api/stop', async (req, res) => {
+    try {
+        const config = {
+            headers: {
+            'Authorization': `Bearer ${accessToken}`, // Utiliza el token de acceso generado automáticamente
+            'x-request-id': '04e0f898-37b4-48bc-a794-1a57abe6aa31',
+            'x-trace-id': '123213',
+            },
+        };
+    const response = await axios.post(`https://api.contabo.com/v1/compute/instances/201445770/actions/stop`, config);
+    console.log("me ejecute");
+    res.send(response);
+    console.log(response,"aqui response start")
+  } catch (error) {
+    console.error('Error en la solicitud a la API de Contabo:', error);
+    res.status(500).json({ error: 'Error en la solicitud a la API de Contabo' });
+    console.log(error,"stop en backend ")
+  }
+  });
+  
