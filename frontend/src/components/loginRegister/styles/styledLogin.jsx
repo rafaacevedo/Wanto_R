@@ -90,7 +90,7 @@ export const Cajainput = styled.div`
   @media (max-width: 768px) {
     width: 90%;
   }
-  @media (max-width: 976px) {
+  @media (max-width: 1051px) {
     width: 50%;
   }
   @media (max-width: 844px) and (max-height: 853px) {
@@ -108,12 +108,12 @@ export const Cajainput = styled.div`
     margin-top: 5px;
     &:hover {
       transition: 0.3s all ease;
-      color: rgb(0, 154, 185);
-      text-decoration-line: underline;
+      color: rgb(0, 154, 185) ;
       border-radius: 5px 5px 5px 5px;
       cursor: pointer;
     }
   }
+
 `;
 export const Input = styled.input`
   width: 70%;
@@ -124,7 +124,7 @@ export const Input = styled.input`
   outline-color: rgb(0, 212, 255);
   border-color: #242077;
   padding: 2px;
-  :hover {
+  &:hover {
     border-color: rgb(0, 212, 255);
   }
 `;
@@ -166,9 +166,9 @@ export const Remenber = styled.div`
   align-items: center;
   margin-bottom: 30px;
   .remenber {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 500;
-    margin-top: 10px;
+    margin-top: 7px;
   }
 `;
 export const Checkbox = styled.input`

@@ -76,8 +76,17 @@ export const Cajainpu = styled.div`
     box-shadow: 0px 0px 5px 5px #808080;
     transition: all 0.8s ease;
   }
-  @media (max-width: 976px) {
+  @media (max-width: 768px) {
     width: 90%;
+  }
+  @media (max-width: 1051px) {
+    width: 50%;
+  }
+  @media (max-width: 844px) and (max-height: 853px) {
+    width: 80%;
+  }
+  @media (max-width: 533px) {
+    width: 80%;
   }
   ::placeholder {
     color: #000;
@@ -101,7 +110,7 @@ export const Input = styled.input`
   outline-color: rgb(0, 212, 255);
   border-color: #242077;
   padding: 2px;
-  :hover {
+  &:hover {
     border-color: rgb(0, 212, 255);
   }
 `;

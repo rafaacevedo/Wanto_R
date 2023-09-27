@@ -74,9 +74,19 @@ export const Cajainpu = styled.div`
     box-shadow: 0px 0px 5px 5px #808080;
     transition: all 0.8s ease;
   }
-  @media (max-width: 768px){
+  @media (max-width: 768px) {
     width: 90%;
   }
+  @media (max-width: 1051px) {
+    width: 50%;
+  }
+  @media (max-width: 844px) and (max-height: 853px) {
+    width: 80%;
+  }
+  @media (max-width: 533px) {
+    width: 80%;
+  }
+  
   ::placeholder {
   color: #000;
 }
@@ -93,7 +103,9 @@ form{
     font-size: 40px;
   }
   .register{
-    color:#000;
+    color: red;
+    display: flex
+    
   }
 `
 
