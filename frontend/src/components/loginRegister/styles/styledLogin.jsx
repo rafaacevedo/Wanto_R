@@ -43,7 +43,16 @@ export const Imgwanto = styled.img`
   width: 30%;
   height: 80%;
   @media (max-width: 768px) {
-    width: 60%;
+    width: 90%;
+  }
+  @media (max-width: 976px) {
+    width: 50%;
+  }
+  @media (max-width: 844px) and (max-height: 853px) {
+    width: 80%;
+  }
+  @media (max-width: 533px) {
+    width: 80%;
   }
 `;
 
@@ -87,7 +96,9 @@ export const Cajainput = styled.div`
   @media (max-width: 844px) and (max-height: 853px) {
     width: 80%;
   }
-
+  @media (max-width: 533px) {
+    width: 80%;
+  }
   ::placeholder {
     color: #000;
   }

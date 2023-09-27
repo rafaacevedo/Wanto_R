@@ -1,5 +1,4 @@
 import axios from "axios";
-
 import "../../index.css";
 import { Cartas, Contenedor, ContenedorBotones, Header, HeaderCartas, Iconos, Info, Invisible, Principal, } from "./styledHome";
 import { useEffect, useState } from "react";
@@ -26,14 +25,7 @@ const Home = () => {
   const [/* error,  */ setError] = useState(null);
 
   
-const Stop = async () => {
-  try {
-    const res = await axios.post(`http://localhost:3005/api/stop`)
-    console.log("aqui entra stop",res.data)
-  } catch (error) {
-    console.log(error)
-  }
-}
+
   useEffect(() => {
     async function fetchData() {
       try {
@@ -65,6 +57,7 @@ const Stop = async () => {
       alert(error);
     }
   };
+
 
 
   
@@ -108,7 +101,7 @@ const Stop = async () => {
                     <BsDisplay className="Status" />
                     <BsFillPlayCircleFill className="Start" />
                     <RiRestartFill className="Restart" />
-                    <HiStop className="Stop"  onClick={() => Stop()}/>
+                    <HiStop className="Stop" />
                     <BsToggle2Off className="Cloud-Init" />
                     <RiInstallFill className="Reinstall" />
                     <IoIosSave className="Rescue" />

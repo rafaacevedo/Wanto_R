@@ -49,7 +49,7 @@ export const logeoCliente = async ( req, res ) => {
             { id: rows[0].id_cliente, correo: rows[0].correo},
             SECRET,
             {
-              expiresIn: "7h",
+                expiresIn: "7h",
             }
           );
           return res.status(200).json(accessToken);
@@ -64,3 +64,11 @@ export const logeoCliente = async ( req, res ) => {
 }
 };
 
+export const getRegistro = async(req,res) => {
+    try {
+        const[data] = await pool.query("SELECT * FROM clientes")
+        res.send(data)
+    } catch (error) {
+        res.status( 500 ).json({ error: "Error del servidor" });
+    }
+}
