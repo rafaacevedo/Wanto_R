@@ -1,4 +1,5 @@
 import axios from "axios";
+
 import "../../index.css";
 import { Cartas, Contenedor, ContenedorBotones, Header, HeaderCartas, Iconos, Info, Invisible, Principal, } from "./styledHome";
 import { useEffect, useState } from "react";
@@ -17,10 +18,22 @@ import { FaHistory } from "react-icons/fa";
 import { PiComputerTowerFill } from "react-icons/pi";
 import swal from "sweetalert";
 
+
+
 const Home = () => {
   const [data, setData] = useState([]);
   const [/* loading, */ setLoading] = useState(true);
   const [/* error,  */ setError] = useState(null);
+
+  
+const Stop = async () => {
+  try {
+    const res = await axios.post(`http://localhost:3005/api/stop`)
+    console.log("aqui entra stop",res.data)
+  } catch (error) {
+    console.log(error)
+  }
+}
   useEffect(() => {
     async function fetchData() {
       try {
@@ -42,6 +55,7 @@ const Home = () => {
       }
     }
     fetchData();
+    
   }, [setLoading,setError]);
 
   const ret = () => {
@@ -52,6 +66,8 @@ const Home = () => {
     }
   };
 
+
+  
   return (
     <Principal>
       <Header>
@@ -92,7 +108,7 @@ const Home = () => {
                     <BsDisplay className="Status" />
                     <BsFillPlayCircleFill className="Start" />
                     <RiRestartFill className="Restart" />
-                    <HiStop className="Stop" />
+                    <HiStop className="Stop"  onClick={() => Stop()}/>
                     <BsToggle2Off className="Cloud-Init" />
                     <RiInstallFill className="Reinstall" />
                     <IoIosSave className="Rescue" />
