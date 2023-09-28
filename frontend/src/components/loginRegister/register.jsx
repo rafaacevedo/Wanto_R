@@ -1,5 +1,5 @@
 import axios from "axios";
-import swal from 'sweetalert';
+import swal from "sweetalert";
 import {
   Bienvenido,
   Boton,
@@ -19,7 +19,8 @@ const Register = () => {
   const [lastname, setLastName] = useState("");
   const [number, setNumber] = useState("");
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault()
     if (
       email === "" ||
       password === "" ||
@@ -33,6 +34,17 @@ const Register = () => {
         button: "Try again",
       });
       return;
+    }
+    else{
+      swal({
+        title: "correctly stored information",
+        icon: "success",
+        button: "back to login",
+      }).then((confirm) => {
+        if (confirm) {
+          window.location.href = "http://localhost:5173/login";
+        }
+      });
     }
     try {
       const response = await axios.post("http://localhost:3005/register", {
@@ -84,7 +96,7 @@ const Register = () => {
             type="text"
             placeholder="Phone Number"
             value={number}
-            onChange={(e) => setNumber(e.target.value.replace(/[^0-9]/g,""))}
+            onChange={(e) => setNumber(e.target.value.replace(/[^0-9]/g, ""))}
             required
           />
           <Input
