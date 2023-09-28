@@ -61,7 +61,7 @@ export const InfoUser = styled.img`
         width: 30%;
         height: 60%;
     }
-    @media (min-width: 650px){
+    @media (min-width: 465px){
         width: 150px;
     }
 `
