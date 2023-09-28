@@ -99,6 +99,15 @@ export const Cajainput = styled.div`
   @media (max-width: 533px) {
     width: 80%;
   }
+  @media (min-width: 533px) and (max-width: 500px) {
+    width: 80%;
+  }
+  @media (min-width: 501px) and (max-width: 720px) {
+    width: 60%;
+  }
+  @media (min-width: 1051px) and (max-width: 1300px) {
+    width: 30%;
+  }
   ::placeholder {
     color: #000;
   }
