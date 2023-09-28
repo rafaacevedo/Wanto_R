@@ -88,7 +88,7 @@ export const Cajainpu = styled.div`
   }
   
   ::placeholder {
-  color: #000;
+  color: #000;  
 }
 form{
   width: 100%;

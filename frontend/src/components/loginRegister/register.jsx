@@ -84,7 +84,7 @@ const Register = () => {
             type="text"
             placeholder="Phone Number"
             value={number}
-            onChange={(e) => setNumber(e.target.replace(/[^0-9]/g, ''))}
+            onChange={(e) => setNumber(e.target.value.replace(/[^0-9]/g,""))}
             required
           />
           <Input
