@@ -43,9 +43,6 @@ const ret = () => {
             <div className="Inputs">
                 <input type="text" placeholder="Contact Number" />
             </div>
-            <div className="Inputs">
-                <input type="text" placeholder="Password" />
-            </div>
             </InforUser>
             <div className="botones">
                 <ButtUser>Save</ButtUser>

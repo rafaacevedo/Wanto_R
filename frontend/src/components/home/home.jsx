@@ -98,14 +98,14 @@ const Home = () => {
                 </HeaderCartas>
                 <Iconos>
                   <ContenedorBotones>
-                    <BsDisplay className="Status" />
-                    <BsFillPlayCircleFill className="Start" />
+                    <BsDisplay className="Status"/>
+                    <BsFillPlayCircleFill className="Start"/>
                     <RiRestartFill className="Restart" />
                     <HiStop className="Stop"/>
-                    <BsToggle2Off className="Cloud-Init" />
-                    <RiInstallFill className="Reinstall" />
-                    <IoIosSave className="Rescue" />
-                    <FaHistory className="Snap-Shots" />
+                    <BsToggle2Off className="Cloud-Init"/>
+                    <RiInstallFill className="Reinstall"/>
+                    <IoIosSave className="Rescue"/>
+                    <FaHistory className="Snap-Shots"/>
                   </ContenedorBotones>
                   <PiComputerTowerFill className="pc" style={instance.status === "running" ? { fill: "#5C8E24" } : { fill: "grey" }} />
                 </Iconos>
