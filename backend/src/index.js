@@ -120,6 +120,8 @@ app.post('/api/start', async (req, res) => {
         // Realiza la solicitud POST a la API de Contabo
         const response = await axios.post(`https://api.contabo.com/v1/compute/instances/${nInstanceID}/actions/start`, {}, config);
 
+
+        
         // Registro de éxito y envío de respuesta
         console.log('Máquina detenida con éxito.');
         res.send(response.data);
@@ -129,7 +131,6 @@ app.post('/api/start', async (req, res) => {
         res.status(500).json({ error: 'Error en la solicitud a la API de Contabo' });
     }
 });
-
 
 app.use(router)
 app.listen(port, () => {

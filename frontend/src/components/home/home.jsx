@@ -74,7 +74,7 @@ const Home = () => {
     }
   };
 
-  const [/* status */, setStatus] = useState('');
+  const [status, setStatus] = useState('');
 
   const handleStopButtonClick = async () => {
     try {
@@ -86,6 +86,7 @@ const Home = () => {
       console.error(error);
     }
   };
+
   const handleStartButtonClick = async () => {
     try {
       const response = await axios.post(`${VITE_url_Backend}/api/Start`);
@@ -135,16 +136,17 @@ const Home = () => {
                 </HeaderCartas>
                 <Iconos>
                   <ContenedorBotones>
-                    <BsDisplay className="Status" />
+                    <BsDisplay className="Status" style={instance.status === "running" ? { fill: "#068EEB" } : { fill: "grey" }} />
                     <BsFillPlayCircleFill className="Start" onClick={handleStartButtonClick} />
-                    <RiRestartFill className="Restart" />
+                    <RiRestartFill className="Restart"/>
                     <HiStop className="Stop" onClick={handleStopButtonClick} />
                     <BsToggle2Off className="Cloud-Init" />
                     <RiInstallFill className="Reinstall" />
                     <IoIosSave className="Rescue" />
                     <FaHistory className="Snap-Shots" />
                   </ContenedorBotones>
-                  <PiComputerTowerFill className="pc" style={instance.status === "running" ? { fill: "#5C8E24" } : { fill: "grey" }} />
+                    <PiComputerTowerFill className="pc" style={instance.status === "running" ? { fill: "#5C8E24" } : { fill: "grey" }} />
+                    <p>{status}</p>
                 </Iconos>
                 <Info>
                   {data.map((instance) => (
@@ -192,7 +194,7 @@ const Home = () => {
           </>
         )}
       </Contenedor>
-     </Principal>
+    </Principal>
   );
 };
 
