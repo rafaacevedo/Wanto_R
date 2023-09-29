@@ -23,8 +23,8 @@ export const VITE_url_Backend = import.meta.env.VITE_url_Backend
 
 const Home = () => {
   const [data, setData] = useState([]);
-  const [/* loading, */ setLoading] = useState(true);
-  const [/* error,  */ setError] = useState(null);
+  const [/* loading, */, setLoading] = useState(true);
+  const [/* error,  */, setError] = useState(null);
 
 
 
@@ -82,32 +82,6 @@ const Home = () => {
       console.error(error);
     }
   };
-
-  // const handleStartButtonClick = async () => {
-  //   try {
-  //     const response = await axios.post(`${VITE_url_Backend}/api/Start`, {
-  //       instanceId: instance.instanceId, // Envía instanceId al backend
-  //     });
-  //     setStatus('Máquina iniciada con éxito.');
-  //     console.log(response.data);
-  //   } catch (error) {
-  //     setStatus('Error al iniciar la máquina.');
-  //     console.error(error);
-  //   }
-  // };
-
-  // const handleStopButtonClick = async () => {
-  //   try {
-  //     const response = await axios.post(`${VITE_url_Backend}/api/stop`, {
-  //       instanceId: instance.instanceId, // Envía instanceId al backend
-  //     });
-  //     setStatus('Máquina detenida con éxito.');
-  //     console.log(response.data);
-  //   } catch (error) {
-  //     setStatus('Error al detener la máquina.');
-  //     console.error(error);
-  //   }
-  // };
 
   return (
     <Principal>
