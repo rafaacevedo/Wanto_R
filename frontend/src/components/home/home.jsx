@@ -74,7 +74,29 @@ const Home = () => {
   };
   const handleStartButtonClick = async () => {
     try {
-      const response = await axios.post(`${VITE_url_Backend}/api/Start`);
+      const response = await axios.post(`${VITE_url_Backend}/api/start`);
+      setStatus('Máquina detenida con éxito.');
+      console.log(response.data);
+    } catch (error) {
+      setStatus('Error al detener la máquina.');
+      console.error(error);
+    }
+  };
+
+  const handleRestartButtonClick = async () => {
+    try {
+      const response = await axios.post(`${VITE_url_Backend}/api/restart`);
+      setStatus('Máquina detenida con éxito.');
+      console.log(response.data);
+    } catch (error) {
+      setStatus('Error al detener la máquina.');
+      console.error(error);
+    }
+  };
+  
+  const handleshutdowntButtonClick = async () => {
+    try {
+      const response = await axios.post(`${VITE_url_Backend}/api/shutdown`);
       setStatus('Máquina detenida con éxito.');
       console.log(response.data);
     } catch (error) {
@@ -122,9 +144,9 @@ const Home = () => {
                   <ContenedorBotones>
                     <BsDisplay className="Status" />
                     <BsFillPlayCircleFill className="Start" onClick={handleStartButtonClick} />
-                    <RiRestartFill className="Restart" />
+                    <RiRestartFill className="Restart" onClick={handleRestartButtonClick}/>
                     <HiStop className="Stop" onClick={handleStopButtonClick} />
-                    <BsToggle2Off className="Cloud-Init" />
+                    <BsToggle2Off className="Cloud-Init" onClick={handleshutdowntButtonClick}/>
                     <RiInstallFill className="Reinstall" />
                     <IoIosSave className="Rescue" />
                     <FaHistory className="Snap-Shots" />

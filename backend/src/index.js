@@ -118,7 +118,54 @@ app.post('/api/start', async (req, res) => {
         };
 
         // Realiza la solicitud POST a la API de Contabo
-        const response = await axios.post(`https://api.contabo.com/v1/compute/instances/201445770/actions/start`, {}, config);
+        const response = await axios.post(`https://api.contabo.com/v1/compute/instances/${nInstanceID}/actions/start`, {}, config);
+
+        // Registro de éxito y envío de respuesta
+        console.log('Máquina detenida con éxito.');
+        res.send(response.data);
+    } catch (error) {
+        // Manejo de errores
+        console.error('Error en la solicitud a la API de Contabo:', error.message);
+        res.status(500).json({ error: 'Error en la solicitud a la API de Contabo' });
+    }
+});
+
+app.post('/api/restart', async (req, res) => {
+    try {
+        // Configura las cabeceras de la solicitud
+        const config = {
+            headers: {
+                'Authorization': `Bearer ${accessToken}`,
+                'x-request-id': '04e0f898-37b4-48bc-a794-1a57abe6aa31',
+                'x-trace-id': '123213',
+            },
+        };
+
+        // Realiza la solicitud POST a la API de Contabo
+        const response = await axios.post(`https://api.contabo.com/v1/compute/instances/${nInstanceID}/actions/restart`, {}, config);
+
+        // Registro de éxito y envío de respuesta
+        console.log('Máquina detenida con éxito.');
+        res.send(response.data);
+    } catch (error) {
+        // Manejo de errores
+        console.error('Error en la solicitud a la API de Contabo:', error.message);
+        res.status(500).json({ error: 'Error en la solicitud a la API de Contabo' });
+    }
+});
+app.post('/api/shutdown', async (req, res) => {
+    try {
+        // Configura las cabeceras de la solicitud
+        const config = {
+            headers: {
+                'Authorization': `Bearer ${accessToken}`,
+                'x-request-id': '04e0f898-37b4-48bc-a794-1a57abe6aa31',
+                'x-trace-id': '123213',
+            },
+        };
+
+        // Realiza la solicitud POST a la API de Contabo
+        const response = await axios.post(`https://api.contabo.com/v1/compute/instances/${nInstanceID}/actions/shutdown`, {}, config);
 
         // Registro de éxito y envío de respuesta
         console.log('Máquina detenida con éxito.');
