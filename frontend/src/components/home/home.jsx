@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 import "../../index.css";
 import { Cartas, Contenedor, ContenedorBotones, Header, HeaderCartas, Iconos, Info, Invisible, Principal, } from "./styledHome";
 import { useEffect, useState } from "react";
@@ -19,13 +19,14 @@ import swal from "sweetalert";
 
 export const VITE_url_fronten = import.meta.env.VITE_url_fronten
 export const VITE_url_Backend = import.meta.env.VITE_url_Backend
+// export const instanciate = instance.instanceId
 
 const Home = () => {
   const [data, setData] = useState([]);
-  const [/* loading, */ setLoading] = useState(true);
-  const [/* error,  */ setError] = useState(null);
+  const [/* loading, */, setLoading] = useState(true);
+  const [/* error,  */, setError] = useState(null);
 
-  
+
 
   useEffect(() => {
     async function fetchData() {
@@ -48,8 +49,8 @@ const Home = () => {
       }
     }
     fetchData();
-    
-  }, [setLoading,setError]);
+
+  }, [setLoading, setError]);
 
   const ret = () => {
     try {
@@ -59,9 +60,51 @@ const Home = () => {
     }
   };
 
+  const [status, setStatus] = useState('');
 
+  const handleStopButtonClick = async () => {
+    try {
+      const response = await axios.post(`${VITE_url_Backend}/api/stop`);
+      setStatus('Máquina detenida con éxito.');
+      console.log(response.data);
+    } catch (error) {
+      setStatus('Error al detener la máquina.');
+      console.error(error);
+    }
+  };
+  const handleStartButtonClick = async () => {
+    try {
+      const response = await axios.post(`${VITE_url_Backend}/api/start`);
+      setStatus('Máquina detenida con éxito.');
+      console.log(response.data);
+    } catch (error) {
+      setStatus('Error al detener la máquina.');
+      console.error(error);
+    }
+  };
 
+  const handleRestartButtonClick = async () => {
+    try {
+      const response = await axios.post(`${VITE_url_Backend}/api/restart`);
+      setStatus('Máquina detenida con éxito.');
+      console.log(response.data);
+    } catch (error) {
+      setStatus('Error al detener la máquina.');
+      console.error(error);
+    }
+  };
   
+  const handleshutdowntButtonClick = async () => {
+    try {
+      const response = await axios.post(`${VITE_url_Backend}/api/shutdown`);
+      setStatus('Máquina detenida con éxito.');
+      console.log(response.data);
+    } catch (error) {
+      setStatus('Error al detener la máquina.');
+      console.error(error);
+    }
+  };
+
   return (
     <Principal>
       <Header>
@@ -99,14 +142,14 @@ const Home = () => {
                 </HeaderCartas>
                 <Iconos>
                   <ContenedorBotones>
-                    <BsDisplay className="Status"/>
-                    <BsFillPlayCircleFill className="Start"/>
-                    <RiRestartFill className="Restart" />
-                    <HiStop className="Stop"/>
-                    <BsToggle2Off className="Cloud-Init"/>
-                    <RiInstallFill className="Reinstall"/>
-                    <IoIosSave className="Rescue"/>
-                    <FaHistory className="Snap-Shots"/>
+                    <BsDisplay className="Status" />
+                    <BsFillPlayCircleFill className="Start" onClick={handleStartButtonClick} />
+                    <RiRestartFill className="Restart" onClick={handleRestartButtonClick}/>
+                    <HiStop className="Stop" onClick={handleStopButtonClick} />
+                    <BsToggle2Off className="Cloud-Init" onClick={handleshutdowntButtonClick}/>
+                    <RiInstallFill className="Reinstall" />
+                    <IoIosSave className="Rescue" />
+                    <FaHistory className="Snap-Shots" />
                   </ContenedorBotones>
                   <PiComputerTowerFill className="pc" style={instance.status === "running" ? { fill: "#5C8E24" } : { fill: "grey" }} />
                 </Iconos>
@@ -156,7 +199,7 @@ const Home = () => {
           </>
         )}
       </Contenedor>
-    </Principal>
+     </Principal>
   );
 };
 
