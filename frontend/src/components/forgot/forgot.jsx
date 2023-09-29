@@ -6,7 +6,7 @@ const Forgot = () =>{
   
 const conex = () => {
     try {
-        (window.location.href ="http://localhost:5173/login");
+        (window.location.href =VITE_url_fronten/login);
     } catch (error) {
         alert(error)
     }

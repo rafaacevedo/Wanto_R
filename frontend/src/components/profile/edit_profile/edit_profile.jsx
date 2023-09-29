@@ -3,12 +3,13 @@ import {ContainerBody, Tittle1 , Tiltle, FullName, InforUser, Containerimg, Butt
 import  Wanto  from "../../asset/Wanto.svg";
 import  Perfilfinal  from "../../asset/perfilfinal.png";
 import { FiChevronLeft } from "react-icons/fi";
+import { VITE_url_fronten } from "../../home/home";
 
 const editprofile = () => {
 
 const ret = () => {
     try {
-        window.location.href = "http://localhost:5173/profile";
+        window.location.href = `${VITE_url_fronten}/profile`;
     } catch (error) {
         alert(error);
     }
@@ -42,9 +43,6 @@ const ret = () => {
             </div>
             <div className="Inputs">
                 <input type="text" placeholder="Contact Number" />
-            </div>
-            <div className="Inputs">
-                <input type="text" placeholder="Password" />
             </div>
             </InforUser>
             <div className="botones">

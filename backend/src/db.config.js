@@ -1,12 +1,14 @@
 import { createPool } from "mysql2/promise";
-
+import dotenv from 'dotenv';
+// Cargar las variables de entorno del archivo .env
+dotenv.config();
 
 export const pool = createPool({
-   host:"192.168.12.20",
-   user:"root",
-   port:3306,
-   password:"",
-   database:"wanto"
+   host: process.env.DB_HOST,
+   user: process.env.DB_USER,
+   port: process.env.DB_PORT,
+   password: process.env.DB_PASSWORD,
+   database: process.env.DB_DATABASE
 });
 
-export const SECRET = "CLAVESUPERSECRETA"
+export const SECRET = "CLAVESUPERSECRETA";

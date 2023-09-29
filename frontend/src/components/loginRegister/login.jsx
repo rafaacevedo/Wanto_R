@@ -3,7 +3,7 @@ import wanto from "../asset/Wanto.svg";
 import{ useState } from "react";
 import axios from "axios";
 import {Link} from"react-router-dom"
-
+import { VITE_url_fronten, VITE_url_Backend } from "../home/home";
 
 const Login = () => {
   const [ correo, setCorreo ] = useState( "" );
@@ -12,14 +12,14 @@ const Login = () => {
     evt.preventDefault();
       try {
         await axios.post(
-          "http://localhost:3005/login",
+          `${VITE_url_Backend}/login`,
           {
             correo: correo,
             contraseña: contraseña
           }
         ).then(( response ) => {
           console.log( response );
-          window.location.href = "http://localhost:5173/home";
+          window.location.href = `${VITE_url_fronten}/home`;
         });
       } catch ( error ) {
         console.log( error );
