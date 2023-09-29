@@ -18,7 +18,7 @@ const Login = () => {
             contraseña: contraseña
           }
         ).then(( response ) => {
-          console.log( response );
+          localStorage.setItem("accessToken", response.data);
           window.location.href = "http://localhost:5173/home";
         });
       } catch ( error ) {

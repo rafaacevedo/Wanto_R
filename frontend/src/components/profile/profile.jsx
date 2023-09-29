@@ -1,5 +1,8 @@
 /* eslint-disable no-constant-condition */
 import { Maincontainer, Tittle, ContainerInfoUser,  InfoName, InfoUser, ContainerMainUser, ChangePassword, Header } from "./styledProfile";
+import { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom'
+
 import  Wanto                  from "../asset/Wanto.svg";
 import  perfilfinal            from "../asset/perfilfinal.png";
 import { BiSolidEdit }         from "react-icons/bi";
@@ -11,6 +14,18 @@ import swal from "sweetalert";
 
 
 const Profile = () => {
+    const [, setLoading] = useState(true);
+
+    let navigate = useNavigate();
+
+    useEffect(() => {
+    if (localStorage.getItem("accessToken")) {
+        setLoading(false);
+    } else {
+        navigate("/");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     const ret = () => {
         try {

@@ -2,6 +2,7 @@ import axios from "axios";
 import "../../index.css";
 import { Cartas, Contenedor, ContenedorBotones, Header, HeaderCartas, Iconos, Info, Invisible, Principal, } from "./styledHome";
 import { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom'
 import { Spinner } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BiSolidUserCircle } from "react-icons/bi";
@@ -21,10 +22,21 @@ import swal from "sweetalert";
 
 const Home = () => {
   const [data, setData] = useState([]);
-  const [/* loading, */ setLoading] = useState(true);
   const [/* error,  */ setError] = useState(null);
 
-  
+  const [, setLoading] = useState(true);
+
+  let navigate = useNavigate();
+
+  useEffect(() => {
+    if (localStorage.getItem("accessToken")) {
+      setLoading(false);
+    } else {
+      navigate("/");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
 
   useEffect(() => {
     async function fetchData() {
@@ -76,6 +88,7 @@ const Home = () => {
               }).then((confirm) => {
                 if (confirm) {
                   window.location.href = "http://localhost:5173/login";
+                  localStorage.removeItem("accessToken");
                 }
               });
             }
