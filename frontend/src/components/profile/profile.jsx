@@ -11,7 +11,7 @@ import { RiDeleteBin5Line }    from "react-icons/ri";
 import { TbLogout }            from "react-icons/tb";
 import { FiChevronLeft } from "react-icons/fi";
 import swal from "sweetalert";
-
+import { VITE_url_fronten } from "../home/home";
 
 const Profile = () => {
     const [, setLoading] = useState(true);
@@ -29,7 +29,7 @@ const Profile = () => {
 
     const ret = () => {
         try {
-            (window.location.href ="http://localhost:5173/home");
+            (window.location.href =`${VITE_url_fronten}/home`);
         } catch (error) {
             alert(error)
         }
@@ -37,7 +37,7 @@ const Profile = () => {
         
     const edit = () => {
         try {
-            window.location.href = "http://localhost:5173/editprofile";
+            window.location.href = `${VITE_url_fronten}/editprofile`;
         } catch (error) {
             alert(error);
         }
@@ -76,7 +76,7 @@ const Profile = () => {
                     buttons: true,
                 }).then((confirm) => {
                     if (confirm) {
-                    window.location.href = "http://localhost:5173/login";
+                    window.location.href = `${VITE_url_fronten}/login`;
                     }
                 });
                 }
