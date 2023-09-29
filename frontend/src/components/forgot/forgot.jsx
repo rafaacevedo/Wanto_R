@@ -1,12 +1,12 @@
 import{Bienvenido, Principal,Wanto,Imgwanto, Contaimput, Cajainpu, Olvidado, Input, Botonol}from"./styledforgot"
 import wanto from "../asset/Wanto.svg"
 import { FiChevronLeft } from "react-icons/fi";
-
+import { VITE_url_fronten } from "../home/home";
 const Forgot = () =>{
   
 const conex = () => {
     try {
-        (window.location.href =VITE_url_fronten/login);
+        (window.location.href = `${VITE_url_fronten}/login`);
     } catch (error) {
         alert(error)
     }

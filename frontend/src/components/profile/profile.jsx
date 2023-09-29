@@ -76,6 +76,7 @@ const Profile = () => {
                     buttons: true,
                 }).then((confirm) => {
                     if (confirm) {
+                    localStorage.removeItem("accessToken");
                     window.location.href = `${VITE_url_fronten}/login`;
                     }
                 });
