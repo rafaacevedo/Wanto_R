@@ -80,6 +80,7 @@ app.get('/api/data', async (req, res) => {
 });
 
 // Ruta para obtener datos de la API de Contabo traer maquina 
+
 app.post('/api/stop', async (req, res) => {
     try {
         // Configura las cabeceras de la solicitud
