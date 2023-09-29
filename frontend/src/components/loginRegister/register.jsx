@@ -38,14 +38,14 @@ const Register = () => {
       });
       return;
     }
-    else{
+    else {
       swal({
         title: "correctly stored information",
         icon: "success",
         button: "back to login",
       }).then((confirm) => {
         if (confirm) {
-          window.location.href = `${VITE_url_Backend}/register`;
+          window.location.href = `${VITE_url_fronten}/login`;
         }
       });
     }
@@ -65,7 +65,7 @@ const Register = () => {
 
   const cone = () => {
     try {
-      window.location.href = "http://localhost:5173/login";
+      window.location.href = `${VITE_url_fronten}/login`;
     } catch (error) {
       alert(error);
     }
