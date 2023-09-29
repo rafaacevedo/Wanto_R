@@ -1,4 +1,4 @@
-import express from "express";
+import express, { response } from "express";
 import router from './routes/clientes.routes.js'
 import cors from "cors";
 import morgan from "morgan";
@@ -32,7 +32,6 @@ const autenticarYActualizarToken = async () => {
             },
         });
 
-        // Almacena el nuevo token de acceso
         accessToken = response.data.access_token;
         console.log('Token de acceso actualizado:', accessToken);
     } catch (error) {
@@ -40,7 +39,6 @@ const autenticarYActualizarToken = async () => {
     }
 };
 
-// Genera el token de acceso al inicio del programa
 let accessTokenPromise = autenticarYActualizarToken();
 
 // Programa la actualización del token cada minuto
@@ -48,7 +46,7 @@ cron.schedule('* * * * *', () => {
     accessTokenPromise = autenticarYActualizarToken();
 });
 
-// Ruta para obtener el token
+//  token
 app.get('/api/token', async (req, res) => {
     if (!accessTokenPromise) {
         accessTokenPromise = autenticarYActualizarToken();
@@ -58,13 +56,14 @@ app.get('/api/token', async (req, res) => {
     res.json({ accessToken });
 });
 
-// Ruta para obtener datos de la API de Contabo
+let nInstanceID;
+// Ruta para obtener datos de la API de Contabo traer maquina 
 app.get('/api/data', async (req, res) => {
     try {
         const config = {
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${accessToken}`, // Utiliza el token de acceso generado automáticamente
+                'Authorization': `Bearer ${accessToken}`,
                 'x-request-id': '51A87ECD-754E-4104-9C54-D01AD0F83406',
                 'x-trace-id': '123213',
             },
@@ -73,31 +72,64 @@ app.get('/api/data', async (req, res) => {
         const response = await axios.get('https://api.contabo.com/v1/compute/instances', config);
 
         res.json(response.data);
+        nInstanceID = response.data.data[0].instanceId;
     } catch (error) {
         console.error('Error en la solicitud a la API de Contabo:', error);
         res.status(500).json({ error: 'Error en la solicitud a la API de Contabo' });
     }
 });
 
+// Ruta para obtener datos de la API de Contabo traer maquina 
+
 app.post('/api/stop', async (req, res) => {
     try {
+        // Configura las cabeceras de la solicitud
         const config = {
             headers: {
-                'Authorization': `Bearer ${accessToken}`, // Utiliza el token de acceso generado automáticamente
+                'Authorization': `Bearer ${accessToken}`,
                 'x-request-id': '04e0f898-37b4-48bc-a794-1a57abe6aa31',
                 'x-trace-id': '123213',
             },
         };
-        const response = await axios.post(`https://api.contabo.com/v1/compute/instances/201445770/actions/stop`, config);
-        console.log("me ejecute");
-        res.send(response);
-        console.log(response, "aqui response start")
+
+        // Realiza la solicitud POST a la API de Contabo
+        const response = await axios.post(`https://api.contabo.com/v1/compute/instances/${nInstanceID}/actions/stop`, {}, config);
+
+        // Registro de éxito y envío de respuesta
+        console.log('Máquina detenida con éxito.');
+        res.send(response.data);
     } catch (error) {
-        console.error('Error en la solicitud a la API de Contabo:', error);
+        // Manejo de errores
+        console.error('Error en la solicitud a la API de Contabo:', error.message);
         res.status(500).json({ error: 'Error en la solicitud a la API de Contabo' });
-        console.log(error, "stop en backend ")
     }
 });
+
+
+app.post('/api/start', async (req, res) => {
+    try {
+        // Configura las cabeceras de la solicitud
+        const config = {
+            headers: {
+                'Authorization': `Bearer ${accessToken}`,
+                'x-request-id': '04e0f898-37b4-48bc-a794-1a57abe6aa31',
+                'x-trace-id': '123213',
+            },
+        };
+
+        // Realiza la solicitud POST a la API de Contabo
+        const response = await axios.post(`https://api.contabo.com/v1/compute/instances/201445770/actions/start`, {}, config);
+
+        // Registro de éxito y envío de respuesta
+        console.log('Máquina detenida con éxito.');
+        res.send(response.data);
+    } catch (error) {
+        // Manejo de errores
+        console.error('Error en la solicitud a la API de Contabo:', error.message);
+        res.status(500).json({ error: 'Error en la solicitud a la API de Contabo' });
+    }
+});
+
 
 app.use(router)
 app.listen(port, () => {
