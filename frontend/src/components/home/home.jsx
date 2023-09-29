@@ -17,7 +17,8 @@ import { FaHistory } from "react-icons/fa";
 import { PiComputerTowerFill } from "react-icons/pi";
 import swal from "sweetalert";
 
-
+export const VITE_url_fronten = import.meta.env.VITE_url_fronten
+export const VITE_url_Backend = import.meta.env.VITE_url_Backend
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -29,7 +30,7 @@ const Home = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await axios.get("http://localhost:3005/api/data");
+        const response = await axios.get(`${VITE_url_Backend}/api/data`);
 
         if (Array.isArray(response.data.data)) {
           // Verifica si los datos son un array
@@ -52,7 +53,7 @@ const Home = () => {
 
   const ret = () => {
     try {
-      window.location.href = "http://localhost:5173/profile";
+      window.location.href = `${VITE_url_fronten}/profile`;
     } catch (error) {
       alert(error);
     }
@@ -75,7 +76,7 @@ const Home = () => {
                 buttons: true,
               }).then((confirm) => {
                 if (confirm) {
-                  window.location.href = "http://localhost:5173/login";
+                  window.location.href = `${VITE_url_fronten}/login`;
                 }
               });
             }
