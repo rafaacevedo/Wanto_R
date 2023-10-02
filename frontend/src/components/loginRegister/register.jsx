@@ -13,8 +13,7 @@ import {
 import wanto from "../asset/Wanto.svg";
 import { FiChevronLeft } from "react-icons/fi";
 import { useState } from "react";
-import { /* VITE_url_Backend */ VITE_url_fronten } from "../home/home";
-
+import {  VITE_url_Backend,VITE_url_fronten } from "../home/home";
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -50,7 +49,7 @@ const Register = () => {
       });
     }
     try {
-      const response = await axios.post(`${VITE_url_fronten}/login`, {
+      const response = await axios.post(`${VITE_url_Backend}/register`, {
         correo: email,
         contraseña: password,
         nombre: name,

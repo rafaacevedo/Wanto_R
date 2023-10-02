@@ -296,6 +296,9 @@ export const Info = styled.div`
     h2{
         font-weight: 600;
     }
+    .botonesStatus{
+        color: #068EEB;
+    }
 `
 
 export const Iconos = styled.div`

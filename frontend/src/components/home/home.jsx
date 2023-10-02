@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import axios from 'axios';
 import "../../index.css";
 import { Cartas, Contenedor, ContenedorBotones, Header, HeaderCartas, Iconos, Info, Invisible, Principal, } from "./styledHome";
@@ -22,10 +23,11 @@ import swal from "sweetalert";
 
 export const VITE_url_fronten = import.meta.env.VITE_url_fronten
 export const VITE_url_Backend = import.meta.env.VITE_url_Backend
+// export const instanciate = instance.instanceId
 
 const Home = () => {
   const [data, setData] = useState([]);
-  const [/* error,  */, setError] = useState(null);
+  const [/* error */, setError] = useState();
 
   const [, setLoading] = useState(true);
 
@@ -41,27 +43,32 @@ const Home = () => {
   }, []);
 
 
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await axios.get(`${VITE_url_Backend}/api/data`);
+  async function fetchData() {
+    try {
+      const response = await axios.get(`${VITE_url_Backend}/api/data`);
 
-        if (Array.isArray(response.data.data)) {
-          // Verifica si los datos son un array
-          setData(response.data.data);
-          console.log(response.data.data);
-        } else {
-          // Los datos no son un array válido, maneja este caso según tus necesidades
-          setError("Los datos no son un array válido");
-        }
-
-        setLoading(false);
-      } catch (error) {
-        setError(error.message);
-        setLoading(false);
+      if (Array.isArray(response.data.data)) {
+        // Verifica si los datos son un array
+        setData(response.data.data);
+      } else {
+        // Los datos no son un array válido, maneja este caso según tus necesidades
+        setError("Los datos no son un array válido");
       }
+
+      setLoading(false);
+    } catch (error) {
+      setError(error.message);
+      setLoading(false);
     }
+  }
+
+  useEffect(() => {
     fetchData();
+
+    setInterval(() => {
+      fetchData();
+    }, 1000);
+
 
   }, [setLoading, setError]);
 
@@ -75,47 +82,66 @@ const Home = () => {
 
   const [status, setStatus] = useState('');
 
-  const handleStopButtonClick = async () => {
+  const handleStopButtonClick = async (status) => {
+    if (status === "stopped") {
+      return "Error"
+    }
+    else {
     try {
       const response = await axios.post(`${VITE_url_Backend}/api/stop`);
       setStatus('Máquina detenida con éxito.');
       console.log(response.data);
     } catch (error) {
-      setStatus('Error al detener la máquina.');
-      console.error(error);
+          setStatus('La maquina ya está detenida.');
+          setError(error)
+          console.error(error);
+        }
     }
   };
 
-  const handleStartButtonClick = async () => {
-    try {
-      const response = await axios.post(`${VITE_url_Backend}/api/start`);
-      setStatus('Máquina detenida con éxito.');
-      console.log(response.data);
-    } catch (error) {
-      setStatus('Error al detener la máquina.');
-      console.error(error);
+  const handleStartButtonClick = async (status) => {
+    if (status === "running") {
+      return "Error"
+    }
+    else {
+        try {
+          const response = await axios.post(`${VITE_url_Backend}/api/start`);
+          setStatus('Máquina encendida con éxito.');
+          console.log(response.data);
+        } catch (error) {
+          setStatus('La maquina ya está encendida.');
+          setError(error)
+          console.error(error);
+        }  
     }
   };
 
   const handleRestartButtonClick = async () => {
     try {
       const response = await axios.post(`${VITE_url_Backend}/api/restart`);
-      setStatus('Máquina detenida con éxito.');
+      setStatus('Máquina reiniciada con éxito.');
       console.log(response.data);
     } catch (error) {
-      setStatus('Error al detener la máquina.');
+      setStatus('Error al reiniciar la máquina.');
+      setError(error)
       console.error(error);
     }
   };
   
   const handleshutdowntButtonClick = async () => {
+    if (status === "stopped") {
+      return "Error"
+    }
+    else {
     try {
       const response = await axios.post(`${VITE_url_Backend}/api/shutdown`);
-      setStatus('Máquina detenida con éxito.');
+      setStatus('Máquina apagada con éxito.');
       console.log(response.data);
     } catch (error) {
-      setStatus('Error al detener la máquina.');
+      setStatus('La maquina ya está apagada');
+      setError(error)
       console.error(error);
+    }
     }
   };
 
@@ -158,16 +184,17 @@ const Home = () => {
                 <Iconos>
                   <ContenedorBotones>
                     <BsDisplay className="Status" style={instance.status === "running" ? { fill: "#068EEB" } : { fill: "grey" }} />
-                    <BsFillPlayCircleFill className="Start" onClick={handleStartButtonClick} />
+                    <BsFillPlayCircleFill className="Start" onClick={() => handleStartButtonClick(instance.status)} />
+
                     <RiRestartFill className="Restart" onClick={handleRestartButtonClick}/>
-                    <HiStop className="Stop" onClick={handleStopButtonClick} />
-                    <BsToggle2Off className="Cloud-Init" onClick={handleshutdowntButtonClick}/>
+                    <HiStop className="Stop" onClick={() => handleStopButtonClick(instance.status)} />
+                    <BsToggle2Off className="Cloud-Init" onClick={() => handleshutdowntButtonClick(instance.status)}/>
                     <RiInstallFill className="Reinstall" />
                     <IoIosSave className="Rescue" />
                     <FaHistory className="Snap-Shots" />
                   </ContenedorBotones>
                     <PiComputerTowerFill className="pc" style={instance.status === "running" ? { fill: "#5C8E24" } : { fill: "grey" }} />
-                    <p>{status}</p>
+                    
                 </Iconos>
                 <Info>
                   {data.map((instance) => (
@@ -201,6 +228,9 @@ const Home = () => {
                         <h3>Status: </h3>
                         <p>{instance.status}</p>
                       </Info>
+                      <Info>
+                        <h3 className='botonesStatus' style={status.includes("está") ? { color: "red" } : { color: "#247e8e" }} >{status}</h3>
+                      </Info>
                     </div>
                   ))}
                 </Info>
@@ -220,3 +250,4 @@ const Home = () => {
 };
 
 export default Home;
+
