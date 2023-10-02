@@ -1,9 +1,9 @@
 import { Header, Maincontainer} from "../styledProfile";
-import {ContainerBody, Tittle1 , Tiltle, FullName, InforUser, Containerimg, ButtUser, InfoUserContainer} from "./styledEdit_profile";
-import  Wanto  from "../../asset/Wanto.svg";
-import  Perfilfinal  from "../../asset/perfilfinal.png";
-import { FiChevronLeft } from "react-icons/fi";
-import { VITE_url_fronten } from "../../home/home";
+import {ContainerBody, Tittle1 , Tiltle, FullName, InforUser, Containerimg, ButtUser, InfoUserContainer}    from "./styledEdit_profile";
+import  Wanto                   from "../../asset/Wanto.svg";
+import  Perfilfinal             from "../../asset/perfilfinal.png";
+import { FiChevronLeft }        from "react-icons/fi";
+import { VITE_url_fronten }     from "../../home/home";
 
 const editprofile = () => {
 

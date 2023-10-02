@@ -50,7 +50,7 @@ const Register = () => {
       });
     }
     try {
-      const response = await axios.post(`${VITE_url_fronten}/login`, {
+      const response = await axios.post(`${VITE_url_Backend}/register`, {
         correo: email,
         contraseña: password,
         nombre: name,
