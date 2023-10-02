@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import axios from 'axios';
 import "../../index.css";
 import { Cartas, Contenedor, ContenedorBotones, Header, HeaderCartas, Iconos, Info, Invisible, Principal, } from "./styledHome";
@@ -61,7 +62,7 @@ const Home = () => {
     }
   };
 
-  const [status, setStatus] = useState('');
+  const [/* status */, setStatus] = useState('');
 
   const handleStopButtonClick = async () => {
     try {

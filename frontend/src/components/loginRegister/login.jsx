@@ -12,7 +12,7 @@ const Login = () => {
     evt.preventDefault();
       try {
         await axios.post(
-          `${VITE_url_fronten}/login`,
+          `${VITE_url_Backend}/login`,
           {
             correo: correo,
             contraseña: contraseña
