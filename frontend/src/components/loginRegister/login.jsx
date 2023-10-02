@@ -18,6 +18,7 @@ const Login = () => {
             contraseña: contraseña
           }
         ).then(( response ) => {
+          localStorage.setItem("accessToken", response.data);
           console.log( response );
           window.location.href = `${VITE_url_fronten}/home`;
         });
@@ -55,7 +56,7 @@ const Login = () => {
           </Remenber>
           <Boton onClick={log}><h2>Sign In</h2></Boton>
           <Link to="/register" style={{textDecoration:"none", color:"#000"}}>
-            <p className="account">¿don´t have account?</p></Link>
+            <p className="account">¿dont have account?</p></Link>
         </Cajainput>
       </Contaimput>
     </Principal>

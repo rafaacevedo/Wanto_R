@@ -1,13 +1,29 @@
 import { Header, Maincontainer} from "../styledProfile";
-import {ContainerBody, Tittle1 , Tiltle, FullName, InforUser, Containerimg, ButtUser, InfoUserContainer}    from "./styledEdit_profile";
-import  Wanto                   from "../../asset/Wanto.svg";
-import  Perfilfinal             from "../../asset/perfilfinal.png";
-import { FiChevronLeft }        from "react-icons/fi";
-import { VITE_url_fronten }     from "../../home/home";
+import { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom'
+import {ContainerBody, Tittle1 , Tiltle, FullName, InforUser, Containerimg, ButtUser, InfoUserContainer} from "./styledEdit_profile";
+import  Wanto  from "../../asset/Wanto.svg";
+import  Perfilfinal  from "../../asset/perfilfinal.png";
+import { FiChevronLeft } from "react-icons/fi";
+import { VITE_url_fronten } from "../../home/home";
 
-const editprofile = () => {
+const Editprofile = () => {
+
+    const [, setLoading] = useState(true);
+
+    let navigate = useNavigate();
+
+    useEffect(() => {
+    if (localStorage.getItem("accessToken")) {
+        setLoading(false);
+    } else {
+        navigate("/");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
 const ret = () => {
+    
     try {
         window.location.href = `${VITE_url_fronten}/profile`;
     } catch (error) {
@@ -55,4 +71,4 @@ const ret = () => {
     );
 };
 
-export default editprofile;
+export default Editprofile;

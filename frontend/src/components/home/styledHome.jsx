@@ -236,6 +236,10 @@ export const ContenedorBotones = styled.div`
     }
     .Status{
         color: #068EEB;
+        cursor: auto;
+        &:hover{
+            color: #068EEB;
+        }
     }
     .Restart{
         color: #153A6F;
@@ -291,6 +295,9 @@ export const Info = styled.div`
     }
     h2{
         font-weight: 600;
+    }
+    .botonesStatus{
+        color: #068EEB;
     }
 `
 
