@@ -219,7 +219,7 @@ export const HeaderCartas = styled.div`
 
 export const ContenedorBotones = styled.div`
     width: 25%;
-    height: 50%;
+    height: 200px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -229,9 +229,6 @@ export const ContenedorBotones = styled.div`
     svg{
         margin-bottom: 10px;
         font-size: 40px;
-        &:hover{
-            color: #201B6F;
-        }
         cursor: pointer;
     }
     .Status{
@@ -243,25 +240,45 @@ export const ContenedorBotones = styled.div`
     }
     .Restart{
         color: #153A6F;
+        &:hover{
+            color: #2a5ea7;
+        }
     }
     .Start{
         color: #5C8E24;
         font-size: 35px;
+        &:hover{
+            color: #80c234;
+        }
     }
     .Stop{
         color: #BC6228;
+        &:hover{
+            color: #f08741;
+        }
     }
     .Cloud-Init{
-        color: #D4584A;
+        color: #be1b09;
+        transform: ${({rotate}) => (rotate ? 'rotate(0deg)' : 'rotate(180deg)')};
+        color: ${({rotate}) => (rotate ? 'grey' : '#be1b09')};
     }
     .Reinstall{
         color: #708DA3;
+        &:hover{
+            color: #95bbd8;
+        }
     }
     .Rescue{
         color: #475c7f;
+        &:hover{
+            color: #617eb1;
+        }
     }
     .Snap-Shots{
         color: #767678;
+        &:hover{
+            color: #afafb8;
+        }
     }
     .Arrow{
         color: #068EEB;
@@ -305,5 +322,6 @@ export const Iconos = styled.div`
     height: 50%;
     width: 100%;
     display: flex;
+    align-items: center;
     flex-direction: row;
 `
