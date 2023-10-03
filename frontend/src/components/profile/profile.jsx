@@ -1,7 +1,7 @@
 /* eslint-disable no-constant-condition */
 import { Maincontainer, Tittle, ContainerInfoUser,  InfoName, InfoUser, ContainerMainUser, ChangePassword, Header } from "./styledProfile";
 import { useEffect, useState } from "react";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate }         from 'react-router-dom'
 
 import  Wanto                  from "../asset/Wanto.svg";
 import  perfilfinal            from "../asset/perfilfinal.png";
@@ -9,9 +9,9 @@ import { BiSolidEdit }         from "react-icons/bi";
 import {  RiLockPasswordLine } from "react-icons/ri";
 import { RiDeleteBin5Line }    from "react-icons/ri";
 import { TbLogout }            from "react-icons/tb";
-import { FiChevronLeft } from "react-icons/fi";
+import { FiChevronLeft }       from "react-icons/fi";
 import swal from "sweetalert";
-import { VITE_url_fronten } from "../home/home";
+import { VITE_url_fronten }    from "../home/home";
 
 const Profile = () => {
     const [, setLoading] = useState(true);
@@ -62,9 +62,6 @@ const Profile = () => {
             <ContainerMainUser>
                 <ChangePassword onClick={edit}>
                     <BiSolidEdit className="icono"/><h2> Edit Profile </h2>
-                </ChangePassword>
-                <ChangePassword>
-                    <RiLockPasswordLine className="icono"/><h2> Change Password </h2>
                 </ChangePassword>
                 <ChangePassword>
                     <RiDeleteBin5Line className="icono"/><h2> Delete Account </h2>

@@ -81,7 +81,7 @@ const Home = () => {
     }
   };
 
-  const [/* status */, setStatus] = useState('');
+  const [status, setStatus] = useState('');
 
   const handleStopButtonClick = async (status) => {
     if (status === "stopped") {
