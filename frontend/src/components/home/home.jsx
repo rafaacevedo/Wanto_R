@@ -183,9 +183,23 @@ const Home = () => {
                 </HeaderCartas>
                 <Iconos>
                   <ContenedorBotones>
-                    <BsDisplay className="Status" style={instance.status === "running" ? { fill: "#068EEB" } : { fill: "grey" }} />
-                    <BsFillPlayCircleFill className="Start" onClick={() => handleStartButtonClick(instance.status)} />
+                    
+                    <BsDisplay className="Status" title= {instance.status} style={instance.status === "running" ? { fill: "#068EEB" } : { fill: "grey" }} />
 
+                    <BsFillPlayCircleFill className="Start" title='Start' onClick={() => handleStartButtonClick(instance.status)} />
+
+                    <RiRestartFill className="Restart" title='Restart' onClick={handleRestartButtonClick}/>
+                    
+                    <HiStop className="Stop" title='Stop' onClick={() => handleStopButtonClick(instance.status)} />
+                    
+                    <BsToggle2Off className="Cloud-Init" title='Cloud-Init' onClick={() => handleshutdowntButtonClick(instance.status)}/>
+                    
+                    <RiInstallFill className="Reinstall" title='Reinstall' />
+                    
+                    <IoIosSave className="Rescue" title='Resue' />
+                    
+                    <FaHistory className="Snap-Shots" title='Snap-Shots' />
+                  
                     <RiRestartFill className="Restart" onClick={handleRestartButtonClick}/>
                     <HiStop className="Stop" onClick={() => handleStopButtonClick(instance.status)} />
                     <BsToggle2Off className="Cloud-Init" onClick={() => handleshutdowntButtonClick(instance.status)}/>
