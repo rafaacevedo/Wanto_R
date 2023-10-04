@@ -34,7 +34,7 @@ const autenticarYActualizarToken = async () => {
         });
 
         accessToken = response.data.access_token;
-        console.log('Token de acceso actualizado:', accessToken);
+        console.log('Token de acceso actualizado:');
     } catch (error) {
         console.error('Error al autenticar y actualizar el token:', error);
     }

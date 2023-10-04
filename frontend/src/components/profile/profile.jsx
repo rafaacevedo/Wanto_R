@@ -2,36 +2,47 @@
 import { Maincontainer, Tittle, ContainerInfoUser,  InfoName, InfoUser, ContainerMainUser, ChangePassword, Header } from "./styledProfile";
 import { useEffect, useState } from "react";
 import { useNavigate }         from 'react-router-dom'
-
+import axios from "axios"
 import  Wanto                  from "../asset/Wanto.svg";
 import  perfilfinal            from "../asset/perfilfinal.png";
 import { BiSolidEdit }         from "react-icons/bi";
-import {  RiLockPasswordLine } from "react-icons/ri";
+/* import {  RiLockPasswordLine } from "react-icons/ri"; */
 import { RiDeleteBin5Line }    from "react-icons/ri";
 import { TbLogout }            from "react-icons/tb";
 import { FiChevronLeft }       from "react-icons/fi";
 import swal from "sweetalert";
-import { VITE_url_fronten }    from "../home/home";
+import { VITE_url_fronten, VITE_url_Backend }    from "../home/home";
 
 const Profile = () => {
     const [, setLoading] = useState(true);
-    const token = localStorage.getItem("accessToken")
-    console.log(token) 
+    const accessToken = localStorage.getItem("accessToken")
+    console.log(accessToken) 
     let navigate = useNavigate();
 
-    const del = async () => {
-    
+    const deleteAccount = async () => {
         const r = await axios.delete (`${VITE_url_Backend}/deleteProfile`,{
-        headers:{
-            accessToken: token        
-        }
-    }).then((res) => {
+            headers:{
+                accessToken: accessToken        
+            }
+        })
+    }
+        
+    const del = async (res) => {
+        
         if (res) {
-            localStorage.removeItem("accessToken");
-            window.location.href = `${VITE_url_fronten}/login`;
-        alert(`usuario eliminado con exito`)}
-    })
-    console.log(r);
+            swal({
+                title: "¿Estás seguro que deseas eliminar tu cuenta?",
+                buttons: true,
+            }).then((confirm) => {
+                if (confirm) {
+                    localStorage.removeItem("accessToken");
+                    deleteAccount()
+                    window.location.href = `${VITE_url_fronten}/login`;
+                }
+                })
+            
+        }
+    
     
     }
 
