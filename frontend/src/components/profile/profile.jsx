@@ -67,13 +67,14 @@ const Profile = () => {
                     }
                 );
                 setPerfil(response.data);
+                console.log(response.data, 'perfil')
                 } catch (error) {
                 setError(error);
                 }
             }
         
             fetchOneClients();
-            }, [token]);
+            }, []);
         
 
     return (

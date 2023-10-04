@@ -33,11 +33,11 @@ const Editprofile = () => {
         })
         if (e) {
             swal({
-                title: "¡Datos Actualizados!",
-                buttons: true,
+                title: "¡Datos Actualizados!, ¡Es necesario volver a iniciar sesión!",
+                buttons: "Volver a iniciar sesión",
                 }).then((confirm) => {
                 if (confirm) {
-                    window.location.href = `${VITE_url_fronten}/profile`;
+                    window.location.href = `${VITE_url_fronten}/login`;
                 }
                 });
             }

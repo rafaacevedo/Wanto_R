@@ -146,6 +146,8 @@ const Home = () => {
 
   const [rotate, setRotate] = useState(false)
 
+  
+
 
   return (
     <Principal>
@@ -196,7 +198,20 @@ const Home = () => {
                     
                     <BsToggle2Off className="Cloud-Init" title='Cloud-Init' onClick={() => handleshutdowntButtonClick(instance.status)}/>
                     
-                    <RiInstallFill className="Reinstall" title='Reinstall' />
+                    <RiInstallFill className="Reinstall" title='Reinstall' onClick={() => {
+                      // eslint-disable-next-line no-constant-condition
+                      if (true) {
+                        swal({
+                          title: "Button disabled for now",
+                          icon: "error",
+                          button: "Return",
+                        }).then((confirm) => {
+                          if (confirm) {
+                            window.location.href = `${VITE_url_fronten}/home`;
+                          }
+                        });
+                      }
+                    }}/>
                   
                   </ContenedorBotones>
                     <PiComputerTowerFill className="pc" style={instance.status === "running" ? { fill: "#5C8E24" } : { fill: "grey" }} />

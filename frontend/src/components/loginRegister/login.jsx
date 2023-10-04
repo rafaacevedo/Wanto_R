@@ -48,7 +48,7 @@ const Login = () => {
           required/>
           <Cajaaa>
             <Forgot/>
-            <Forgot><Link to="/forgot" style={{ textDecoration:"none", color:"#000"}}><h5 style={{textDecoration:"none" }}>¿Forgot Password?</h5></Link></Forgot>
+            {/* <Forgot><Link to="/forgot" style={{ textDecoration:"none", color:"#000"}}><h5 style={{textDecoration:"none" }}>¿Forgot Password?</h5></Link></Forgot> */}
           </Cajaaa>
           <Remenber>
             <Checkbox type="checkbox"/>    
