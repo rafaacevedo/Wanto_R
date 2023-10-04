@@ -26,6 +26,9 @@ const Profile = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+        const token = localStorage.getItem("accesstoken")
+        console.log("esto es el token");
+    console.log(token);
 
     const ret = () => {
         try {
