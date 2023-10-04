@@ -8,6 +8,8 @@ export const validatetoken = async (req,res,next) => {
         const validtoken = jwt.verify(accessToken,SECRET)
         req.correo = validtoken.correo
         req.UserId = validtoken.id;
+        req.nombre = validtoken.nombre;
+        req.apellido = validtoken.apellido
         const user  = await pool.query("SELECT * FROM CLIENTES WHERE id_cliente = ?",[req.UserId])
         if(!user) return res.json({message: 'Usuario no existe'})
         next()

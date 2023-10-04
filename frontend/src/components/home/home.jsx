@@ -14,16 +14,12 @@ import { BsFillPlayCircleFill } from "react-icons/bs";
 import { HiStop } from "react-icons/hi";
 import { BsToggle2Off } from "react-icons/bs";
 import { RiInstallFill } from "react-icons/ri";
-import { IoIosSave } from "react-icons/io";
-import { FaHistory } from "react-icons/fa";
 import { PiComputerTowerFill } from "react-icons/pi";
 import swal from "sweetalert";
 
 
-
 export const VITE_url_fronten = import.meta.env.VITE_url_fronten
 export const VITE_url_Backend = import.meta.env.VITE_url_Backend
-// export const instanciate = instance.instanceId
 
 
 const Home = () => {
@@ -136,8 +132,9 @@ const Home = () => {
     else {
     try {
       const response = await axios.post(`${VITE_url_Backend}/api/shutdown`);
-      setStatus('Máquina apagada con éxito.');
+      setStatus('Apagando la maquina.');
       console.log(response.data);
+      setRotate(!rotate)
     } catch (error) {
       setStatus('La maquina ya está apagada');
       setError(error)
@@ -145,6 +142,12 @@ const Home = () => {
     }
     }
   };
+
+
+  const [rotate, setRotate] = useState(false)
+
+  
+
 
   return (
     <Principal>
@@ -183,16 +186,33 @@ const Home = () => {
                   ))}
                 </HeaderCartas>
                 <Iconos>
-                  <ContenedorBotones>
-                    <BsDisplay className="Status" style={instance.status === "running" ? { fill: "#068EEB" } : { fill: "grey" }} />
-                    <BsFillPlayCircleFill className="Start" onClick={() => handleStartButtonClick(instance.status)} />
+                  <ContenedorBotones rotate = {rotate}>
+                    
+                    <BsDisplay className="Status" title= {instance.status} style={instance.status === "running" ? { fill: "#068EEB" } : { fill: "grey" }} />
 
-                    <RiRestartFill className="Restart" onClick={handleRestartButtonClick}/>
-                    <HiStop className="Stop" onClick={() => handleStopButtonClick(instance.status)} />
-                    <BsToggle2Off className="Cloud-Init" onClick={() => handleshutdowntButtonClick(instance.status)}/>
-                    <RiInstallFill className="Reinstall" />
-                    <IoIosSave className="Rescue" />
-                    <FaHistory className="Snap-Shots" />
+                    <BsFillPlayCircleFill className="Start" title='Start' onClick={() => handleStartButtonClick(instance.status)} />
+
+                    <RiRestartFill className="Restart" title='Restart' onClick={handleRestartButtonClick}/>
+                    
+                    <HiStop className="Stop" title='Stop' onClick={() => handleStopButtonClick(instance.status)} />
+                    
+                    <BsToggle2Off className="Cloud-Init" title='Cloud-Init' onClick={() => handleshutdowntButtonClick(instance.status)}/>
+                    
+                    <RiInstallFill className="Reinstall" title='Reinstall' onClick={() => {
+                      // eslint-disable-next-line no-constant-condition
+                      if (true) {
+                        swal({
+                          title: "Button disabled for now",
+                          icon: "error",
+                          button: "Return",
+                        }).then((confirm) => {
+                          if (confirm) {
+                            window.location.href = `${VITE_url_fronten}/home`;
+                          }
+                        });
+                      }
+                    }}/>
+                  
                   </ContenedorBotones>
                     <PiComputerTowerFill className="pc" style={instance.status === "running" ? { fill: "#5C8E24" } : { fill: "grey" }} />
                     

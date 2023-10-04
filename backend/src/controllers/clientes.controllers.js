@@ -46,7 +46,7 @@ export const logeoCliente = async ( req, res ) => {
     console.log( compassword,"aqui comparas" );
     if( compassword ){
         const accessToken = jwt.sign(
-            { id: rows[0].id_cliente, correo: rows[0].correo},
+            { id: rows[0].id_cliente, correo: rows[0].correo,nombre: rows[0].nombre,apellido: rows[0].apellido},
             SECRET,
             {
                 expiresIn: "7h",
@@ -67,6 +67,7 @@ export const logeoCliente = async ( req, res ) => {
 
 export const getRegistro = async(req,res) => {
     try {
+        
         const[data] = await pool.query("SELECT * FROM clientes")
         res.send(data)
     } catch (error) {

@@ -1,4 +1,4 @@
-import express, { response } from "express";
+import express from "express";
 import router from './routes/clientes.routes.js'
 import cors from "cors";
 import morgan from "morgan";
@@ -172,6 +172,31 @@ app.post('/api/shutdown', async (req, res) => {
         
         // Registro de éxito y envío de respuesta
         console.log('Máquina detenida con éxito.');
+        res.send(response.data);
+    } catch (error) {
+        // Manejo de errores
+        console.error('Error en la solicitud a la API de Contabo:', error.message);
+        res.status(500).json({ error: 'Error en la solicitud a la API de Contabo' });
+    }
+});
+
+app.get('/api/snapshots', async (req, res) => {
+    try {
+        // Configura las cabeceras de la solicitud
+        const config = {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${accessToken}`,
+                'x-request-id': '04e0f898-37b4-48bc-a794-1a57abe6aa31',
+                'x-trace-id': '123213',
+            },
+        };
+
+        // Realiza la solicitud GET a la API de Contabo
+        const response = await axios.get(`https://api.contabo.com/v1/compute/instances/${nInstanceID}/snapshots`, {}, config);
+
+        // Registro de éxito y envío de respuesta
+        console.log('snapshots.');
         res.send(response.data);
     } catch (error) {
         // Manejo de errores
