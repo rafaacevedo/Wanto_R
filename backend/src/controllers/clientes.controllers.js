@@ -100,6 +100,7 @@ export const updateUsers = async(req, res ) => {
     } 
 }
 
+
 export const deleteUser = async (req, res) => {
     try {
         const id = req.UserId
@@ -107,7 +108,7 @@ export const deleteUser = async (req, res) => {
         const [row] = await pool.query("DELETE FROM clientes WHERE id_cliente = ?", [id]);
 
         if (row.affectedRows === 0) {
-            return res.status(404).json({ message: "No se encontró al usuario." });
+            return res.status(404).json({ message: "No se encontró al usuario..." });
         }
 
         res.send({ message: "Usuario eliminado correctamente.", id });

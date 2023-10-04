@@ -2,21 +2,38 @@
 import { Maincontainer, Tittle, ContainerInfoUser,  InfoName, InfoUser, ContainerMainUser, ChangePassword, Header } from "./styledProfile";
 import { useEffect, useState } from "react";
 import { useNavigate }         from 'react-router-dom'
-
 import  Wanto                  from "../asset/Wanto.svg";
 import  perfilfinal            from "../asset/perfilfinal.png";
 import { BiSolidEdit }         from "react-icons/bi";
-import {  RiLockPasswordLine } from "react-icons/ri";
+/* import {  RiLockPasswordLine } from "react-icons/ri"; */
 import { RiDeleteBin5Line }    from "react-icons/ri";
 import { TbLogout }            from "react-icons/tb";
 import { FiChevronLeft }       from "react-icons/fi";
 import swal from "sweetalert";
-import { VITE_url_fronten }    from "../home/home";
+import axios from "axios";
+import { VITE_url_Backend, VITE_url_fronten }    from "../home/home";
 
 const Profile = () => {
     const [, setLoading] = useState(true);
-
+    const token = localStorage.getItem("accessToken")
+    console.log(token) 
     let navigate = useNavigate();
+
+    const del = async () => {
+    
+        const r = await axios.delete (`${VITE_url_Backend}/deleteProfile`,{
+        headers:{
+            accessToken: token        
+        }
+    }).then((res) => {
+        if (res) {
+            localStorage.removeItem("accessToken");
+            window.location.href = `${VITE_url_fronten}/login`;
+        alert(`usuario eliminado con exito`)}
+    })
+    console.log(r);
+    
+    }
 
     useEffect(() => {
     if (localStorage.getItem("accessToken")) {
@@ -29,7 +46,7 @@ const Profile = () => {
 
     const ret = () => {
         try {
-            (window.location.href =`${VITE_url_fronten}/home`);
+            window.location.href = `${VITE_url_fronten}/home`;
         } catch (error) {
             alert(error)
         }
@@ -63,8 +80,10 @@ const Profile = () => {
                 <ChangePassword onClick={edit}>
                     <BiSolidEdit className="icono"/><h2> Edit Profile </h2>
                 </ChangePassword>
-                <ChangePassword>
-                    <RiDeleteBin5Line className="icono"/><h2> Delete Account </h2>
+                <ChangePassword onClick={del}>  
+
+                    <RiDeleteBin5Line className="icono" /> <h2>Delet Account </ h2>
+
                 </ChangePassword>
                 <ChangePassword  onClick={() => {
                 if (true) {
