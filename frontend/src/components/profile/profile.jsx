@@ -2,15 +2,10 @@
 import { Maincontainer, Tittle, ContainerInfoUser,  InfoName, InfoUser, ContainerMainUser, ChangePassword, Header } from "./styledProfile";
 import { useEffect, useState } from "react";
 import { useNavigate }         from 'react-router-dom'
-
-import  Wanto                  from "../asset/Wanto.svg";
-import  perfilfinal            from "../asset/perfilfinal.png";
 import { BiSolidEdit }         from "react-icons/bi";
-import {  RiLockPasswordLine } from "react-icons/ri";
 import { RiDeleteBin5Line }    from "react-icons/ri";
 import { TbLogout }            from "react-icons/tb";
 import { FiChevronLeft }       from "react-icons/fi";
-import swal from "sweetalert";
 import { VITE_url_fronten }    from "../home/home";
 
 const Profile = () => {
