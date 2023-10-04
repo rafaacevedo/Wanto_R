@@ -7,6 +7,7 @@ import  Perfilfinal             from "../../asset/perfilfinal.png";
 import { FiChevronLeft }        from "react-icons/fi";
 import { VITE_url_fronten, VITE_url_Backend  }     from "../../home/home";
 import axios from "axios";
+import swal from "sweetalert";
 const Editprofile = () => {
 
     const [, setLoading ] = useState( true );
@@ -30,7 +31,16 @@ const Editprofile = () => {
                 accessToken: localStorage.getItem("accessToken")
             }
         })
-
+        if (e) {
+            swal({
+                title: "¡Datos Actualizados!",
+                buttons: true,
+                }).then((confirm) => {
+                if (confirm) {
+                    window.location.href = `${VITE_url_fronten}/profile`;
+                }
+                });
+            }
         console.log(req);
     } catch ( error ) {
         console.log( error );

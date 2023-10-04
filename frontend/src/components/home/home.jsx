@@ -14,16 +14,12 @@ import { BsFillPlayCircleFill } from "react-icons/bs";
 import { HiStop } from "react-icons/hi";
 import { BsToggle2Off } from "react-icons/bs";
 import { RiInstallFill } from "react-icons/ri";
-// import { IoIosSave } from "react-icons/io";
-// import { FaHistory } from "react-icons/fa";
 import { PiComputerTowerFill } from "react-icons/pi";
 import swal from "sweetalert";
 
 
-
 export const VITE_url_fronten = import.meta.env.VITE_url_fronten
 export const VITE_url_Backend = import.meta.env.VITE_url_Backend
-// export const instanciate = instance.instanceId
 
 
 const Home = () => {

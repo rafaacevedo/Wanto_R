@@ -7,6 +7,13 @@ import { RiDeleteBin5Line }    from "react-icons/ri";
 import { TbLogout }            from "react-icons/tb";
 import { FiChevronLeft }       from "react-icons/fi";
 import { VITE_url_fronten }    from "../home/home";
+import  Wanto                  from "../asset/Wanto.svg";
+import  perfilfinal            from "../asset/perfilfinal.png";
+import swal from "sweetalert";
+
+
+
+
 
 const Profile = () => {
     const [, setLoading] = useState(true);
@@ -40,6 +47,9 @@ const Profile = () => {
             alert(error);
         }
         };
+
+        // const [perfil, setPerfil] = useState[]
+
     return (
         <Maincontainer>
 
