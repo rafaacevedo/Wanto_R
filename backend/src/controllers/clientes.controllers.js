@@ -99,3 +99,20 @@ export const updateUsers = async(req, res ) => {
         return res.status(500).json({ message: "Error en el servidor",})
     } 
 }
+
+export const deleteUser = async (req, res) => {
+    try {
+        const id = req.UserId
+        console.log(id)
+        const [row] = await pool.query("DELETE FROM clientes WHERE id_cliente = ?", [id]);
+
+        if (row.affectedRows === 0) {
+            return res.status(404).json({ message: "No se encontró al usuario." });
+        }
+
+        res.send({ message: "Usuario eliminado correctamente.", id });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({ message: "Error en el servidor." });
+    }
+};
