@@ -10,9 +10,7 @@ import { VITE_url_fronten }    from "../home/home";
 import  Wanto                  from "../asset/Wanto.svg";
 import  perfilfinal            from "../asset/perfilfinal.png";
 import swal from "sweetalert";
-
-
-
+import axios from "axios";
 
 
 const Profile = () => {
@@ -29,7 +27,7 @@ const Profile = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
         const token = localStorage.getItem("accesstoken")
-        console.log("esto es el token");
+        console.log("esto es el token", token);
     console.log(token);
 
     const ret = () => {
@@ -48,7 +46,35 @@ const Profile = () => {
         }
         };
 
-        // const [perfil, setPerfil] = useState[]
+        const [/* error */, setError] = useState()
+        const [perfil, setPerfil] = useState({
+            correo:"",
+            contraseña:"",
+            nombre:"",
+            apellido:"",
+            telefono:""
+        })
+
+        useEffect(() => {
+            async function fetchOneClients() {
+                try {
+                const response = await axios.get(
+                    `http://localhost:3005/aut`,
+                    {
+                    headers: {
+                        accessToken: localStorage.getItem("accessToken"),
+                    },
+                    }
+                );
+                setPerfil(response.data);
+                } catch (error) {
+                setError(error);
+                }
+            }
+        
+            fetchOneClients();
+            }, [token]);
+        
 
     return (
         <Maincontainer>
@@ -62,8 +88,8 @@ const Profile = () => {
             <ContainerInfoUser> 
                 <InfoUser src={perfilfinal} alt="perfilfinal"/> 
                 <InfoName>
-                    <h2>  Daniel Diaz </h2>
-                    <h3> Daniel20@gmail.com </h3>
+                    <h2>  {perfil.nombre} {perfil.apellido} </h2>
+                    <h3> {perfil.correo} </h3>
                 </InfoName>
             </ContainerInfoUser>
 

@@ -67,6 +67,7 @@ export const logeoCliente = async ( req, res ) => {
 
 export const getRegistro = async(req,res) => {
     try {
+        
         const[data] = await pool.query("SELECT * FROM clientes")
         res.send(data)
     } catch (error) {

@@ -14,4 +14,6 @@ router.patch( '/editProfile',Jwt.validatetoken,userCtrl1.updateUsers );
 
 router.get('/aut',Jwt.validatetoken,Authorization)
 
+router.get('/personal',Jwt.validatetoken,userCtrl1.getRegistro)
+
 export default router;
