@@ -10,7 +10,9 @@ router.post( '/login', userCtrl1.logeoCliente );
 
 router.get( '/getclientes', userCtrl1.getRegistro );
 
-router.patch( '/editProfile',Jwt.validatetoken,userCtrl1.updateUsers );
+router.patch('/editProfile',Jwt.validatetoken,userCtrl1.updateUsers );
+
+router.delete('/deleteProfile',Jwt.validatetoken,userCtrl1.deleteUser);
 
 router.get('/aut',Jwt.validatetoken,Authorization)
 
