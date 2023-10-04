@@ -51,8 +51,8 @@ export const logeoCliente = async ( req, res ) => {
             {
                 expiresIn: "7h",
             }
-          );
-          return res.status(200).json(accessToken);
+        );
+            return res.status(200).json(accessToken);
     }else{
         res.status( 400 ).send( "el usuario no existe" )
     }
@@ -72,4 +72,30 @@ export const getRegistro = async(req,res) => {
     } catch (error) {
         res.status( 500 ).json({ error: "Error del servidor" });
     }
+}
+
+
+
+
+
+export const updateUsers = async(req, res ) => {
+    try {
+        const user = req.UserId
+        console.log(user)
+        const { correo, nombre, apellido, telefono} = req.body;
+        console.log(req.body);
+        
+        const [row] = await pool.query ( "UPDATE clientes SET correo = COALESCE (?, correo ), nombre = COALESCE  (?, nombre ), apellido = COALESCE (?, apellido), telefono = COALESCE  (?, telefono) WHERE id_cliente = ?", [ correo, nombre, apellido, telefono, user ]);
+        console.log(row[0]);
+
+        if (row.affectedRows === 0) { 
+            return res.status(404).json({message: "Usuario no encontrado." })
+        }
+
+    
+        res.send ({ correo, nombre, apellido, telefono, user });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({ message: "Error en el servidor",})
+    } 
 }

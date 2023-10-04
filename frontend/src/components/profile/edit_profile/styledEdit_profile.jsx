@@ -8,7 +8,7 @@ export const ContainerBody = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    @media (max-width: 768px){
+    @media ( max-width: 768px ){
         width: 90%;
     }
 `;
@@ -27,7 +27,7 @@ export const InfoUserContainer = styled.div`
         display: flex;
         justify-content: space-around;
         width: 50%;
-        @media (max-width: 768px){
+        @media ( max-width: 768px ){
         width: 60%;
     }
     }
@@ -41,7 +41,7 @@ export const Containerimg = styled.img`
 export const Tittle1 = styled.img`
     width: 100%;
     height: 100%;
-    @media (max-width: 768px){
+    @media ( max-width: 768px ){
         height: 80%;
         width: 90%;
     }
