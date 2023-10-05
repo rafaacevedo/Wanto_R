@@ -6,17 +6,16 @@ import axios from "axios"
 import  Wanto                  from "../asset/Wanto.svg";
 import  perfilfinal            from "../asset/perfilfinal.png";
 import { BiSolidEdit }         from "react-icons/bi";
-/* import {  RiLockPasswordLine } from "react-icons/ri"; */
 import { RiDeleteBin5Line }    from "react-icons/ri";
 import { TbLogout }            from "react-icons/tb";
 import { FiChevronLeft }       from "react-icons/fi";
-import swal from "sweetalert";
+import swal                    from "sweetalert";
 import { VITE_url_fronten, VITE_url_Backend }    from "../home/home";
 
 const Profile = () => {
-    const [, setLoading] = useState(true);
-    const accessToken = localStorage.getItem("accessToken")
-    console.log(accessToken) 
+    const [, setLoading] = useState ( true );
+    const accessToken = localStorage.getItem( "accessToken" )
+    console.log( accessToken ) 
     let navigate = useNavigate();
 
     const deleteAccount = async () => {
@@ -27,15 +26,15 @@ const Profile = () => {
         })
     }
         
-    const del = async (res) => {
+    const del = async ( res ) => {
         
-        if (res) {
+        if ( res ) {
             swal({
-                title: "¿Estás seguro que deseas eliminar tu cuenta?",
+                title: "¿Estás seguro de que deseas eliminar tu cuenta?",
                 buttons: true,
-            }).then((confirm) => {
-                if (confirm) {
-                    localStorage.removeItem("accessToken");
+            }).then(( confirm ) => {
+                if ( confirm ) {
+                    localStorage.removeItem( "accessToken" );
                     deleteAccount()
                     window.location.href = `${VITE_url_fronten}/login`;
                 }
@@ -47,30 +46,30 @@ const Profile = () => {
     }
 
     useEffect(() => {
-    if (localStorage.getItem("accessToken")) {
+    if (localStorage.getItem( "accessToken" )) {
         setLoading(false);
     } else {
-        navigate("/");
+        navigate( "/" );
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
-        const token = localStorage.getItem("accesstoken")
-        console.log("esto es el token", token);
-    console.log(token);
+        const token = localStorage.getItem( "accesstoken" )
+        console.log( "esto es el token", token );
+    console.log( token );
 
     const ret = () => {
         try {
             window.location.href = `${VITE_url_fronten}/home`;
-        } catch (error) {
-            alert(error)
+        } catch ( error ) {
+            alert( error )
         }
         }
         
     const edit = () => {
         try {
             window.location.href = `${VITE_url_fronten}/editprofile`;
-        } catch (error) {
-            alert(error);
+        } catch ( error ) {
+            alert( error );
         }
         };
 
@@ -90,14 +89,14 @@ const Profile = () => {
                     `http://localhost:3005/aut`,
                     {
                     headers: {
-                        accessToken: localStorage.getItem("accessToken"),
+                        accessToken: localStorage.getItem( "accessToken" ),
                     },
                     }
                 );
-                setPerfil(response.data);
-                console.log(response.data, 'perfil')
-                } catch (error) {
-                setError(error);
+                setPerfil( response.data );
+                console.log( response.data, 'perfil' )
+                } catch ( error ) {
+                setError( error );
                 }
             }
         
@@ -109,21 +108,21 @@ const Profile = () => {
         <Maincontainer>
 
             <Header>
-                <FiChevronLeft onClick={ret} className="volver"/>
-                <Tittle src={Wanto}alt="Wanto"/> 
-                <FiChevronLeft className="invisible"/>
+                <FiChevronLeft onClick= {ret} className= "volver"/>
+                <Tittle src={ Wanto}alt= "Wanto"/> 
+                <FiChevronLeft className= "invisible"/>
             </Header>
 
             <ContainerInfoUser> 
-                <InfoUser src={perfilfinal} alt="perfilfinal"/> 
+                <InfoUser src={ perfilfinal } alt= "perfilfinal"/> 
                 <InfoName>
-                    <h2>  {perfil.nombre} {perfil.apellido} </h2>
-                    <h3> {perfil.correo} </h3>
+                    <h2>  { perfil.nombre } { perfil.apellido } </h2>
+                    <h3> { perfil.correo } </h3>
                 </InfoName>
             </ContainerInfoUser>
 
             <ContainerMainUser>
-                <ChangePassword onClick={edit}>
+                <ChangePassword onClick={ edit }>
                     <BiSolidEdit className="icono"/><h2> Edit Profile </h2>
                 </ChangePassword>
                 <ChangePassword onClick={del}>  
@@ -136,9 +135,9 @@ const Profile = () => {
                 swal({
                     title: "¿Seguro que quieres salir?",
                     buttons: true,
-                }).then((confirm) => {
-                    if (confirm) {
-                    localStorage.removeItem("accessToken");
+                }).then(( confirm ) => {
+                    if ( confirm ) {
+                    localStorage.removeItem( "accessToken" );
                     window.location.href = `${VITE_url_fronten}/login`;
                     }
                 });

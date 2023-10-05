@@ -1,6 +1,7 @@
 import jwt from "jsonwebtoken";
 import {SECRET} from "../db.config.js";
 import { pool } from "../db.config.js";
+
 export const validatetoken = async (req,res,next) => {
     const accessToken = req.header("accessToken")
     if(!accessToken) return res.json({message: 'Usuario no logueado'})

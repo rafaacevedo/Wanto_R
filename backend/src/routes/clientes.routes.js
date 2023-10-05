@@ -10,12 +10,12 @@ router.post( '/login', userCtrl1.logeoCliente );
 
 router.get( '/getclientes', userCtrl1.getRegistro );
 
-router.patch('/editProfile',Jwt.validatetoken,userCtrl1.updateUsers );
+router.patch('/editProfile',Jwt.validatetoken, userCtrl1.updateUsers );
 
-router.delete('/deleteProfile',Jwt.validatetoken,userCtrl1.deleteUser);
+router.delete('/deleteProfile',Jwt.validatetoken, userCtrl1.deleteUser);
 
-router.get('/aut',Jwt.validatetoken,Authorization)
+router.get('/aut',Jwt.validatetoken, Authorization)
 
-router.get('/personal',Jwt.validatetoken,userCtrl1.getRegistro)
+router.get('/personal',Jwt.validatetoken, userCtrl1.getRegistro)
 
 export default router;
