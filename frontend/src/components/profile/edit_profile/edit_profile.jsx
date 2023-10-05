@@ -6,15 +6,15 @@ import  Wanto                   from "../../asset/Wanto.svg";
 import  Perfilfinal             from "../../asset/perfilfinal.png";
 import { FiChevronLeft }        from "react-icons/fi";
 import { VITE_url_fronten, VITE_url_Backend  }     from "../../home/home";
-import axios from "axios";
-import swal from "sweetalert";
+import axios                    from "axios";
+import swal                     from "sweetalert";
 const Editprofile = () => {
 
-    const [, setLoading ] = useState( true );
-    const [firstName, setFirtsName] = useState( '' );
-    const [lastName, setLastName] = useState  ( '' );
-    const [email, setEmail] = useState        ( '' );
-    const [telefono, setTelefono] = useState  ( '' );
+    const [, setLoading ] =             useState  ( true );
+    const [ firstName, setFirtsName ] = useState  ( '' );
+    const [ lastName, setLastName ] =   useState  ( '' );
+    const [ email, setEmail ] =         useState  ( '' );
+    const [ telefono, setTelefono ] =   useState  ( '' );
     
 
     const Act =  async ( e ) => {
@@ -28,20 +28,20 @@ const Editprofile = () => {
             telefono: telefono
         },{
             headers: {
-                accessToken: localStorage.getItem("accessToken")
+                accessToken: localStorage.getItem( "accessToken" )
             }
         })
-        if (e) {
+        if ( e ) {
             swal({
                 title: "¡Datos Actualizados!, ¡Es necesario volver a iniciar sesión!",
                 buttons: "Volver a iniciar sesión",
-                }).then((confirm) => {
-                if (confirm) {
+                }).then(( confirm ) => {
+                if ( confirm ) {
                     window.location.href = `${VITE_url_fronten}/login`;
                 }
                 });
             }
-        console.log(req);
+        console.log( req );
     } catch ( error ) {
         console.log( error );
         alert( "Usuario no encontrado" )
@@ -52,7 +52,7 @@ const Editprofile = () => {
     let navigate = useNavigate();
 
     useEffect(() => {
-    if (localStorage.getItem( "accessToken" )) {
+    if ( localStorage.getItem( "accessToken" )) {
         setLoading( false );
     } else {
         navigate( "/" );
@@ -72,35 +72,35 @@ const ret = () => {
     return (
         <Maincontainer style={{ display: "flex", alignItems: "center" }}>
         <Header>
-            <FiChevronLeft onClick={ ret } className="volver" />
-            <Tittle1 src={ Wanto } alt="Wanto" />
-            <FiChevronLeft className="invisible"/>
+            <FiChevronLeft onClick={ ret } className= "volver" />
+            <Tittle1 src={ Wanto } alt= "Wanto" />
+            <FiChevronLeft className= "invisible"/>
         </Header>
         <ContainerBody>
             <InfoUserContainer >
             <Tiltle>
-            <Containerimg src={ Perfilfinal } alt="perfilfinal" />
+            <Containerimg src= { Perfilfinal } alt= "perfilfinal" />
             </Tiltle>
 
             <FullName>
             <div>
-                <input type="text" placeholder="First_Name" onChange={( e ) =>setFirtsName( e.target.value )}  />
+                <input type= "text" placeholder= "First_Name" onChange= {( e ) =>setFirtsName ( e.target.value )}  />
             </div>
 
             <div>
-                <input type="text" placeholder="Last_Name" onChange={(e)=>setLastName( e.target.value )}/>
+                <input type= "text" placeholder= "Last_Name" onChange={( e )=>setLastName( e.target.value )}/>
             </div>
             </FullName>
 
             <InforUser>
-            <div className="Inputs">
-                <input type="text" placeholder="Email" onChange={( e ) =>setEmail( e.target.value )}  />
+            <div className= "Inputs">
+                <input type= "text" placeholder="Email" onChange={( e ) =>setEmail( e.target.value )}  />
             </div>
-            <div className="Inputs">
-                <input type="text" placeholder="Contact_Number" onChange={(e)=>setTelefono( e.target.value )}  />
+            <div className= "Inputs">
+                <input type= "text" placeholder= "Contact_Number" onChange={(e)=>setTelefono ( e.target.value )}  />
             </div>
             </InforUser>
-            <div className="botones">
+            <div className= "botones">
                 <ButtUser onClick={ Act }>Save</ButtUser>
                 <ButtUser onClick={ ret }>Cancel </ButtUser>
             </div>

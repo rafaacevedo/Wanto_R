@@ -10,7 +10,10 @@ export const registrarCliente = async ( req, res ) => {
             id_cliente, correo, contraseña, nombre, apellido, telefono
     } = req.body;
     const encrypted = await encryptPassword( contraseña )
-    console.log( req.body );
+    const EmailFound = await pool.query('select * from clientes where correo = ?',[correo])
+    if(EmailFound[0].length > 0){
+    return res.status(404).json({message: 'este correo ya se encontra registrado'})
+    }
     const [ rows ] = await pool.query(
         'INSERT INTO clientes ( id_cliente, correo, contraseña, nombre, apellido, telefono ) VALUES (?,?,?,?,?,?)',[ id_cliente, correo, encrypted, nombre, apellido, telefono ]
     );
@@ -84,8 +87,10 @@ export const updateUsers = async(req, res ) => {
         const user = req.UserId
         console.log(user)
         const { correo, nombre, apellido, telefono} = req.body;
-        console.log(req.body);
-        
+        const EmailFound = await pool.query('select * from clientes where correo = ?',[correo])
+        if(EmailFound[0].length > 0){
+            return res.status(404).json({message: 'este correo ya se encontra registrado'})
+            }
         const [row] = await pool.query ( "UPDATE clientes SET correo = COALESCE (?, correo ), nombre = COALESCE  (?, nombre ), apellido = COALESCE (?, apellido), telefono = COALESCE  (?, telefono) WHERE id_cliente = ?", [ correo, nombre, apellido, telefono, user ]);
         console.log(row[0]);
 
