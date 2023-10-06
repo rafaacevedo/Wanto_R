@@ -51,7 +51,6 @@ const Profile = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
         const token = localStorage.getItem( "accesstoken" )
-        log
 
     const ret = () => {
         try {

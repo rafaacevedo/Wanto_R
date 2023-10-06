@@ -151,13 +151,18 @@ const Editprofile = () => {
               />
             </div>
             <div className="Inputs">
-              <input
-                type="text"
-                name="telefono"
-                placeholder="Contact_Number"
-                value={telefono}
-                onChange={handleInputChange}
-              />
+            <input
+              type="tel"  // Cambiamos el tipo de input a "tel"
+              name="telefono"
+              placeholder="Contact_Number"
+              value={telefono}
+              onChange={(e) => {
+                const value = e.target.value;
+                // Usamos una expresión regular para eliminar caracteres no numéricos
+                const numericValue = value.replace(/[^0-9]/g, '');
+                setTelefono(numericValue); // Actualizamos el estado con el valor numérico
+              }}
+            />
             </div>
           </InforUser>
           <div className="botones">
