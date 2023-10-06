@@ -16,7 +16,6 @@ import { VITE_url_fronten, VITE_url_Backend }    from "../home/home";
 const Profile = () => {
     const [, setLoading] = useState ( true );
     const accessToken = localStorage.getItem( "accessToken" )
-    console.log( accessToken ) 
     let navigate = useNavigate();
 
     const deleteAccount = async () => {
@@ -52,8 +51,7 @@ const Profile = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
         const token = localStorage.getItem( "accesstoken" )
-        console.log( "esto es el token", token );
-    console.log( token );
+        log
 
     const ret = () => {
         try {
@@ -83,8 +81,7 @@ const Profile = () => {
         useEffect(() => {
             async function fetchOneClients() {
                 try {
-                const response = await axios.get(
-                    `http://localhost:3005/aut`,
+                const response = await axios.get(`http://localhost:3005/aut`,
                     {
                     headers: {
                         accessToken: localStorage.getItem( "accessToken" ),
@@ -92,7 +89,6 @@ const Profile = () => {
                     }
                 );
                 setPerfil( response.data );
-                console.log( response.data, 'perfil' )
                 } catch ( error ) {
                 setError( error );
                 }

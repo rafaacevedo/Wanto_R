@@ -1,16 +1,7 @@
 import { Header, Maincontainer } from "../styledProfile";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  ContainerBody,
-  Tittle1,
-  Tiltle,
-  FullName,
-  InforUser,
-  Containerimg,
-  ButtUser,
-  InfoUserContainer,
-} from "./styledEdit_profile";
+import {ContainerBody,Tittle1,Tiltle,FullName,InforUser,Containerimg,ButtUser,InfoUserContainer,} from "./styledEdit_profile";
 import Wanto from "../../asset/Wanto.svg";
 import Perfilfinal from "../../asset/perfilfinal.png";
 import { FiChevronLeft } from "react-icons/fi";
@@ -89,7 +80,6 @@ const Editprofile = () => {
           }
         });
       }
-      console.log(req);
     } catch (error) {
       console.log(error);
       alert("Usuario no encontrado");
