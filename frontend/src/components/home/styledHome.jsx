@@ -75,6 +75,7 @@ export const Contenedor = styled.div`
     width: 100%;
     margin: 20px;
     display: flex;
+    gap: 1rem;
     justify-content: center;
     flex-wrap: wrap;
 `

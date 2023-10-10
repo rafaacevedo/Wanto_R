@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react-refresh/only-export-components */
 import axios from 'axios';
 import "../../index.css";
@@ -17,6 +18,8 @@ import { RiInstallFill } from "react-icons/ri";
 import { PiComputerTowerFill } from "react-icons/pi";
 import swal from "sweetalert";
 
+// export const VITE_url_fronten = "https://wantofronten.app.wowdesarrollos.com"
+// export const VITE_url_Backend = "https://wantobk.app.wowdesarrollos.com"
 
 export const VITE_url_fronten = import.meta.env.VITE_url_fronten
 export const VITE_url_Backend = import.meta.env.VITE_url_Backend
@@ -87,7 +90,6 @@ const Home = () => {
     try {
       const response = await axios.post(`${VITE_url_Backend}/api/stop`);
       setStatus('Máquina detenida con éxito.');
-      console.log(response.data);
     } catch (error) {
           setStatus('La maquina ya está detenida.');
           setError(error)
@@ -102,9 +104,9 @@ const Home = () => {
     }
     else {
         try {
+          // eslint-disable-next-line no-unused-vars
           const response = await axios.post(`${VITE_url_Backend}/api/start`);
           setStatus('Máquina encendida con éxito.');
-          console.log(response.data);
         } catch (error) {
           setStatus('La maquina ya está encendida.');
           setError(error)
@@ -117,7 +119,6 @@ const Home = () => {
     try {
       const response = await axios.post(`${VITE_url_Backend}/api/restart`);
       setStatus('Máquina reiniciada con éxito.');
-      console.log(response.data);
     } catch (error) {
       setStatus('Error al reiniciar la máquina.');
       setError(error)
@@ -133,7 +134,6 @@ const Home = () => {
     try {
       const response = await axios.post(`${VITE_url_Backend}/api/shutdown`);
       setStatus('Apagando la maquina.');
-      console.log(response.data);
       setRotate(!rotate)
     } catch (error) {
       setStatus('La maquina ya está apagada');
@@ -179,11 +179,11 @@ const Home = () => {
             {data.map((instance) => (
               <Cartas key={instance.instanceId}>
                 <HeaderCartas>
-                  {data.map((instance) => (
+
                     <div key={instance.instanceId} className="titulo">
                       <h1 className="titulo">{instance.ipConfig.v4.ip}</h1>
                     </div>
-                  ))}
+
                 </HeaderCartas>
                 <Iconos>
                   <ContenedorBotones rotate = {rotate}>
@@ -218,7 +218,6 @@ const Home = () => {
                     
                 </Iconos>
                 <Info>
-                  {data.map((instance) => (
                     <div key={instance.instanceId} className="info">
                       <h2>Información:</h2>
                       <Info>
@@ -253,7 +252,7 @@ const Home = () => {
                         <h3 className='botonesStatus' style={status.includes("está") ? { color: "red" } : { color: "#247e8e" }} >{status}</h3>
                       </Info>
                     </div>
-                  ))}
+                  
                 </Info>
               </Cartas>
             ))}

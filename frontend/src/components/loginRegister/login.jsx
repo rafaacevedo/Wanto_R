@@ -19,11 +19,9 @@ const Login = () => {
           }
         ).then(( response ) => {
           localStorage.setItem("accessToken", response.data);
-          console.log( response );
           window.location.href = `${ VITE_url_fronten }/home`;
         });
       } catch ( error ) {
-        console.log( error );
         alert( "Usuario y/o contraseña no válidos" );
       }
   };

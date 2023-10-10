@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import axios from "axios";
 import swal from "sweetalert";
 import {
@@ -31,9 +32,12 @@ const Register = () => {
     // Eliminar espacios en blanco del valor ingresado
     const trimmedValue = value.trim();
 
+    // Si el campo es "number", usar una expresión regular para permitir solo números
+    const numericValue = name === "number" ? trimmedValue.replace(/[^0-9]/g, '') : trimmedValue;
+
     setFormData({
       ...formData,
-      [name]: trimmedValue,
+      [name]: numericValue,
     });
   };
 
@@ -57,7 +61,6 @@ const Register = () => {
         apellido: lastname,
         telefono: number,
       });
-      console.log(response.data);
 
       swal({
         title: "Successfully registered",
@@ -110,7 +113,7 @@ const Register = () => {
             required
           />
           <Input
-            type="text"
+            type="tel"  // Cambiamos el tipo de input a "tel"
             name="number"
             placeholder="Phone Number"
             value={number}

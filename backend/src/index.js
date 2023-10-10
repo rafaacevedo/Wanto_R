@@ -34,7 +34,6 @@ const autenticarYActualizarToken = async () => {
         });
 
         accessToken = response.data.access_token;
-        console.log('Token de acceso actualizado:');
     } catch (error) {
         console.error('Error al autenticar y actualizar el token:', error);
     }
@@ -97,7 +96,6 @@ app.post('/api/stop', async (req, res) => {
         const response = await axios.post(`https://api.contabo.com/v1/compute/instances/${nInstanceID}/actions/stop`, {}, config);
 
         // Registro de éxito y envío de respuesta
-        console.log('Máquina detenida con éxito.');
         res.send(response.data);
     } catch (error) {
         // Manejo de errores
@@ -122,7 +120,6 @@ app.post('/api/start', async (req, res) => {
         const response = await axios.post(`https://api.contabo.com/v1/compute/instances/${nInstanceID}/actions/start`, {}, config);
 
         // Registro de éxito y envío de respuesta
-        console.log('Máquina detenida con éxito.');
         res.send(response.data);
     } catch (error) {
         // Manejo de errores
@@ -146,7 +143,6 @@ app.post('/api/restart', async (req, res) => {
         const response = await axios.post(`https://api.contabo.com/v1/compute/instances/${nInstanceID}/actions/restart`, {}, config);
 
         // Registro de éxito y envío de respuesta
-        console.log('Máquina detenida con éxito.');
         res.send(response.data);
     } catch (error) {
         // Manejo de errores
@@ -171,7 +167,6 @@ app.post('/api/shutdown', async (req, res) => {
 
         
         // Registro de éxito y envío de respuesta
-        console.log('Máquina detenida con éxito.');
         res.send(response.data);
     } catch (error) {
         // Manejo de errores
@@ -196,7 +191,6 @@ app.get('/api/snapshots', async (req, res) => {
         const response = await axios.get(`https://api.contabo.com/v1/compute/instances/${nInstanceID}/snapshots`, {}, config);
 
         // Registro de éxito y envío de respuesta
-        console.log('snapshots.');
         res.send(response.data);
     } catch (error) {
         // Manejo de errores
@@ -206,6 +200,4 @@ app.get('/api/snapshots', async (req, res) => {
 });
 
 app.use(router)
-app.listen(port, () => {
-    console.log(`Servidor proxy en funcionamiento en http://localhost:${port}`)
-});
+app.listen(port, () => {});

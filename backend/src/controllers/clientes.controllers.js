@@ -17,7 +17,6 @@ export const registrarCliente = async ( req, res ) => {
     const [ rows ] = await pool.query(
         'INSERT INTO clientes ( id_cliente, correo, contraseña, nombre, apellido, telefono ) VALUES (?,?,?,?,?,?)',[ id_cliente, correo, encrypted, nombre, apellido, telefono ]
     );
-    console.log( rows );
     res.send (({
         id_cliente: rows.id_cliente,
         correo,
@@ -38,15 +37,11 @@ export const registrarCliente = async ( req, res ) => {
 export const logeoCliente = async ( req, res ) => {
     try {
     const { correo, contraseña } = req.body;
-    console.log( req.body );
-    console.log( typeof( contraseña ))
     const [rows] = await pool.query(
       'SELECT * FROM clientes WHERE correo = ? ', [ correo ]
 );
     if ( rows.length > 0 ) {
-    console.log(rows[ 0 ].contraseña,"esta es la contraseña" );
         const compassword = await compare( contraseña, rows[ 0 ].contraseña );
-    console.log( compassword,"aqui comparas" );
     if( compassword ){
         const accessToken = jwt.sign(
             { id: rows[0].id_cliente, correo: rows[0].correo,nombre: rows[0].nombre,apellido: rows[0].apellido},
@@ -63,7 +58,6 @@ export const logeoCliente = async ( req, res ) => {
         res.status( 400 ).send( "El usuario no existe" );
 }
 }   catch ( error ) {
-        console.log(error)
         res.status( 500 ).json({ error: "Error del servidor" });
 }
 };
@@ -85,14 +79,13 @@ export const getRegistro = async(req,res) => {
 export const updateUsers = async(req, res ) => {
     try {
         const user = req.UserId
-        console.log(user)
         const { correo, nombre, apellido, telefono} = req.body;
         const EmailFound = await pool.query('select * from clientes where correo = ?',[correo])
         if(EmailFound[0].length > 0){
             return res.status(404).json({message: 'este correo ya se encontra registrado'})
             }
         const [row] = await pool.query ( "UPDATE clientes SET correo = COALESCE (?, correo ), nombre = COALESCE  (?, nombre ), apellido = COALESCE (?, apellido), telefono = COALESCE  (?, telefono) WHERE id_cliente = ?", [ correo, nombre, apellido, telefono, user ]);
-        console.log(row[0]);
+        
 
         if (row.affectedRows === 0) { 
             return res.status(404).json({message: "Usuario no encontrado." })
@@ -101,7 +94,6 @@ export const updateUsers = async(req, res ) => {
     
         res.send ({ correo, nombre, apellido, telefono, user });
     } catch (error) {
-        console.log(error);
         return res.status(500).json({ message: "Error en el servidor",})
     } 
 }
@@ -110,7 +102,6 @@ export const updateUsers = async(req, res ) => {
 export const deleteUser = async (req, res) => {
     try {
         const id = req.UserId
-        console.log(id)
         const [row] = await pool.query("DELETE FROM clientes WHERE id_cliente = ?", [id]);
 
         if (row.affectedRows === 0) {
@@ -119,7 +110,6 @@ export const deleteUser = async (req, res) => {
 
         res.send({ message: "Usuario eliminado correctamente.", id });
     } catch (error) {
-        console.log(error);
         return res.status(500).json({ message: "Error en el servidor." });
     }
 };

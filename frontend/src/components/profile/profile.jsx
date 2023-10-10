@@ -80,7 +80,7 @@ const Profile = () => {
         useEffect(() => {
             async function fetchOneClients() {
                 try {
-                const response = await axios.get(`http://localhost:3005/aut`,
+                const response = await axios.get(`${VITE_url_Backend}/aut`,
                     {
                     headers: {
                         accessToken: localStorage.getItem( "accessToken" ),
@@ -95,7 +95,6 @@ const Profile = () => {
         
             fetchOneClients();
             }, []);
-        
 
     return (
         <Maincontainer>
@@ -109,7 +108,7 @@ const Profile = () => {
             <ContainerInfoUser> 
                 <InfoUser src={ perfilfinal } alt= "perfilfinal"/> 
                 <InfoName>
-                    <h2>  { perfil.nombre } { perfil.apellido } </h2>
+                    <h2> { perfil.nombre } { perfil.apellido } </h2>
                     <h3> { perfil.correo } </h3>
                 </InfoName>
             </ContainerInfoUser>
