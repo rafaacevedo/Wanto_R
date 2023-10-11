@@ -90,6 +90,7 @@ const Profile = () => {
                 setPerfil( response.data );
                 } catch ( error ) {
                 setError( error );
+                // cambio 
                 }
             }
         
