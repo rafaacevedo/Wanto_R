@@ -6,6 +6,8 @@ import Config from "./config/confing";
 import Profile from "./profile/profile";
 import EditProfile from "./profile/edit_profile/edit_profile"
 import Forgot from "./forgot/forgot"
+import HomeClient from "./home-client/HomeClient";
+
 
 const Main = () =>{
   return(
@@ -18,6 +20,7 @@ const Main = () =>{
         <Route path="/profile" element={<Profile/>}/>
         <Route path="/editProfile" element={<EditProfile/>}/>
         <Route path="/forgot" element={<Forgot/>}/>
+        <Route path="/homeClient" element={<HomeClient />}></Route>
       </Routes>
     </div>
   )

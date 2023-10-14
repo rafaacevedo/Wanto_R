@@ -2,29 +2,44 @@ import{ Bienvenido, Boton, Cajainput, Checkbox, Contaimput, Forgot, Imgwanto, In
 import wanto from "../asset/Wanto.svg";
 import{ useState } from "react";
 import axios from "axios";
-import { Link } from"react-router-dom"
+import { Link, useNavigate } from"react-router-dom"
 import { VITE_url_fronten, VITE_url_Backend } from "../home/home";
+
 
 const Login = () => {
   const [ correo, setCorreo ] = useState( "" );
   const [ contraseña, setContraseña ] = useState( "");
-  const log = async ( evt ) => {
+  const [userRole, setUserRole] = useState('');
+  const navigate = useNavigate()
+  
+  const log = async (evt) => {
     evt.preventDefault();
-      try {
-        await axios.post(
-          `${ VITE_url_Backend }/login`,
-          {
-            correo: correo,
-            contraseña: contraseña
-          }
-        ).then(( response ) => {
-          localStorage.setItem("accessToken", response.data);
-          window.location.href = `${ VITE_url_fronten }/home`;
-        });
-      } catch ( error ) {
-        alert( "Usuario y/o contraseña no válidos" );
+    try {
+      const response = await axios.post(
+        `${VITE_url_Backend}/login`,
+        {
+          correo: correo,
+          contraseña: contraseña,
+          rol: userRole,
+        }
+      );
+      localStorage.setItem('accessToken', response.data.accessToken);
+
+      const role = response.data.rol; 
+      setUserRole(role); 
+
+      if (role === 1) {
+        navigate('/home');
+      } 
+      if (role === 2) {
+        navigate('/homeClient');
       }
+    } catch (error) {
+      alert('Usuario y/o contraseña no válidos');
+    }
   };
+  
+  
 
 
   return(

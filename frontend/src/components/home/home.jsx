@@ -17,6 +17,7 @@ import { BsToggle2Off } from "react-icons/bs";
 import { RiInstallFill } from "react-icons/ri";
 import { PiComputerTowerFill } from "react-icons/pi";
 import swal from "sweetalert";
+import jwt_decode from "jwt-decode";
 
 // export const VITE_url_fronten = "https://wantofronten.app.wowdesarrollos.com"
 // export const VITE_url_Backend = "https://wantobk.app.wowdesarrollos.com"
@@ -32,6 +33,22 @@ const Home = () => {
   const [, setLoading] = useState(true);
 
   let navigate = useNavigate();
+  
+  const getUserRole = () => {
+    const accessToken = localStorage.getItem("accessToken");
+    if (accessToken) {
+      const decodedToken = jwt_decode(accessToken);
+      return decodedToken.rol;
+    }
+    return null;
+  };
+
+  const userRole = getUserRole(); 
+
+  if (userRole !== 1) {
+    navigate("/homeClient"); 
+    return null; 
+  }
 
   useEffect(() => {
     if (localStorage.getItem("accessToken")) {

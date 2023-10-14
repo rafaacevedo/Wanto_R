@@ -1,5 +1,5 @@
 import express from "express";
-import router from './routes/clientes.routes.js'
+import router from './routes/usuario.routes.js'
 import cors from "cors";
 import morgan from "morgan";
 import axios from "axios";
@@ -200,4 +200,6 @@ app.get('/api/snapshots', async (req, res) => {
 });
 
 app.use(router)
-app.listen(port, () => {});
+app.listen(port, () => {
+    console.log("Servidor corriendo en el puerto:", port);
+});

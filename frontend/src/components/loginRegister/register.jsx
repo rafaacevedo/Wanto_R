@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars */
+//* eslint-disable no-unused-vars */
 import axios from "axios";
 import swal from "sweetalert";
 import {
@@ -12,7 +12,7 @@ import {
 } from "./styles/styledRegister";
 import wanto from "../asset/Wanto.svg";
 import { FiChevronLeft } from "react-icons/fi";
-import { useState } from "react";
+import { useState } from "react"; // Eliminamos el import de useEffect
 import { VITE_url_Backend, VITE_url_fronten } from "../home/home";
 
 const Register = () => {
@@ -28,11 +28,7 @@ const Register = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-
-    // Eliminar espacios en blanco del valor ingresado
     const trimmedValue = value.trim();
-
-    // Si el campo es "number", usar una expresión regular para permitir solo números
     const numericValue = name === "number" ? trimmedValue.replace(/[^0-9]/g, '') : trimmedValue;
 
     setFormData({
@@ -43,7 +39,7 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     if (!email || !password || !name || !lastname || !number) {
       swal({
         title: "Please fill out all fields",
@@ -52,7 +48,7 @@ const Register = () => {
       });
       return;
     }
-
+  
     try {
       const response = await axios.post(`${VITE_url_Backend}/register`, {
         correo: email,
@@ -60,8 +56,9 @@ const Register = () => {
         nombre: name,
         apellido: lastname,
         telefono: number,
+        rol: 2, 
       });
-
+  
       swal({
         title: "Successfully registered",
         icon: "success",
@@ -81,6 +78,7 @@ const Register = () => {
       });
     }
   };
+  
 
   const redirectToLogin = () => {
     window.location.href = `${VITE_url_fronten}/login`;
@@ -113,7 +111,7 @@ const Register = () => {
             required
           />
           <Input
-            type="tel"  // Cambiamos el tipo de input a "tel"
+            type="tel"
             name="number"
             placeholder="Phone Number"
             value={number}
