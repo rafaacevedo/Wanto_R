@@ -49,7 +49,7 @@ const Home = () => {
 
       if (Array.isArray(response.data.data)) {
         // Verifica si los datos son un array
-        setData(response.data.data);
+        setData(response.data.data);  
       } else {
         // Los datos no son un array válido, maneja este caso según tus necesidades
         setError("Los datos no son un array válido");
