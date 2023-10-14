@@ -27,6 +27,7 @@ export const VITE_url_Backend = import.meta.env.VITE_url_Backend
 
 
 const Home = () => {
+  
   const [data, setData] = useState([]);
   const [/* error */, setError] = useState();
 
@@ -162,9 +163,6 @@ const Home = () => {
 
 
   const [rotate, setRotate] = useState(false)
-
-  
-
 
   return (
     <Principal>
