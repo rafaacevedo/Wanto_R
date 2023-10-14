@@ -26,7 +26,7 @@ router.get('/rol/:id', getRol)
 
 router.get('/getRolId/:id', getRolId)
 
-router.get('/maquina/:id_usuario', obtenerMaquinaPorUsuario)
+router.get('/maquina/:id', obtenerMaquinaPorUsuario)
 
 router.get('/user-info', Jwt.validatetoken, userCtrl1.getUserInfo);
 

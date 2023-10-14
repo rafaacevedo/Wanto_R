@@ -1,18 +1,15 @@
-import { pool } from '../db.config.js';
+import { pool } from "../db.config.js";
 
 export const obtenerMaquinaPorUsuario = async (req, res) => {
-    const { id_usuario } = req.params;
-    console.log("id de usuario:", id_usuario);
+    const { id } = req.params; 
+    console.debug('ID de usuario:', id); 
+
     try {
-        if (!id_usuario) {
+        if (!id) {
             return res.status(400).json({ error: 'Falta el parámetro id_usuario' });
         }
 
-        const [rows] = await pool.query('SELECT * FROM maquinas WHERE id_usuario = ?', [id_usuario]);
-
-        if (id_usuario !== req.usuario.id_usuario) {
-            return res.status(403).json({ error: 'Acceso no autorizado' });
-        }
+        const [rows] = await pool.query('SELECT * FROM maquinas WHERE id_usuario = ?', [id]);
 
         if (rows.length > 0) {
             const maquina = rows[0];
