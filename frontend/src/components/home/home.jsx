@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react-refresh/only-export-components */
 import axios from 'axios';
@@ -163,7 +164,8 @@ const Home = () => {
 
 
   const [rotate, setRotate] = useState(false)
-
+  // Alojar un sitio web
+  // Ejecutar aplicaciones web
   return (
     <Principal>
       <Header>

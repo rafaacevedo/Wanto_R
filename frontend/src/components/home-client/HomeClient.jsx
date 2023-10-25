@@ -1,7 +1,13 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
-import { VITE_url_Backend } from "../home/home";
+import { VITE_url_Backend, VITE_url_fronten } from "../home/home";
+import { Header, Principal } from './StyledHomeClients';
+import {BiSolidUserCircle} from 'react-icons/bi'
+import {SlLogout} from 'react-icons/sl'
+import swal from "sweetalert";
+
+
 
 const HomeClient = () => {
   const [machine, setMachine] = useState(null);
@@ -21,6 +27,14 @@ const HomeClient = () => {
       console.error(error);
     }
   };
+
+  const ret = () => {
+    try {
+      window.location.href = `${VITE_url_fronten}/profile`;
+    } catch (error) {
+      alert(error);
+    }
+  };
   
 
   useEffect(() => {
@@ -29,18 +43,40 @@ const HomeClient = () => {
   }
 }, [idUsuario]);
 
-
-
-  if (!machine) {
-    return <div>Cargando...</div>;
-  }
+if (!machine) {
+    return(
+    <Principal>
+      <Header><BiSolidUserCircle onClick={ret} className="User" />
+        <h1>Control-Vps</h1>
+        <SlLogout
+          onClick={() => {
+            // eslint-disable-next-line no-constant-condition
+            if (true) {
+              swal({
+                title: "¿Seguro que quieres salir?",
+                buttons: true,
+              }).then((confirm) => {
+                if (confirm) {
+                  localStorage.removeItem("accessToken");
+                  window.location.href = `${VITE_url_fronten}/login`;
+                }
+              });
+            }
+          }}
+          className="Log-out"
+        /></Header>
+        <h1>No se han encontrado Maquinas...</h1>
+      </Principal>
+  )}
 
   return (
-    <div>
-      <h1>Información de la máquina</h1>
-      <p>ID de la máquina: {machine.id_maquina}</p>
-      <p>Instancia: {machine.instancia}</p>
-    </div>
+    <Principal>
+      <div>
+        <h1>Información de la máquina</h1>
+        <p>ID de la máquina: {machine.id_maquina}</p>
+        <p>Instancia: {machine.instancia}</p>
+      </div>
+    </Principal>
   );
 };
 

@@ -11,6 +11,11 @@ export const registrarUsuario = async (req, res) => {
 
     const rolId = 2;
 
+    const [existingUser] = await pool.query('SELECT * from usuario WHERE correo = ?',[correo])
+    if (existingUser.length > 0) {
+      return res.status(409).send('El correo ya esta registrado')
+    }
+
     const [result] = await pool.query(
       'INSERT INTO usuario (correo, contraseña, nombre, apellido, telefono, rol) VALUES (?, ?, ?, ?, ?, ?)',
       [correo, encrypted, nombre, apellido, telefono, rolId]
