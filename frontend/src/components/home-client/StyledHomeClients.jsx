@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const Principal = styled.div`
-    height: 90vh;
+    height: 100vh;
     width: 100%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     h1{
         font-size: 70px;
@@ -55,4 +55,18 @@ export const Header = styled.div`
             font-size: 30px;
         }
     }
+`
+
+export const Invisible = styled.div`
+    height: 7rem;
+    width: 90%;
+`
+
+export const Container = styled.div`
+    height: 70%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: green; */
 `

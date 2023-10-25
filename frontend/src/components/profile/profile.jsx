@@ -54,7 +54,7 @@ const Profile = () => {
 
     const ret = () => {
         try {
-            window.location.href = `${VITE_url_fronten}/home`;
+            window.location.href = `${VITE_url_fronten}/homeClient`;
         } catch ( error ) {
             alert( error )
         }

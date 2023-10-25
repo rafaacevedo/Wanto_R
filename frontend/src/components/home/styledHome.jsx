@@ -37,11 +37,8 @@ export const Header = styled.div`
     .User{
         font-size: 40px;
         margin-left: 40px;
-        color: #1BC2FF;
-        cursor: pointer;
-        &:hover{
-            color: #201B6F;
-        }
+        color: transparent;
+        cursor: auto;
     }
     .Log-out{
         font-size: 35px;

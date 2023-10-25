@@ -169,7 +169,7 @@ const Home = () => {
   return (
     <Principal>
       <Header>
-        <BiSolidUserCircle onClick={ret} className="User" />
+        <BiSolidUserCircle className="User" />
         <h1>Control-Vps</h1>
         <SlLogout
           onClick={() => {
